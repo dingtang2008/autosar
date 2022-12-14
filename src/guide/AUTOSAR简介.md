@@ -2,9 +2,11 @@
 
 #### 超过300+AUTOSAR合作伙伴
 
-![](http://rmppmak75.hd-bkt.clouddn.com/autosar/202212141731669.png?imageView2/0/q/100%7Cwatermark/2/text/YXV0b3Nhci5sdGQ=/font/Y2FsaWJyaQ==/fontsize/320/fill/I0ZBRkFGQQ==/dissolve/100/gravity/SouthEast/dx/10/dy/10) 
 
 
 
 
+![image-20221215000931440](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212150009510.png)
+
+<h5 align="center">图1：AUTOSAR合作伙伴</h5>
 
