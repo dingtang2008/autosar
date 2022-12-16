@@ -1,4 +1,4 @@
-AUTOSAR CP和AP的对比
+AUTOSAR详细
 
 | 指标         | CP             | AP            |
 | ------------ | -------------- | ------------- |
@@ -10,3 +10,5 @@ AUTOSAR CP和AP的对比
 | 操作系统     | OSEK           | POSIX         |
 | 升级方式     | 固定，不可升级 | SOA           |
 | 功能安全等级 | ASIL D         | ASIL B以上    |
+
+<h5 align="center">图1：AUTOSAR CP和AP对比</h5>

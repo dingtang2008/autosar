@@ -31,6 +31,7 @@
     - [Alternative Backends](for_developers/backends.md)
 - [Continuous Integration](continuous-integration.md)
 - [AUTOSAR术语表](misc/术语表.md)
+- [整车开发术语](misc/整车开发术语表.md)
 
 -----------
 
