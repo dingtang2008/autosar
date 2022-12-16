@@ -7,7 +7,7 @@
 - [背景知识](guide/汽车电子入门.md)
 
 - [AUTOSAR的简介](guide/AUTOSAR简介.md)
-  - [AUTOSAR的发展](guide/AUTOSAR发展.md)
+  - [AUTOSAR发展](guide/AUTOSAR发展.md)
   - [AUTOSAR的概述](guide/AUTOSAR概述.md)
 - [工具介绍TBD](guide/工具.md)
 - [资料下载](guide/资料下载.md)

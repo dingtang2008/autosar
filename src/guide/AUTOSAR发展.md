@@ -34,12 +34,14 @@
 
 ### 1、软硬件隔离
 
-大家经常能看到的下图能很形象的说明这一点，隔离后的好处就是不管你用NXP的还是英飞凌的亦或者是TI的；不管你的硬件是怎么设计的，我们都不用修改我们的代码，只需要配置一下AutoSAR，告诉它我换硬件了，然后AutoSAR帮你匹配硬件。当然，实际操作起来还是需要对AuoSAR配置的熟练掌握的
+Android是一个非常优秀的架构设计，做到了分层软件
 
 | ![android_stack](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212151349681.png) |![11](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212151327296.jpg) ![treble_vndk](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212151326322.png) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 <h5 align="center">一、Android解决碎片化问题退出的Project Treble</h5>
+
+大家经常能看到的下图能很形象的说明这一点，隔离后的好处就是不管你用NXP的还是英飞凌的亦或者是TI的；不管你的硬件是怎么设计的，我们都不用修改我们的代码，只需要配置一下AutoSAR，告诉它我换硬件了，然后AutoSAR帮你匹配硬件。当然，实际操作起来还是需要对AuoSAR配置的熟练掌握的
 
 ![image-20221215134911259](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212151349298.png)
 

@@ -2,9 +2,9 @@
 
 ## 一、AUTOSAR成员
 
-[AutoSAR官网的成员的介绍界面](https://www.autosar.org/about/partners/)，目前有6类合作伙伴(最近新增了premium plus)
+[AutoSAR官网的成员的介绍界面](https://www.autosar.org/about/partners/)，目前有**7类**合作伙伴(最近新增了premium plus)
 
-- 核心合作伙伴（创始成员9个无法申请），战略合作伙伴一个电装
+- 核心合作伙伴（创始成员9个无法申请），战略合作伙伴一个**电装**
 - 高级合作伙伴 +
 - 高级合作伙伴
 - 开发合作伙伴
@@ -16,7 +16,7 @@
 
 <h5 align="center">AUTOSAR会员类型</h5>
 
-## 二、合作伙伴详细分布
+## 二、合作伙伴
 
 目前已经有超过300+AUTOSAR合作伙伴。
 
