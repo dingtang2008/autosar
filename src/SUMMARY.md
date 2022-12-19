@@ -6,9 +6,10 @@
 -----------
 - [背景知识](guide/汽车电子入门.md)
 
-- [AUTOSAR的简介](guide/AUTOSAR简介.md)
-  - [AUTOSAR发展](guide/AUTOSAR发展.md)
-  - [AUTOSAR的概述](guide/AUTOSAR概述.md)
+- [AUTOSAR简介](guide/AUTOSAR简介.md)
+- [AUTOSAR发展](guide/AUTOSAR发展.md)
+- [AUTOSAR文档如何阅读](guide/AUTOSAR概述.md)
+
 - [工具介绍TBD](guide/工具.md)
 - [资料下载](guide/资料下载.md)
 -----------
@@ -20,7 +21,7 @@
     - [SUMMARY.md](foundation/summary.md)
         - [Draft chapter](foundation/summary.md)
 - [Classic Platform](classicplatform/README.md)
-    - [SUMMARY.md](classicplatform/summary.md)
+    - [AUTOSAR接口](classicplatform/autosar接口.md)
       - [Draft chapter](classicplatform/summary.md)
 - [Adaptive Platform](adaptiveplatform/README.md)
     - [SUMMARY.md](adaptiveplatform/summary.md)

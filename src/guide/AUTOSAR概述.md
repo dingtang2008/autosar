@@ -1,3 +1,25 @@
+
+
+# AUTOSAR有哪些标准文档
+
+
+
+
+
+
+
+从autosar.org官网可以看到，autosar有这些文档
+
+![image-20221218131713772](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212181317839.png)
+
+
+
+
+
+
+
+
+
 AUTOSAR详细
 
 | 指标         | CP             | AP            |
