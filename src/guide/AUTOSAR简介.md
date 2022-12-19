@@ -49,7 +49,13 @@
 
 ## 四、AUTOSAR的诞生
 
-基于以上思想，AUTSOAR 软件架构分为应用层(Application Layer)、运行时环境层RTE，Runtime Environment)和基础软件层(BSW，Basic Software Layer),应用层侧重于应用软件的开发,由软件组件(SWC，Sotware Component)组成,各个软件组件内部可以包含一个或多个运行实体(Runnable Entity),软件组件之间通过 Port端口形成逻辑连接。运行时环境层为软件组件之间及软件组件与基础软件之间提供虚拟总线功能VFBVirtualFunction Bus),即软件组件与其他软件组件或基础软件的数据交互需要通过运行环境层提供的标准软件接口实现。运行环境层与微控制器之间为基础软件层。这种分层架构优势在于:一方面,OEM可以专注于开发特定的、有竞争力的应用层软件(在运行环境层之上);另一方面,它使 OEM 所不关心的基础软件层(在运行环境层之下)得到OEM:帮车/标准化。
+基于以上思想，AUTSOAR 软件架构分为
+
+- 应用层AppL(Application Layer)
+- 运行时环境层RTE(Runtime Environment)
+- 基础软件层BSWL(Basic Software Layer)
+
+应用层侧重于应用软件的开发,由软件组件(SWC，Sotware Component)组成,各个软件组件内部可以包含一个或多个运行实体(Runnable Entity),软件组件之间通过 Port端口形成逻辑连接。运行时环境层为软件组件之间及软件组件与基础软件之间提供虚拟总线功能VFB(Virtual Function Bus),即软件组件与其他软件组件或基础软件的数据交互需要通过运行环境层提供的标准软件接口实现。运行环境层与微控制器之间为基础软件层。这种分层架构优势在于:一方面,OEM可以专注于开发特定的、有竞争力的应用层软件(在运行环境层之上);另一方面,它使 OEM 所不关心的基础软件层(在运行环境层之下)得到OEM:帮车/标准化。
 
 
 
