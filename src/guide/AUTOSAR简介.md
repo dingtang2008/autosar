@@ -1,13 +1,16 @@
 # AUTOSAR的简介
 
-![AUTOSAR](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212150004306.svg)是汽车和软件行业领先公司的全球合作联盟，为智能移动开发和建立标准化的软件框架以及开放的E/E系统架构。考虑到目前和*未来市场中不同的汽车E/E架构*(Electrical/Electronic Architecture)，他们制定了一套专门用于汽车的开放性的框架和行业标准，它将用作管理将来的应用程序和标准软件模块中功能的基本基础结构。AUTOSAR的是**AUT**omotive **O**pen **S**ystem **AR**chitecture的缩写，是一种软件架构，因此AUTOSAR有两种含义：
-
-1. 代表**AUTOSAR联盟**
-2. 代表**AUTOSAR软件架构**。
-
 ![图片](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212181208858.jpeg)
 
 <h5 align="center">AUTOSAR</h5>
+
+![AUTOSAR](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212150004306.svg)是汽车和软件行业领先公司的全球合作联盟，为智能移动开发和建立标准化的软件框架以及开放的E/E系统架构。考虑到目前和*未来市场中不同的汽车E/E架构*(Electrical/Electronic Architecture)，他们制定了一套专门用于汽车的开放性的框架和行业标准，它将用作管理将来的应用程序和标准软件模块中功能的基本基础结构。AUTOSAR的是**AUT**omotive **O**pen **S**ystem **AR**chitecture的缩写，是一种软件架构，因此AUTOSAR有两种含义：
+
+1. 代表**AUTOSAR联盟**
+
+2. 代表**AUTOSAR软件架构**。
+
+   
 
 ## 一、AUTOSAR成员
 
