@@ -32,7 +32,7 @@
 
 目前已经有超过300+AUTOSAR合作伙伴。
 
-![image-20221215000931440](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212150009510.png)
+![image-20221220195204392](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201952478.png)
 
 <h5 align="center">AUTOSAR合作伙伴</h5>
 
