@@ -99,7 +99,7 @@
 | 升级方式     | 固定，不可升级 | SOA           |
 | 功能安全等级 | ASIL D         | ASIL B以上    |
 
-<h5 align="center">图1：AUTOSAR CP和AP对比</h5>
+<h5 align="center">AUTOSAR CP和AP对比</h5>
 
 - **AUTOSAR交付内容**
 
@@ -139,7 +139,47 @@
 
 
 
+### 六、AUTOSAR开发流程
+
+AUTOSAR的方法论从参与者角色分工来看，分别支撑不同的工作。
+
+![image-20221222143002147](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221430204.png)
 
 
 
+- **Software Component  Description**
+  - 该SWC用到或被用到的Operation和Data
+  - SWC对基础构架(network)和对硬件(latency times, timing, etc.)的要求
+  - SWC使用的资源 (memory, CPU time, etc.)
+  - 运行机制(repetition rate)
+  - SWC软件接口
 
+- **ECU Resource Description**
+  - Sensor, actuator 传感器，执行器
+  - Memory 存储器
+  - Processor 处理器
+  - Communications periphery 通信外部设备（如 收发器）
+  - Pin assignments 引脚分配
+- **System Constraint Description** 系统约束申明
+  - Information on network topologies 网络拓扑
+  - Limitations (“Constraints”) 限制
+  - Protocol 协议
+  - K-matrix 通信矩阵
+  - Baud rate, timing 波特率，定时
+  - ECU映射
+
+![image-20221222143901471](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221439529.png)
+
+
+
+前面提到了TOOL供应商，autosar的创始成员里面也有比如大陆集团的EB，博世旗下的ETAS，还有一些国产厂商也做的非常棒东软睿驰、经纬恒润，华为等。
+
+不过市场占有率最高的还是**Vector**，工具链最全，市场占有率最高，同样价格也是非常美丽。
+
+![image-20221222144629203](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221446274.png)
+
+
+
+工具大致介绍
+
+![image-20221222145341450](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221453506.png)

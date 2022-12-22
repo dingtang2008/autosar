@@ -1,0 +1,1 @@
+# AUTOSAR_TR_AIDesignPatternsCatalogue
