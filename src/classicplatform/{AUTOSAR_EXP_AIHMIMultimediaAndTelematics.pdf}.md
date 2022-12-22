@@ -1,1 +1,0 @@
-# AUTOSAR_EXP_AIHMIMultimediaAndTelematics

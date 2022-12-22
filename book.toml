@@ -3,7 +3,7 @@ authors = ["dingtang"]
 language = "zh-CN"
 multilingual = false
 src = "src"
-title = "AUTOSAR中文计划"
+title = "AUTOSAR学习"
 
 
 [output.html]

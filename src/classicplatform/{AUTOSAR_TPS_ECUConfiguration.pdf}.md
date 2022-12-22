@@ -1,1 +1,0 @@
-# AUTOSAR_TPS_ECUConfiguration

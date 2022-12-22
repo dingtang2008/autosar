@@ -105,7 +105,7 @@
 
   从“Foundation”出发的，扩展出Classic Platform（简称CP）和Adaptive Platform（简称AP）两大平台，继而定义各种接口和测试等。
 
-  - CP交付了规范文档
+  - **CP交付了规范文档**
   - AP提供示例代码和文档
   - 白色部分属于还在扩展中的部分标准
 

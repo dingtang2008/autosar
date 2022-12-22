@@ -1,1 +1,0 @@
-# AUTOSAR_RS_BSWModuleDescriptionTemplate

@@ -1,1 +1,0 @@
-# AUTOSAR_TR_BSWUMLModelModelingGuide

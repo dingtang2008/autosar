@@ -1,1 +1,0 @@
-# AUTOSAR_SWS_SAEJ1939NetworkManagement
