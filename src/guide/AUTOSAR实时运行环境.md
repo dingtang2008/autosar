@@ -12,9 +12,10 @@ RTE的作用有点像Binder的**ServiceManger**，或者说DNS（就是上个世
 
 ## 二、RTE的作用
 
-- 提供 **跨ECU / ECU内部** 的通信管理。
-- 提供 对runnable的管理功能（触发、唤醒等，简单说就是runnable需要映射到Task上运行嘛，而这个映射就是通过RTE具体实现的）
-- 之前我们不是提到了VFB（虚拟功能总线），RTE就是VFB的具体实现
+- 提供 **跨ECU / ECU内部** 的通信管理，通过COM。
+- 提供对runnable的管理功能（触发、唤醒等，简单说就是runnable需要映射到Task上运行嘛，而这个映射就是通过RTE具体实现的）
+- 保证数据一致性(e.g. exclusive area)
+- 支持简单数据及复杂数据(records)
 - 在Vector的工具链中，RTE是自动生成的
 
 下面这张图将其再做细化，就能很清楚的看出其关联关系了。这里的RTE就是统一的管理，具体那些连接时怎么连的，我们是不需要在RTE中关心的（因为AppL中配好，RTE就自动生成嘛）。
@@ -30,6 +31,64 @@ RTE的作用有点像Binder的**ServiceManger**，或者说DNS（就是上个世
 - **将BSW和SWC做隔绝。** 因此OS和runnables也被隔绝了，runnable的运行条件由RTE提供，不能由OS直接提供
 
 ![在这里插入图片描述](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222258357.png)
+
+```c
+FUNC(Std_ReturnType, RTE_CODE) Rte_Start(void)
+{
+	... ...
+	/* activate the tasks */
+  (void)ActivateTask(App_Task); 
+  (void)ActivateTask(Task10ms); 
+  (void)ActivateTask(Task1ms); 
+  (void)ActivateTask(Task20ms);
+  ... ...
+  //设置定时alarm，1ms, 2ms, 10ms ... ...
+  (void)SetRelAlarm(Rte_Al_TE_Task1ms_0_1ms, RTE_MSEC_SystemTimer(0) + (TickType)1, RTE_MSEC_SystemTimer(1)); 
+  (void)SetRelAlarm(Rte_Al_TE_Task2ms_0_2ms, RTE_MSEC_SystemTimer(0) + (TickType)1, RTE_MSEC_SystemTimer(2)); 
+  (void)SetRelAlarm(Rte_Al_TE_App_AppRunnable, RTE_MSEC_SystemTimer(0) + (TickType)1, RTE_MSEC_SystemTimer(10)); 
+... ...
+}
+
+//RTE controlled tasks
+//App_Task
+TASK(App_Task)
+{
+  EventMaskType ev;
+
+  for(;;)
+  {
+    (void)WaitEvent(Rte_Ev_Run_DemoApp_DemoRunnable);
+    (void)GetEvent(App_Task, &ev);
+    (void)ClearEvent(ev & (Rte_Ev_Run_DemoApp_DemoRunnable)); 
+
+    if ((ev & Rte_Ev_Run_DemoApp_DemoRunnable) != (EventMaskType)0)
+    {
+      /* call runnable */
+      AppRunnable(); 
+    }
+  }
+} 
+
+TASK(Task10ms) 
+{
+  EventMaskType ev;
+
+  for(;;)
+  {
+    (void)WaitEvent(Rte_Ev_Cyclic_Task10ms_0_10ms); 
+    (void)GetEvent(Task10ms, &ev); 
+    (void)ClearEvent(ev & (Rte_Ev_Cyclic_Task10ms_0_10ms)); 
+
+    if ((ev & Rte_Ev_Cyclic_Task10ms_0_10ms) != (EventMaskType)0)
+    {
+        //10ms swc runnable
+        AppSiganlRunnable();
+        AppConfigRunnable();
+        AppInputRunnable();
+        ... ...
+    }
+  }
+```
 
 
 
@@ -55,21 +114,71 @@ RTE的作用有点像Binder的**ServiceManger**，或者说DNS（就是上个世
 
 
 
+**ECU之间通信：**
+
+![image-20221223102624993](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231026059.png)
+
+跨ECU的数据传输，在runnable中使用Rte_Write__()这样的函数后，会需要走runnable (ECU1) ->RTE (ECU1) ->BSW (ECU1) ->外部总线->BSW (ECU2) ->RTE (ECU2) ->runnable (ECU2)
+COM传输的接口函数:
+
+![在这里插入图片描述](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231143029.png)
+
+
+
+**保证数据一致性**
+
+> 同一个SWC内的、运行在不同Task上的runnable之间的通信.
+>
+> 不同SWC之间的通信，无论是ECU内部还是ECU之间，都不会遇到这个问题，因为RTE会负责保证数据一致性.
+>
+> - 顺序调度策略 
+> - 中断屏蔽策略
+> - 资源锁等
+> - 数据备份
+
+假如有两个任务，分别为Task A和Task B，其中Task A的优先级高于Task B。Task A每次访问均使X加2，Task B每次访问均使X加1。因此这两个任务中都要执行（step1）、修改（step2）、写（step3）三步操作。如果没有原子操作，则可能会发现以下情况，如图所示：
+
+1. 假定X=5；
+2. Task B执行读取（step1) X=5，并临时存储（堆栈或MCU寄存器中）；
+3. Task A 优先级高于Task B， Task B被打断；
+4. Task A执行读，修改，写操作，将X=7写回内存中；
+5. Task A结束，继续执行Task B；
+6. Task B将之前临时存储的X（操作2）取出，并加1，将X=6写回内存。
+
+显然，开发人员期待的 结果是X = 8，但是最终的确实X  = 6，Task A的运算失效。
+
+
+
+![nYBfeq](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231127915.png)
 
 
 
 
 
+**解决办法**:
 
+- 专用区域(Exclusive Areas )
 
+  - Entire block or RTE protected
 
+  - Rte_Enter_<name>()
 
+  - Rte_Exit_<name>()
 
+    ```c
+    Rte_Enter_<name>();
+    //需要保护的代码
+    ....
+    Rte_Exit_<name>();
+    ```
 
+    
 
+- 内部变量(Inter-runnable variables)
+  - 运行实体间变量（Inter Runnable Variable，IRV）即两个运行实体之间交互的变量。
+  - Rte_IrvWrite_<re>_<name>
 
-
-
+![img](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231335434.png)
 
 # AUTOSAR的接口
 
@@ -122,3 +231,6 @@ AUTOSAR中定义了三种接口，`AUTOSAR Interface`, `Standardized Interface` 
 - **一句话概括：** 就是AutoSAR接口，不过名称是由AutoSAR官方规定不能修改
 - **特征：** 就是标准接口和AutoSAR接口的特征它都有一部分。首先是和AutoSAR接口一样，提供的是C/S、S/R接口；然后又和标准接口一样，函数名是不可变的。说白了就是官方规定好的C/S、S/R接口，咱们就当成是AutoSAR接口就行了，函数名字什么不用管它
 - **位置：** RTE<>Services，就这么一个地方
+
+
+

@@ -114,15 +114,70 @@ Ports主要分为5种类型，列在下面的图中：
 
 或者又可以分为：**Send/Receiver（S/R）接口和Client/Server（C/S）**接口。
 
+
+
+![image-20221223094342800](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212230943861.png)
+
+
+
+![img](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231319852.png)
+
+
+
+需型端口可以和供型端口连接。软件组件SWC1有一个需型端口（R）和一个供型端口（P），其中需型端口与SWC2的供型端口相连，它们之间的交互关系通过连线箭头表示，由SWC2的供型端口指向SWC1的需型端口。SWC3具有一个供需端口，被认为自我相连。 由于端口仅仅定义了方向，所以AUTOSAR中用端口接口 （Port Interface）来表征**端口的属性**
+
+![img](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231320113.png)
+
+软件组件SWC1具有两个端口，其中一个引用的端口接口类型为发送者-接收者（S/R）接口，另一个引用的端口接口类型为客户端-服务器（C/S）接口。从中也可以看出，对于引用发送者-接收者接口的一组端口而言，需型端口为接收者 （Receiver），供型端口为发送者（Sender）。对于引用客户端-服务器 接口的一组端口而言，需型端口为客户（Client），供型端口为服务器（Server）。
+
 **一、S/R接口**
 
 ![在这里插入图片描述](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222153959.png)
 
 > **作用：** 传输数据。通过RTE传输数据，并且通过RTE管理数据的传输，避免数据出问题（例如同时调用同一数据时可能出错）
+>
+> 发送者-接收者接口用于**数据的传递关系**，发送者发送数据到一个或多个接收者。该类型接口中定义了一系列的数据元素（Data Element，DE），这些数据元素之间是相互独立的。如下图所示，该发送者-接收者接口SR_Interface中定义了两个数据元素，名字分别为DE_1与DE_2，并且需要为每个数据元素赋予相应的数据类型
+>
+> ![img](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231327296.png)
 
 - 一个接口可以包含多个数据，类似于通过结构体传输
 
 - 可以传输基础数据类型（int，float等）和复杂数据类型（record，array等）
+
+- 通信方式: 1:n 或者 n:1 
+
+- 如果一个data element要通过总线传输， 那么它必须与一个signal对应起来
+
+- 通信方式 - 不使用队列
+
+  - **直接访问**
+
+    > 适用于实时性要求高的数据，直接访问
+    >
+    > - RTE直接访问数据地址
+    > -  初始值即为默认值
+
+    ![image-20221223103245631](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231032674.png)
+
+  - **使用缓存**
+
+    > 适用于有一致性要求的数据组
+    >
+    > - 在进入runnable之前RTE为数据建立副本
+    > - 在runnable运行结束之后RTE把副本数据拷贝到实际数据地址
+    > - 在runnable运行过程中只操作副本，实际数据不会改变
+
+  ![image-20221223103133182](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231031228.png)
+
+- 通信方式-使用队列
+
+  > **“event” (isQueued=True)**,”event“ 查询接收或等待接收，RTE从队列中读取数据，等待接收有超时处理。
+
+  - “查询接收” 或 “等待接收”
+  - RTE从队列中读取数据
+  - “等待接收” 有超时处理
+
+  ![image-20221223105749327](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231057377.png)
 
   ```c
   //Read表示是一个RPort、同样也会有一个PPort，Rte_Write_xxx_xxx()
@@ -131,23 +186,33 @@ Ports主要分为5种类型，列在下面的图中：
   SWC_DoorOpen = Rte_Read_Door_DoorOpen();
   ```
 
-  
+-  对于S/R通信模式，分为显示（Explicit）和隐式（Implicit）两种模式。当多个运行实体需要读取相同的数据时，若能在运行实体运行之前先把数据读到缓存中，在运行实体运行结束后再把数据写出去，则可以改善运行效率，这就是**隐式模式。**
+
+  ![img](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231332721.png)
 
 **二、C/S接口**
 
 ![在这里插入图片描述](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222214824.png)
 
 > **作用：** 提供操作。就是Server提供函数供Client调用
+>
+> 客户端-服务器接口用于操作（Operation，OP），即函数调用关系，**服务器是操作的提供者**，多个客户端可以调用同一个操作，但同一个客户端不能调用多个操作。客户端-服务器接口定义了一系列操作 （Operation），即函数，它（们）由引用该接口的供型端口所在的软件组（服务器）件来实现，并提供给引用该接口的需型端口所在的软件组件调用。如下图所示，该客户端-服务器接口CS_Interface中定义了两个操作OP_1 与OP_2，对于每一个操作需要定义相关参数及其方向，即函数的形参，需要注意的是，每个端口只能引用一种接口类型，并且引用相同端口接口类型的端口才可以进行交互。
+>
+> ![img](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231327902.png)
 
 - 可以同步和异步。同步就是直接调用，相当于函数直接插入上下文运行；异步的话需要等待，相当于让函数在另一个线程中运行，运行完了再返回，原上下文依然运行
+
+  ![img](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231324726.png)
 
 - 一个接口可以提供多个操作，就是一个接口可以包含很多函数
 
 - ECU内部和跨ECU都可以调用，跨ECU也是通过外部总线
 
+- 通信方式: 1:1 或 n:1 （与S/R对应）
+
   ```c
   Rte_Call_<Port>_<Function>()
-  //这里的Call是指的调用的函数，比如调用State()就是：
+  //这里的Call是指的调用的函数，比如调用State()就是
   Rte_Call_Door_State();
   ```
 
@@ -155,7 +220,7 @@ Ports主要分为5种类型，列在下面的图中：
 
 
 
-# Runnables可运行实体
+# Runnable entities (简称Runnables)
 
 Runnable就是SWC中的函数，而在AutoSAR架构在被DaVinci软件生成的时候，Runnable是空函数，需要手动添加代码来实现其实际的功能。
 Runnable可以被触发，比如被定时器触发、被操作调用触发或者被接受数据触发等。
@@ -166,3 +231,99 @@ Runnable可以被触发，比如被定时器触发、被操作调用触发或者
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190720113021314.png)
 
 > Runnable是需要OS中的Task做载体的。runnable是函数，但是c文件中光有一个函数那没用，必须要调用该函数才能起作用，就必须要有操作系统中的任务来执行这个函数。类比于Linux中的线程就是Task，这里的Runnable更多的像内核中的**threadfn**，或者说是Java中Runnable，需要载体，另外在AppL中没有Task这个概念。
+
+
+
+
+
+**举个例子：**
+
+从传感器到应用程序的过程:
+
+![image-20221223094615901](https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212230946951.png)
+
+
+
+>  **代码什么样？**
+
+
+
+**1.Runnable Entity(可运行实体 ）**
+
+Runnable是主要用来封装SWC中的功能的。是由C语言函数实现的。一个SWC中需要至少要包含一个Runnable。简单举个例子：
+
+```text
+CheckStatusRunnable()
+{
+/* 判断是否完成 */
+    if(!finished)
+    {
+/* 如果未完成，就返回不OK */
+        return E_NOT_OK;
+    }
+    return E_OK； //如果完成，返回OK
+}
+```
+
+
+
+Runnable 简单分为两类：
+
+**Category 1**：No WaitPoint （在有限的时间内运行至结束，不能等待）。
+
+**Category 2**：With a WaitPoint at least.（至少包含一个WaitPoint，运行过程中可以等待）
+
+
+
+**怎么在Runnable中设置WaitPoint？通过直接调用对应RTE API实现。**
+
+**Rte_Receive() : 用于等待接收数据；**
+
+**Rte_Feedback() : 用于等待数据发送完成；**
+
+- Rte_Invalidate_<p>_<d>()，表示sensor发送的数据无效，接收方feedback对无效值的处理
+
+**Rte_SwitchAck() : 用于等待模式切换操作；**
+
+**Rte_Result() : 用于等待异步服务器调用的结果。**
+
+
+
+
+
+**2. Task（任务）**
+
+是操作系统（OS）管理的最小可调度单元。操作系统决定何时在ECU的CPU上运行哪个任务。在OS启动后，所有的Task都处于默认状态：挂起状态（Suspended）。Task被激活（Activated）后进入准备状态（Ready）。Ready的task将会按照优先级（Priority）的高低依次运行（Running）。
+
+在RTE的代码中：
+
+```text
+TASK(TSK_Task1)
+{
+    ...
+    Runnable1();
+    Runnable2();
+    CheckStatusRunnable();
+    Runnable3();
+    ...
+  }
+}
+TASK(TSK_Task2)
+{
+  ...
+}
+```
+
+**当TSK_Task1被激活并运行后，map到它的Runnable也会按map的顺序依次执行。**
+
+
+
+
+
+**3.运行实体的RTE事件（RTE Event）**
+
+每个运行实体都会被赋予一个RTE事件（Trigger Event），即RTE 事件（RTE Event），这个事件可以引发这个运行实体的执行。对于 RTE事件可以细分为很多种类，较常用的RTE事件有以下几种：
+
+- 周期性（Periodic）事件，即Timing Event；
+- 数据接收事件（Data-received Event）；
+-  客户端调用服务器事件（Server-call Event）。
