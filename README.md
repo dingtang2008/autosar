@@ -14,3 +14,41 @@
 - 所有翻译结果用 [autosar.ltd](https://autosar.ltd) 来展示，并方便导出
 - 所有翻译后的文档格式统一为 [MDBOOK](https://github.com/rust-lang/mdBook)支持的 Markdown 格式。
 - 目录结构尽量遵循**AUTOSAR组织**原有发布的格式。
+
+
+
+
+
+
+
+ <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------
+
+<footer>
+<p style="text-align:center">备案号：<a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2023000315号-1</a></p>
+</footer>
+
+
+
+
