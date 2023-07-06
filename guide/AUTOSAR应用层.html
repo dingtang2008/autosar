@@ -1,0 +1,445 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>AUTOSAR应用层 (AppL) - AUTOSAR学习</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style3.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">AUTOSAR学习项目</a></li><li class="chapter-item expanded affix "><li class="part-title">AUTOSAR入门</li><li class="spacer"></li><li class="chapter-item expanded "><a href="../guide/汽车电子入门.html"><strong aria-hidden="true">1.</strong> 汽车电子背景知识</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR简介.html"><strong aria-hidden="true">2.</strong> AUTOSAR简介</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR发展.html"><strong aria-hidden="true">3.</strong> AUTOSAR发展</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR架构.html"><strong aria-hidden="true">4.</strong> AUTOSAR架构</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../guide/AUTOSAR应用层.html" class="active"><strong aria-hidden="true">4.1.</strong> AUTOSAR应用层 (AppL)</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR实时运行环境.html"><strong aria-hidden="true">4.2.</strong> AUTOSAR实时运行环境 (RTE))</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR基础软件层.html"><strong aria-hidden="true">4.3.</strong> AUTOSAR基础软件层 (BSW)</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR方法论.html"><strong aria-hidden="true">4.4.</strong> AUTOSAR方法论 (methodology)</a></li></ol></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR文档阅读.html"><strong aria-hidden="true">5.</strong> AUTOSAR文档如何阅读</a></li><li class="chapter-item expanded "><a href="../guide/工具.html"><strong aria-hidden="true">6.</strong> AUTOSAR实践</a></li><li class="chapter-item expanded "><a href="../guide/工具.html"><strong aria-hidden="true">7.</strong> Adaptive AUTOSAR简介</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">AUTOSAR专题</li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.</strong> UDS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topic/uds_glossary.html"><strong aria-hidden="true">8.1.</strong> UDS术语</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.2.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.3.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.4.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.5.</strong> UDS</a></li></ol></li><li class="chapter-item expanded "><a href="../mis/misrac.html"><strong aria-hidden="true">9.</strong> MisraC</a></li><li class="chapter-item expanded "><a href="../for_developers/index.html"><strong aria-hidden="true">10.</strong> For Developers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../for_developers/preprocessors.html"><strong aria-hidden="true">10.1.</strong> Preprocessors</a></li><li class="chapter-item expanded "><a href="../for_developers/backends.html"><strong aria-hidden="true">10.2.</strong> Alternative Backends</a></li></ol></li><li class="chapter-item expanded "><a href="../continuous-integration.html"><strong aria-hidden="true">11.</strong> Continuous Integration</a></li><li class="chapter-item expanded "><a href="../misc/术语表.html"><strong aria-hidden="true">12.</strong> AUTOSAR术语表</a></li><li class="chapter-item expanded "><a href="../misc/整车开发术语表.html"><strong aria-hidden="true">13.</strong> 整车开发术语</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../misc/贡献者.html">贡献者</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTOSAR学习</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/dingtang2008/dingtang2008.github.io/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/dingtang2008/dingtang2008.github.io/edit/main/src/guide/AUTOSAR应用层.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221638322.png" alt="image-20221222163858277" /></p>
+<h2 id="appl的组成"><a class="header" href="#appl的组成">AppL的组成</a></h2>
+<p>AppL中最重要的就是SWC了，而SWC与其他SWC通信需要接口，每个SWC中又由runnable组成，所以AppL主要的组成就分下面三部分：</p>
+<ol>
+<li><strong>应用软件组件（SWC  Software Component）</strong></li>
+<li><strong>AutoSAR接口（Ports）和连接器（Connector）</strong></li>
+<li><strong>可运行实体（Runnable Entity）</strong></li>
+</ol>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221957414.png" alt="bg" /></p>
+<h2 id="一举个例子"><a class="header" href="#一举个例子">一、举个例子</a></h2>
+<p><strong>汽车顶灯的控制</strong>：</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221958204.jpeg" alt="img" /></p>
+<p>车内的顶灯一般有三种模式：</p>
+<ol>
+<li>常闭的模式</li>
+<li>常开的模式</li>
+<li>随车开关而开关的模式</li>
+</ol>
+<p>好了，那么我们来捋一捋。</p>
+<ul>
+<li>首先肯定是需要传感器（包括图上的和车门上的）</li>
+<li>处理单元</li>
+<li>执行器（图上的车顶灯）。</li>
+</ul>
+<p>假如就以下图为简单逻辑而言：有左右两个车门，左右两个车灯，一个开关传感器。这里我们分配了7个SWC，将传感器、处理单元和执行器都分的很细，且这里并非由一个ECU控制。</p>
+<h2 id="二swc的通信"><a class="header" href="#二swc的通信"><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221958032.png" alt="在这里插入图片描述" />二、SWC的通信</a></h2>
+<p>我们将上图的SWC整理一下，做成大家容易理解的横向一排的样式，如下：</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222007003.png" alt="在这里插入图片描述" />SWC之间的通信是通过独立的一个层级进行交互，我们称其为虚拟功能总线（VFB)，也就是RTE的实现。该总线是意义上的片内外通信的结合体，取了个名字叫虚拟功能总线，其实际就是分两部分：</p>
+<ol>
+<li><strong>在片内</strong>就是通过RTE通信。一个SWC可以理解为一个.c文件，那么c文件间怎么通信呢——全局变量。所以大家可以把ECU内部SWC的通信暂时先想象成全局变量，具体怎么实现的，在后续RTE章节中将做详述</li>
+<li><strong>在片外</strong>就通过片外总线通信（一般汽车上都是CAN Bus）</li>
+</ol>
+<blockquote>
+<p>上图中有几个特殊的符号是指的AutoSAR接口</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222012477.png" alt="在这里插入图片描述" /></p>
+<p>而它们之间蓝色的连接线成为连接器（<strong>Connector</strong>，也即是刚刚说的全局变量)</p>
+</blockquote>
+<h2 id="三应用软件组件swc--software-componentswc类型"><a class="header" href="#三应用软件组件swc--software-componentswc类型">三、应用软件组件（SWC  Software Component）SWC类型</a></h2>
+<ul>
+<li><strong>原子级的SWC（Atomic SWC）</strong></li>
+</ul>
+<p>​		不可再拆分的SWC，其实之前我们列举的都是Atomic SWC，默认情况下说的SWC也是指ASWC。一个SWC是对应一个.c文件，这个c文件就是我们的最小单元，不可再分。</p>
+<blockquote>
+<p>那可运行实体（runnable）不就是组成SWC的更小单元吗？确实如此，但是我们将SWC看成原子，那runnable就是其中的电子、质子和中子，它们与原子密不可分。因此将SWC看成是最小单元，runnable是其中的函数。每个SWC的功能基本都是用来实现特定的算法。</p>
+</blockquote>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222034714.png" alt="在这里插入图片描述" /></p>
+<ul>
+<li><strong>集合级的SWC（Composition SWC）</strong></li>
+</ul>
+<p>​	有不可分割的SWC，就肯定有可分割的SWC。所以AutoSAR还规定了一类集合级的SWC（Composition SWC）。它们可以分为一个一个更小的Atomic SWC。就好像是一个分子由很多原子组成的概念。分子是有实际意义的，很多原子就没有实际意义（但是有些也有，比如金、银和铜等）。</p>
+<table><thead><tr><th>化学概念</th><th>AutoSAR概念</th><th>C语言概念</th></tr></thead><tbody>
+<tr><td>分子</td><td>Composition SWC</td><td>包含xx.c文件的文件夹</td></tr>
+<tr><td>原子</td><td>Atomic SWC</td><td>xx.c文件</td></tr>
+<tr><td>电子、中子、质子等</td><td>runnable</td><td>函数</td></tr>
+</tbody></table>
+<p>还是那个例子，我们可以将功能相近或者需要整合到一处方便观看的SWC（以后Atomic SWC都简称为SWC）利用一个compositon SWC包含起来。这样，就可以方便SWC归类，这里Composition SWC有点从功能角度去看。<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222105150.png" alt="在这里插入图片描述" /></p>
+<p>于是，我们的文件映射也发生了一定的变化：方便大家对比，应该能很快明白composition SWC是啥了：</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222127052.png" alt="在这里插入图片描述" /></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222127884.png" alt="在这里插入图片描述" /></p>
+<blockquote>
+<p><strong>注意：</strong> 在Vector的DaVinci中其实不会生成Composition的文件夹，其实Composition只是一个概念，是用来在配置工具上方便大家归类整理，看起来更加符合功能设定</p>
+</blockquote>
+<ul>
+<li><strong>特殊的SWC</strong></li>
+</ul>
+<p>​		前面描述BSW的时候提到IO硬件抽象层（IoHwAb，BSW章节中会讲到）和复杂驱动（Cdd)，在DaVinci Developer中都是可以作为SWC进行配置和加runnable等操作的。因此，我们将其算成是特殊的SWC来看待</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222130465.png" alt="在这里插入图片描述" /></p>
+<h2 id="四autosar接口ports和连接器connector"><a class="header" href="#四autosar接口ports和连接器connector">四、AutoSAR接口（Ports）和连接器（Connector）</a></h2>
+<p>Ports是SWC和SWC做接口（Interface）通信使用，或者SWC通过RTE和BSW做接口（Interface）通信使用。</p>
+<ul>
+<li>
+<p><strong>Sender Ports</strong>发送端口<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222143069.png" alt="img" />：提供信息</p>
+</li>
+<li>
+<p><strong>Receiver Ports</strong>接收端口<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222143636.png" alt="img" />：接收信息</p>
+</li>
+<li>
+<p><strong>Sender/Receiver Ports</strong>发送/接收端口<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222143959.png" alt="img" />：可在一个Port端口内提供和接收信息</p>
+</li>
+<li>
+<p><strong>Server Ports</strong>服务端口<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222143842.png" alt="img" />：提供服务（operations)</p>
+</li>
+<li>
+<p><strong>Client Ports</strong>客户端端口<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222143614.png" alt="img" />：使用服务（operations)</p>
+</li>
+</ul>
+<blockquote>
+<p>Connector指的是<strong>SwComponen</strong>tType的<strong>PortProto</strong>types来连接建立SwComponentPrototypes之间的实际连接的SwConnector</p>
+</blockquote>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222229334.png" alt="img" /></p>
+<p>Ports主要分为5种类型，列在下面的图中：</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222134696.png" alt="在这里插入图片描述" /></p>
+<p>其中又可分类为：<strong>R-Ports、P-Ports和PR-Ports</strong>。值得注意的是，这里的PR-Ports是在AUTOSAR4.0以后定义。</p>
+<p>或者又可以分为：**Send/Receiver（S/R）接口和Client/Server（C/S）**接口。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212230943861.png" alt="image-20221223094342800" /></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231319852.png" alt="img" /></p>
+<p>需型端口可以和供型端口连接。软件组件SWC1有一个需型端口（R）和一个供型端口（P），其中需型端口与SWC2的供型端口相连，它们之间的交互关系通过连线箭头表示，由SWC2的供型端口指向SWC1的需型端口。SWC3具有一个供需端口，被认为自我相连。 由于端口仅仅定义了方向，所以AUTOSAR中用端口接口 （Port Interface）来表征<strong>端口的属性</strong></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231320113.png" alt="img" /></p>
+<p>软件组件SWC1具有两个端口，其中一个引用的端口接口类型为发送者-接收者（S/R）接口，另一个引用的端口接口类型为客户端-服务器（C/S）接口。从中也可以看出，对于引用发送者-接收者接口的一组端口而言，需型端口为接收者 （Receiver），供型端口为发送者（Sender）。对于引用客户端-服务器 接口的一组端口而言，需型端口为客户（Client），供型端口为服务器（Server）。</p>
+<p><strong>一、S/R接口</strong></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222153959.png" alt="在这里插入图片描述" /></p>
+<blockquote>
+<p><strong>作用：</strong> 传输数据。通过RTE传输数据，并且通过RTE管理数据的传输，避免数据出问题（例如同时调用同一数据时可能出错）</p>
+<p>发送者-接收者接口用于<strong>数据的传递关系</strong>，发送者发送数据到一个或多个接收者。该类型接口中定义了一系列的数据元素（Data Element，DE），这些数据元素之间是相互独立的。如下图所示，该发送者-接收者接口SR_Interface中定义了两个数据元素，名字分别为DE_1与DE_2，并且需要为每个数据元素赋予相应的数据类型</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231327296.png" alt="img" /></p>
+</blockquote>
+<ul>
+<li>
+<p>一个接口可以包含多个数据，类似于通过结构体传输</p>
+</li>
+<li>
+<p>可以传输基础数据类型（int，float等）和复杂数据类型（record，array等）</p>
+</li>
+<li>
+<p>通信方式: 1:n 或者 n:1 </p>
+</li>
+<li>
+<p>如果一个data element要通过总线传输， 那么它必须与一个signal对应起来</p>
+</li>
+<li>
+<p>通信方式 - 不使用队列</p>
+<ul>
+<li>
+<p><strong>直接访问</strong></p>
+<blockquote>
+<p>适用于实时性要求高的数据，直接访问</p>
+<ul>
+<li>RTE直接访问数据地址</li>
+<li>初始值即为默认值</li>
+</ul>
+</blockquote>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231032674.png" alt="image-20221223103245631" /></p>
+</li>
+<li>
+<p><strong>使用缓存</strong></p>
+<blockquote>
+<p>适用于有一致性要求的数据组</p>
+<ul>
+<li>在进入runnable之前RTE为数据建立副本</li>
+<li>在runnable运行结束之后RTE把副本数据拷贝到实际数据地址</li>
+<li>在runnable运行过程中只操作副本，实际数据不会改变</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231031228.png" alt="image-20221223103133182" /></p>
+</li>
+<li>
+<p>通信方式-使用队列</p>
+<blockquote>
+<p><strong>“event” (isQueued=True)</strong>,”event“ 查询接收或等待接收，RTE从队列中读取数据，等待接收有超时处理。</p>
+</blockquote>
+<ul>
+<li>“查询接收” 或 “等待接收”</li>
+<li>RTE从队列中读取数据</li>
+<li>“等待接收” 有超时处理</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231057377.png" alt="image-20221223105749327" /></p>
+<pre><code class="language-c">//Read表示是一个RPort、同样也会有一个PPort，Rte_Write_xxx_xxx()
+Rte_Read_&lt;Port&gt;_&lt;Data&gt;()
+//这里Data是指的传输的数据类型，比如DoorOpen就是：
+SWC_DoorOpen = Rte_Read_Door_DoorOpen();
+</code></pre>
+</li>
+<li>
+<p>对于S/R通信模式，分为显示（Explicit）和隐式（Implicit）两种模式。当多个运行实体需要读取相同的数据时，若能在运行实体运行之前先把数据读到缓存中，在运行实体运行结束后再把数据写出去，则可以改善运行效率，这就是<strong>隐式模式。</strong></p>
+</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231332721.png" alt="img" /></p>
+<p><strong>二、C/S接口</strong></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222214824.png" alt="在这里插入图片描述" /></p>
+<blockquote>
+<p><strong>作用：</strong> 提供操作。就是Server提供函数供Client调用</p>
+<p>客户端-服务器接口用于操作（Operation，OP），即函数调用关系，<strong>服务器是操作的提供者</strong>，多个客户端可以调用同一个操作，但同一个客户端不能调用多个操作。客户端-服务器接口定义了一系列操作 （Operation），即函数，它（们）由引用该接口的供型端口所在的软件组（服务器）件来实现，并提供给引用该接口的需型端口所在的软件组件调用。如下图所示，该客户端-服务器接口CS_Interface中定义了两个操作OP_1 与OP_2，对于每一个操作需要定义相关参数及其方向，即函数的形参，需要注意的是，每个端口只能引用一种接口类型，并且引用相同端口接口类型的端口才可以进行交互。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231327902.png" alt="img" /></p>
+</blockquote>
+<ul>
+<li>
+<p>可以同步和异步。同步就是直接调用，相当于函数直接插入上下文运行；异步的话需要等待，相当于让函数在另一个线程中运行，运行完了再返回，原上下文依然运行</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231324726.png" alt="img" /></p>
+</li>
+<li>
+<p>一个接口可以提供多个操作，就是一个接口可以包含很多函数</p>
+</li>
+<li>
+<p>ECU内部和跨ECU都可以调用，跨ECU也是通过外部总线</p>
+</li>
+<li>
+<p>通信方式: 1:1 或 n:1 （与S/R对应）</p>
+<pre><code class="language-c">Rte_Call_&lt;Port&gt;_&lt;Function&gt;()
+//这里的Call是指的调用的函数，比如调用State()就是
+Rte_Call_Door_State();
+</code></pre>
+</li>
+</ul>
+<h1 id="runnable-entities-简称runnables"><a class="header" href="#runnable-entities-简称runnables">Runnable entities (简称Runnables)</a></h1>
+<p>Runnable就是SWC中的函数，而在AutoSAR架构在被DaVinci软件生成的时候，Runnable是空函数，需要手动添加代码来实现其实际的功能。
+Runnable可以被触发，比如被定时器触发、被操作调用触发或者被接受数据触发等。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222231713.png" alt="在这里插入图片描述" /></p>
+<p>这里的函数就是我们前面提到的<strong>Send</strong>接口，发送的就是DoorOpen这个数据，由RTE进行管理。然而由于这里的这个SWCn.c文件中并未包含BSW中的.h文件，通过这个方式将AppL和BSW隔离开。
+<img src="https://img-blog.csdnimg.cn/20190720113021314.png" alt="在这里插入图片描述" /></p>
+<blockquote>
+<p>Runnable是需要OS中的Task做载体的。runnable是函数，但是c文件中光有一个函数那没用，必须要调用该函数才能起作用，就必须要有操作系统中的任务来执行这个函数。类比于Linux中的线程就是Task，这里的Runnable更多的像内核中的<strong>threadfn</strong>，或者说是Java中Runnable，需要载体，另外在AppL中没有Task这个概念。</p>
+</blockquote>
+<p><strong>举个例子：</strong></p>
+<p>从传感器到应用程序的过程:</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212230946951.png" alt="image-20221223094615901" /></p>
+<blockquote>
+<p><strong>代码什么样？</strong></p>
+</blockquote>
+<p><strong>1.Runnable Entity(可运行实体 ）</strong></p>
+<p>Runnable是主要用来封装SWC中的功能的。是由C语言函数实现的。一个SWC中需要至少要包含一个Runnable。简单举个例子：</p>
+<pre><code class="language-text">CheckStatusRunnable()
+{
+/* 判断是否完成 */
+    if(!finished)
+    {
+/* 如果未完成，就返回不OK */
+        return E_NOT_OK;
+    }
+    return E_OK； //如果完成，返回OK
+}
+</code></pre>
+<p>Runnable 简单分为两类：</p>
+<p><strong>Category 1</strong>：No WaitPoint （在有限的时间内运行至结束，不能等待）。</p>
+<p><strong>Category 2</strong>：With a WaitPoint at least.（至少包含一个WaitPoint，运行过程中可以等待）</p>
+<p><strong>怎么在Runnable中设置WaitPoint？通过直接调用对应RTE API实现。</strong></p>
+<p><strong>Rte_Receive() : 用于等待接收数据；</strong></p>
+<p><strong>Rte_Feedback() : 用于等待数据发送完成；</strong></p>
+<ul>
+<li>Rte_Invalidate_<p>_<d>()，表示sensor发送的数据无效，接收方feedback对无效值的处理</li>
+</ul>
+<p><strong>Rte_SwitchAck() : 用于等待模式切换操作；</strong></p>
+<p><strong>Rte_Result() : 用于等待异步服务器调用的结果。</strong></p>
+<p><strong>2. Task（任务）</strong></p>
+<p>是操作系统（OS）管理的最小可调度单元。操作系统决定何时在ECU的CPU上运行哪个任务。在OS启动后，所有的Task都处于默认状态：挂起状态（Suspended）。Task被激活（Activated）后进入准备状态（Ready）。Ready的task将会按照优先级（Priority）的高低依次运行（Running）。</p>
+<p>在RTE的代码中：</p>
+<pre><code class="language-text">TASK(TSK_Task1)
+{
+    ...
+    Runnable1();
+    Runnable2();
+    CheckStatusRunnable();
+    Runnable3();
+    ...
+  }
+}
+TASK(TSK_Task2)
+{
+  ...
+}
+</code></pre>
+<p><strong>当TSK_Task1被激活并运行后，map到它的Runnable也会按map的顺序依次执行。</strong></p>
+<p><strong>3.运行实体的RTE事件（RTE Event）</strong></p>
+<p>每个运行实体都会被赋予一个RTE事件（Trigger Event），即RTE 事件（RTE Event），这个事件可以引发这个运行实体的执行。对于 RTE事件可以细分为很多种类，较常用的RTE事件有以下几种：</p>
+<ul>
+<li>周期性（Periodic）事件，即Timing Event；</li>
+<li>数据接收事件（Data-received Event）；</li>
+<li>客户端调用服务器事件（Server-call Event）。</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../guide/AUTOSAR架构.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../guide/AUTOSAR实时运行环境.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../guide/AUTOSAR架构.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../guide/AUTOSAR实时运行环境.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../assets/custom.js"></script>
+        <script type="text/javascript" src="../assets/bigPicture.js"></script>
+    </body>
+</html>

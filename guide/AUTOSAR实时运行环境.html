@@ -1,0 +1,373 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>AUTOSAR实时运行环境 (RTE)) - AUTOSAR学习</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style3.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">AUTOSAR学习项目</a></li><li class="chapter-item expanded affix "><li class="part-title">AUTOSAR入门</li><li class="spacer"></li><li class="chapter-item expanded "><a href="../guide/汽车电子入门.html"><strong aria-hidden="true">1.</strong> 汽车电子背景知识</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR简介.html"><strong aria-hidden="true">2.</strong> AUTOSAR简介</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR发展.html"><strong aria-hidden="true">3.</strong> AUTOSAR发展</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR架构.html"><strong aria-hidden="true">4.</strong> AUTOSAR架构</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../guide/AUTOSAR应用层.html"><strong aria-hidden="true">4.1.</strong> AUTOSAR应用层 (AppL)</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR实时运行环境.html" class="active"><strong aria-hidden="true">4.2.</strong> AUTOSAR实时运行环境 (RTE))</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR基础软件层.html"><strong aria-hidden="true">4.3.</strong> AUTOSAR基础软件层 (BSW)</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR方法论.html"><strong aria-hidden="true">4.4.</strong> AUTOSAR方法论 (methodology)</a></li></ol></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR文档阅读.html"><strong aria-hidden="true">5.</strong> AUTOSAR文档如何阅读</a></li><li class="chapter-item expanded "><a href="../guide/工具.html"><strong aria-hidden="true">6.</strong> AUTOSAR实践</a></li><li class="chapter-item expanded "><a href="../guide/工具.html"><strong aria-hidden="true">7.</strong> Adaptive AUTOSAR简介</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">AUTOSAR专题</li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.</strong> UDS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topic/uds_glossary.html"><strong aria-hidden="true">8.1.</strong> UDS术语</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.2.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.3.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.4.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.5.</strong> UDS</a></li></ol></li><li class="chapter-item expanded "><a href="../mis/misrac.html"><strong aria-hidden="true">9.</strong> MisraC</a></li><li class="chapter-item expanded "><a href="../for_developers/index.html"><strong aria-hidden="true">10.</strong> For Developers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../for_developers/preprocessors.html"><strong aria-hidden="true">10.1.</strong> Preprocessors</a></li><li class="chapter-item expanded "><a href="../for_developers/backends.html"><strong aria-hidden="true">10.2.</strong> Alternative Backends</a></li></ol></li><li class="chapter-item expanded "><a href="../continuous-integration.html"><strong aria-hidden="true">11.</strong> Continuous Integration</a></li><li class="chapter-item expanded "><a href="../misc/术语表.html"><strong aria-hidden="true">12.</strong> AUTOSAR术语表</a></li><li class="chapter-item expanded "><a href="../misc/整车开发术语表.html"><strong aria-hidden="true">13.</strong> 整车开发术语</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../misc/贡献者.html">贡献者</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTOSAR学习</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/dingtang2008/dingtang2008.github.io/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/dingtang2008/dingtang2008.github.io/edit/main/src/guide/AUTOSAR实时运行环境.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222237710.png" alt="在这里插入图片描述" /></p>
+<h2 id="一什么是rte"><a class="header" href="#一什么是rte">一、什么是RTE</a></h2>
+<p>RTE的作用有点像Binder的<strong>ServiceManger</strong>，或者说DNS（就是上个世界那种要先打电话到接线员那里，然后通过接线员转接电话线到目的地），其作用就是将一个SWC的信息通过RTE连接到其他SWC或者BSW上。且RTE具有管理这些信息的功能，比如接收的SWC正忙（您所拨打的用户正忙），那么RTE负责让发送信息的SWC等待，或者做其他处理；RTE还能触发SWC，就像是这时接收的SWC在睡觉，这时发送的SWC发信息来了，那么RTE就要把接收的SWC叫醒起床。一句话概括就是RTE提供了SWC的运行环境。</p>
+<h2 id="二rte的作用"><a class="header" href="#二rte的作用">二、RTE的作用</a></h2>
+<ul>
+<li>提供 <strong>跨ECU / ECU内部</strong> 的通信管理，通过COM。</li>
+<li>提供对runnable的管理功能（触发、唤醒等，简单说就是runnable需要映射到Task上运行嘛，而这个映射就是通过RTE具体实现的）</li>
+<li>保证数据一致性(e.g. exclusive area)</li>
+<li>支持简单数据及复杂数据(records)</li>
+<li>在Vector的工具链中，RTE是自动生成的</li>
+</ul>
+<p>下面这张图将其再做细化，就能很清楚的看出其关联关系了。这里的RTE就是统一的管理，具体那些连接时怎么连的，我们是不需要在RTE中关心的（因为AppL中配好，RTE就自动生成嘛）。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222252983.png" alt="在这里插入图片描述" /></p>
+<h2 id="三rte主要功能点"><a class="header" href="#三rte主要功能点">三、RTE主要功能点</a></h2>
+<ul>
+<li><strong>通过RTE给runnable提供触发事件。</strong> 之前说过了runnable是可以被触发的，就是需要通过RTE来实现这个触发和调用runnable</li>
+<li><strong>通过RTE给runnable提供所需资源。</strong> 就是之前说的接口通信，将runnable需要的一些资源通过接口传输给它</li>
+<li><strong>将BSW和SWC做隔绝。</strong> 因此OS和runnables也被隔绝了，runnable的运行条件由RTE提供，不能由OS直接提供</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222258357.png" alt="在这里插入图片描述" /></p>
+<pre><code class="language-c">FUNC(Std_ReturnType, RTE_CODE) Rte_Start(void)
+{
+	... ...
+	/* activate the tasks */
+  (void)ActivateTask(App_Task); 
+  (void)ActivateTask(Task10ms); 
+  (void)ActivateTask(Task1ms); 
+  (void)ActivateTask(Task20ms);
+  ... ...
+  //设置定时alarm，1ms, 2ms, 10ms ... ...
+  (void)SetRelAlarm(Rte_Al_TE_Task1ms_0_1ms, RTE_MSEC_SystemTimer(0) + (TickType)1, RTE_MSEC_SystemTimer(1)); 
+  (void)SetRelAlarm(Rte_Al_TE_Task2ms_0_2ms, RTE_MSEC_SystemTimer(0) + (TickType)1, RTE_MSEC_SystemTimer(2)); 
+  (void)SetRelAlarm(Rte_Al_TE_App_AppRunnable, RTE_MSEC_SystemTimer(0) + (TickType)1, RTE_MSEC_SystemTimer(10)); 
+... ...
+}
+
+//RTE controlled tasks
+//App_Task
+TASK(App_Task)
+{
+  EventMaskType ev;
+
+  for(;;)
+  {
+    (void)WaitEvent(Rte_Ev_Run_DemoApp_DemoRunnable);
+    (void)GetEvent(App_Task, &amp;ev);
+    (void)ClearEvent(ev &amp; (Rte_Ev_Run_DemoApp_DemoRunnable)); 
+
+    if ((ev &amp; Rte_Ev_Run_DemoApp_DemoRunnable) != (EventMaskType)0)
+    {
+      /* call runnable */
+      AppRunnable(); 
+    }
+  }
+} 
+
+TASK(Task10ms) 
+{
+  EventMaskType ev;
+
+  for(;;)
+  {
+    (void)WaitEvent(Rte_Ev_Cyclic_Task10ms_0_10ms); 
+    (void)GetEvent(Task10ms, &amp;ev); 
+    (void)ClearEvent(ev &amp; (Rte_Ev_Cyclic_Task10ms_0_10ms)); 
+
+    if ((ev &amp; Rte_Ev_Cyclic_Task10ms_0_10ms) != (EventMaskType)0)
+    {
+        //10ms swc runnable
+        AppSiganlRunnable();
+        AppConfigRunnable();
+        AppInputRunnable();
+        ... ...
+    }
+  }
+</code></pre>
+<h2 id="runnables的触发条件"><a class="header" href="#runnables的触发条件">Runnables的触发条件</a></h2>
+<table><thead><tr><th><strong>Abbreviation</strong></th><th><strong>Name</strong></th><th>触发条件</th></tr></thead><tbody>
+<tr><td>T</td><td>TimingEvent</td><td>定时器事件：给一个周期定时器，时间到了就触发</td></tr>
+<tr><td>BG</td><td>BackgroundEvent</td><td></td></tr>
+<tr><td>DR</td><td>DataReceivedEvent (S/R Communication only)</td><td>接收数据事件（S/R）：Receiver Port 一旦收到数据，就触发</td></tr>
+<tr><td>DRE</td><td>DataReceiveErrorEvent (S/R Communication only)</td><td>接收数据错误事件（S/R）</td></tr>
+<tr><td>DSC</td><td>DataSendCompletedEvent(explicit S/R Communication only)</td><td>数据发送完成事件（S/R）：Send Port 发送完成，就触发</td></tr>
+<tr><td>DWC</td><td>DataWriteCompletedEvent (implicit S/R Communication only)</td><td>数据写入完成事件（S/R）：Send Port 发送完成，就触发</td></tr>
+<tr><td>OI</td><td>OperationInvokedEvent (C/S Communication only)</td><td>操作调用事件（C/S）：当调用到了该函数的时候</td></tr>
+<tr><td>ASCR</td><td>AsynchronousServerCallReturnsEvent(C/S communication only)</td><td>异步服务返回事件（C/S）：之前说过C/S可以在异步下运行，就是说当我调用一个Server函数，但是我是异步调用的。那么该被掉函数作为一个线程和当前的运行程序并行运行，当被调函数运行结束返回（Return）的时候，这时触发异步服务返回事件</td></tr>
+<tr><td>MS</td><td>SwcModeSwitchEvent</td><td>模式切换事件</td></tr>
+<tr><td>MSA</td><td>ModeSwitchedAckEvent</td><td>模式切换事件</td></tr>
+<tr><td>MME</td><td>SwcModeManagerErrorEvent</td><td></td></tr>
+<tr><td>ETO</td><td>ExternalTriggerOccurredEvent</td><td></td></tr>
+<tr><td>ITO</td><td>InternalTriggerOccurredEvent</td><td></td></tr>
+<tr><td>I</td><td>InitEvent</td><td>初始化事件：初始化自动触发</td></tr>
+<tr><td>THE</td><td>TransformerHardErrorEvent</td><td></td></tr>
+</tbody></table>
+<p><strong>ECU之间通信：</strong></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231026059.png" alt="image-20221223102624993" /></p>
+<p>跨ECU的数据传输，在runnable中使用Rte_Write__()这样的函数后，会需要走runnable (ECU1) -&gt;RTE (ECU1) -&gt;BSW (ECU1) -&gt;外部总线-&gt;BSW (ECU2) -&gt;RTE (ECU2) -&gt;runnable (ECU2)
+COM传输的接口函数:</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231143029.png" alt="在这里插入图片描述" /></p>
+<p><strong>保证数据一致性</strong></p>
+<blockquote>
+<p>同一个SWC内的、运行在不同Task上的runnable之间的通信.</p>
+<p>不同SWC之间的通信，无论是ECU内部还是ECU之间，都不会遇到这个问题，因为RTE会负责保证数据一致性.</p>
+<ul>
+<li>顺序调度策略 </li>
+<li>中断屏蔽策略</li>
+<li>资源锁等</li>
+<li>数据备份</li>
+</ul>
+</blockquote>
+<p>假如有两个任务，分别为Task A和Task B，其中Task A的优先级高于Task B。Task A每次访问均使X加2，Task B每次访问均使X加1。因此这两个任务中都要执行（step1）、修改（step2）、写（step3）三步操作。如果没有原子操作，则可能会发现以下情况，如图所示：</p>
+<ol>
+<li>假定X=5；</li>
+<li>Task B执行读取（step1) X=5，并临时存储（堆栈或MCU寄存器中）；</li>
+<li>Task A 优先级高于Task B， Task B被打断；</li>
+<li>Task A执行读，修改，写操作，将X=7写回内存中；</li>
+<li>Task A结束，继续执行Task B；</li>
+<li>Task B将之前临时存储的X（操作2）取出，并加1，将X=6写回内存。</li>
+</ol>
+<p>显然，开发人员期待的 结果是X = 8，但是最终的确实X  = 6，Task A的运算失效。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231127915.png" alt="nYBfeq" /></p>
+<p><strong>解决办法</strong>:</p>
+<ul>
+<li>
+<p>专用区域(Exclusive Areas )</p>
+<ul>
+<li>
+<p>Entire block or RTE protected</p>
+</li>
+<li>
+<p>Rte_Enter_<name>()</p>
+</li>
+<li>
+<p>Rte_Exit_<name>()</p>
+<pre><code class="language-c">Rte_Enter_&lt;name&gt;();
+//需要保护的代码
+....
+Rte_Exit_&lt;name&gt;();
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>内部变量(Inter-runnable variables)</p>
+<ul>
+<li>运行实体间变量（Inter Runnable Variable，IRV）即两个运行实体之间交互的变量。</li>
+<li>Rte_IrvWrite_<re>_<name></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231335434.png" alt="img" /></p>
+<h1 id="autosar的接口"><a class="header" href="#autosar的接口">AUTOSAR的接口</a></h1>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222314767.png" alt="image-20221222231421708" /></p>
+<p>AUTOSAR中定义了三种接口，<code>AUTOSAR Interface</code>, <code>Standardized Interface</code> 以及 <code>Standardized AUTOSAR Inerface</code>. 要了解这三种接口，需要首先了解什么是&quot;Standardized&quot;的Interface，以及什么是&quot;AUTOSAR&quot;的Interface.</p>
+<p><strong>Standardaized</strong> 表示的是，这个接口是被事先标准化定义好的, 需要注意的是这里的&quot;标准化定义&quot;，指得就是被AUTOSAR这个标准所定义。用户在使用这个接口的时候，不可以改变接口的内容。所谓&quot;接口&quot;，其实就是一个API函数. AUTOSAR标准中的软件模块被事先定义好，需要向其它模块提供哪些API函数, <strong>这些API函数的输入输出变量的个数，类型以及返回值的类型都会被事先定义好，不能改变</strong>。在开发时需要做的，就是开发API中的内容。</p>
+<p><strong>AUTOSAR</strong> 的接口指的<strong>RTE提供的接口</strong>。RTE向所有的SWC，以及IoHwAb和Complex Drivers模块，提供AUTOSAR 接口，也就是说，这些模块都会连接在RTE上面。当某两个这类模块之间互相收发数据或者调用内部函数时，RTE会帮助它们来做这些。</p>
+<p>理解了Standardized Interface 和 AUTOSAR Interface, 那么 <strong>Standardized AUTOSAR</strong> Interface 就容易理解了。指的是，被AUTOSAR标准<strong>提前定义好的</strong>，并且是<strong>由RTE提供</strong>的接口。</p>
+<p>下面这个表格是关于这三个接口的总结:</p>
+<table><thead><tr><th>是否被AUTOSAR标准提前定义好?</th><th>是否属于RTE提供的接口?</th><th>模块是否连接在RTE上?</th></tr></thead><tbody>
+<tr><td><strong>Standardized</strong> Interface</td><td>是</td><td>否，模块之间的API调用不需要通过RTE的帮助</td></tr>
+<tr><td>AUTOSAR Interface</td><td>否，可以任意改变</td><td>是</td></tr>
+<tr><td><strong>Standardized</strong> AUTOSAR Interface</td><td>是</td><td>是</td></tr>
+</tbody></table>
+<blockquote>
+<p>OS和COM是唯一的两个标准接口允许直接和RTE相连的。因为RTE的很多功能是需要基于这两个模块来实现的。</p>
+</blockquote>
+<p>还是回到之前的案例，如下图</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222315979.png" alt="在这里插入图片描述" /></p>
+<p>上图将所有的接口以及其分布的位置都详细的标识了出来，还是用的原来的那张ECU的图添加，结合上面的描述和上图：</p>
+<p><strong>AutoSAR接口</strong></p>
+<ul>
+<li><strong>一句话概括：</strong> 之前说的S/R和C/S接口就是AutoSAR接口</li>
+<li><strong>特征：</strong> 接口函数名可变，例如之前说过的<code>Std_ReturnType Rte_Read_&lt;port&gt;_&lt;data&gt; (&lt;DataType&gt; *data)</code>这中形式的S/R函数，其中的<code>&lt;port&gt; &lt;data&gt;</code>就是用户自己配置的名字，因此，这些接口的函数名都是可以改变的，但大体的形式是不变的。</li>
+<li><strong>位置：</strong> SWC&lt;&gt;RTE、RTE&lt;&gt;CDD、RTE&lt;&gt;ECU AB(这里提一句，ECU AB之前没有讲到，其实很多的传感器、执行器都放在这里，是ECU的抽象，也是可以看作是SWC的，IoHwAb就在这里面)。说明白一点，就是只要能看成是SWC处理的，就是AutoSAR接口</li>
+</ul>
+<p><strong>标准接口</strong></p>
+<ul>
+<li><strong>一句话概括：</strong> 就是AutoSAR规定的C语言API</li>
+<li><strong>特征：</strong> 接口函数名是固定不变的，是AutoSAR规定好的。比如：<code>Com_SendSignal() WaitEvent()</code>这类都是API函数名，可以有上层调用，但是一般是使用工具配置生成的，做上层应用的一般是不用关心其具体实现的</li>
+<li><strong>位置：</strong> 第一张图中棕色的就是标准接口，说白了就是对函数API的调用。</li>
+</ul>
+<p>需要特殊说明一点的是：下图中两个红圈中的箭头，OS和COM是唯一的两个标准接口允许直接和RTE相连的。因为RTE的很多功能是需要基于这两个模块来实现的</p>
+<p><strong>标准AutoSAR接口</strong></p>
+<ul>
+<li><strong>一句话概括：</strong> 就是AutoSAR接口，不过名称是由AutoSAR官方规定不能修改</li>
+<li><strong>特征：</strong> 就是标准接口和AutoSAR接口的特征它都有一部分。首先是和AutoSAR接口一样，提供的是C/S、S/R接口；然后又和标准接口一样，函数名是不可变的。说白了就是官方规定好的C/S、S/R接口，咱们就当成是AutoSAR接口就行了，函数名字什么不用管它</li>
+<li><strong>位置：</strong> RTE&lt;&gt;Services，就这么一个地方</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../guide/AUTOSAR应用层.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../guide/AUTOSAR基础软件层.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../guide/AUTOSAR应用层.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../guide/AUTOSAR基础软件层.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../assets/custom.js"></script>
+        <script type="text/javascript" src="../assets/bigPicture.js"></script>
+    </body>
+</html>

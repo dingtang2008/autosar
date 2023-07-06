@@ -1,0 +1,381 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>AUTOSAR术语表 - AUTOSAR学习</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style3.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">AUTOSAR学习项目</a></li><li class="chapter-item expanded affix "><li class="part-title">AUTOSAR入门</li><li class="spacer"></li><li class="chapter-item expanded "><a href="../guide/汽车电子入门.html"><strong aria-hidden="true">1.</strong> 汽车电子背景知识</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR简介.html"><strong aria-hidden="true">2.</strong> AUTOSAR简介</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR发展.html"><strong aria-hidden="true">3.</strong> AUTOSAR发展</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR架构.html"><strong aria-hidden="true">4.</strong> AUTOSAR架构</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../guide/AUTOSAR应用层.html"><strong aria-hidden="true">4.1.</strong> AUTOSAR应用层 (AppL)</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR实时运行环境.html"><strong aria-hidden="true">4.2.</strong> AUTOSAR实时运行环境 (RTE))</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR基础软件层.html"><strong aria-hidden="true">4.3.</strong> AUTOSAR基础软件层 (BSW)</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR方法论.html"><strong aria-hidden="true">4.4.</strong> AUTOSAR方法论 (methodology)</a></li></ol></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR文档阅读.html"><strong aria-hidden="true">5.</strong> AUTOSAR文档如何阅读</a></li><li class="chapter-item expanded "><a href="../guide/工具.html"><strong aria-hidden="true">6.</strong> AUTOSAR实践</a></li><li class="chapter-item expanded "><a href="../guide/工具.html"><strong aria-hidden="true">7.</strong> Adaptive AUTOSAR简介</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">AUTOSAR专题</li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.</strong> UDS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topic/uds_glossary.html"><strong aria-hidden="true">8.1.</strong> UDS术语</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.2.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.3.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.4.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.5.</strong> UDS</a></li></ol></li><li class="chapter-item expanded "><a href="../mis/misrac.html"><strong aria-hidden="true">9.</strong> MisraC</a></li><li class="chapter-item expanded "><a href="../for_developers/index.html"><strong aria-hidden="true">10.</strong> For Developers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../for_developers/preprocessors.html"><strong aria-hidden="true">10.1.</strong> Preprocessors</a></li><li class="chapter-item expanded "><a href="../for_developers/backends.html"><strong aria-hidden="true">10.2.</strong> Alternative Backends</a></li></ol></li><li class="chapter-item expanded "><a href="../continuous-integration.html"><strong aria-hidden="true">11.</strong> Continuous Integration</a></li><li class="chapter-item expanded "><a href="../misc/术语表.html" class="active"><strong aria-hidden="true">12.</strong> AUTOSAR术语表</a></li><li class="chapter-item expanded "><a href="../misc/整车开发术语表.html"><strong aria-hidden="true">13.</strong> 整车开发术语</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../misc/贡献者.html">贡献者</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTOSAR学习</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/dingtang2008/dingtang2008.github.io/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/dingtang2008/dingtang2008.github.io/edit/main/src/misc/术语表.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>下面所有的缩写词汇均来自autosar官方资料，主要来源于AUTOSAR_TR_GLOSSARY.pdf，还有一些其他文档中的术语添加，方便后续查找.	</p>
+<table><thead><tr><th align="center">Abbreviation/缩写</th><th>Description/说明</th><th>翻译</th></tr></thead><tbody>
+<tr><td align="center">AA</td><td>Adaptive Application</td><td>自适应应用程序</td></tr>
+<tr><td align="center">ABC</td><td>Abstract Base Class</td><td></td></tr>
+<tr><td align="center">ABI</td><td>Application Binary Interface</td><td>应用程序接口</td></tr>
+<tr><td align="center">ADC</td><td>Analog Digital Converter</td><td>模数转换器</td></tr>
+<tr><td align="center">AES</td><td>Advanced Encryption Standard</td><td></td></tr>
+<tr><td align="center">AMM</td><td>Application Mode Management</td><td></td></tr>
+<tr><td align="center">AP</td><td>AUTOSAR Adaptive Platform</td><td>AUTOSAR自适应平台</td></tr>
+<tr><td align="center">API</td><td>Application Programming Interface</td><td>应用程序接口</td></tr>
+<tr><td align="center">ARA</td><td>AUTOSAR Runtime for Adaptive Applications</td><td>自适应应用程序运行时</td></tr>
+<tr><td align="center">ARP</td><td>Address Resolution Protocol</td><td>地址解析协议</td></tr>
+<tr><td align="center">ARTI</td><td>AUTOSAR Run-Time Interface</td><td>AUTOSAR运行时接口</td></tr>
+<tr><td align="center">ARXML</td><td>AUTOSARXML</td><td></td></tr>
+<tr><td align="center">ASAM</td><td>Association for Standardization of Automation and Measuring systems</td><td>自动化及测量系统标准协会</td></tr>
+<tr><td align="center">ASD</td><td>Abstract System Description</td><td></td></tr>
+<tr><td align="center">ASIL</td><td>Automotive Safety Integrity Levels</td><td>汽车安全完整性等级</td></tr>
+<tr><td align="center">ASW</td><td>Application SoftWare</td><td>应用软件</td></tr>
+<tr><td align="center">ATP</td><td>AUTOSAR Template Profile</td><td></td></tr>
+<tr><td align="center">ATS</td><td>Acceptance Test Suite</td><td></td></tr>
+<tr><td align="center">AUTOSAR</td><td>AUTomotive Open System Architecture</td><td>汽车开放系统架构</td></tr>
+<tr><td align="center">BFx</td><td>Bitfield functions for fixed point</td><td></td></tr>
+<tr><td align="center">BSW</td><td>Basic Software</td><td>基础软件</td></tr>
+<tr><td align="center">BSWM</td><td>Basic SoftWare Mode manager</td><td>基础软件模式管理器</td></tr>
+<tr><td align="center">BSWMD</td><td>Basic SoftWare Module Description</td><td>基础软件模块说明</td></tr>
+<tr><td align="center">CAN</td><td>Controller Area Network</td><td>控制器域网</td></tr>
+<tr><td align="center">CCF</td><td>Common Cause Failure</td><td></td></tr>
+<tr><td align="center">CDD</td><td>Complex Driver</td><td>复杂驱动</td></tr>
+<tr><td align="center">CP</td><td>AUTOSAR Classic Platform</td><td>AUTOSAR经典平台</td></tr>
+<tr><td align="center">COM</td><td>COmmunication Management</td><td>通信管理</td></tr>
+<tr><td align="center">CPU</td><td>Central Processing Unit</td><td>中央处理器</td></tr>
+<tr><td align="center">CRC</td><td>Cyclic Redundancy Check</td><td>循环冗余校验码</td></tr>
+<tr><td align="center">DAC</td><td>Digital to Analog Converter</td><td>数模转换器</td></tr>
+<tr><td align="center">DCM</td><td>Diagnostic Communication Management</td><td>诊断通信管理</td></tr>
+<tr><td align="center">DDS</td><td>Data Distribution Service</td><td>数据分发服务</td></tr>
+<tr><td align="center">DEM</td><td>Diagnostic Event Manager</td><td>诊断事件管理</td></tr>
+<tr><td align="center">DES</td><td>Data Encryption Standard</td><td>数据加密标准</td></tr>
+<tr><td align="center">DET</td><td>Development(Default) Error Tracer</td><td>默认或开发错误追踪器</td></tr>
+<tr><td align="center">DEXT</td><td>Diagnostic EXTract</td><td>诊断提取模板</td></tr>
+<tr><td align="center">DHCP</td><td>Dynamic Host Configuration Protocol</td><td></td></tr>
+<tr><td align="center">DIO</td><td>Digital Input/Output</td><td></td></tr>
+<tr><td align="center">DLC</td><td>Data Length Code</td><td></td></tr>
+<tr><td align="center">DM</td><td>Diagnostic Manager</td><td>诊断管理</td></tr>
+<tr><td align="center">DoIP</td><td>Diagnostics over Internet Protocol</td><td></td></tr>
+<tr><td align="center">DTC</td><td>Diagnostic Trouble Code</td><td></td></tr>
+<tr><td align="center">DTD</td><td>Document Type Definition</td><td></td></tr>
+<tr><td align="center">E2E</td><td>End to End</td><td>端到端</td></tr>
+<tr><td align="center">ECU</td><td>Electronic Control Unit</td><td>电子控制单元</td></tr>
+<tr><td align="center">ECB</td><td>Electronic Code Book</td><td></td></tr>
+<tr><td align="center">ECC</td><td>Elliptic Curve Cryptography</td><td></td></tr>
+<tr><td align="center">ECDSA</td><td>Elliptic Curve Digital Signature Algorithm</td><td></td></tr>
+<tr><td align="center">ECIES</td><td>Elliptic Curve Integrated Encryption Scheme</td><td></td></tr>
+<tr><td align="center">EDDSA</td><td>Edwards-Curve Digital Signature Algorithm</td><td></td></tr>
+<tr><td align="center">EEC</td><td>Executable Entity Cluster</td><td></td></tr>
+<tr><td align="center">EEPROM</td><td>Electrically Erasable Programmable Read-Only Memory</td><td>电可擦可编程序只读存储器</td></tr>
+<tr><td align="center">EOC</td><td>Execution Order Constraint</td><td></td></tr>
+<tr><td align="center">EOCEERG</td><td>Execution Order Constraint Executable Entity Reference Group</td><td></td></tr>
+<tr><td align="center">FC</td><td>Functional Cluster</td><td></td></tr>
+<tr><td align="center">FID</td><td>Function Identifier</td><td>功能标识符</td></tr>
+<tr><td align="center">FIM</td><td>Function Inhibition Manager</td><td>功能禁止管理器</td></tr>
+<tr><td align="center">FIFO</td><td>First In First Out</td><td>先进先出</td></tr>
+<tr><td align="center">FIBEX</td><td>Field Bus Exchange Format</td><td></td></tr>
+<tr><td align="center">FO</td><td>(AUTOSAR) FOundation</td><td>基础（CP和AP通用部分）</td></tr>
+<tr><td align="center">FOTA</td><td>Firmware Over The Air</td><td>固件空中下载</td></tr>
+<tr><td align="center">FPU</td><td>Floating Point Unit</td><td></td></tr>
+<tr><td align="center">FQDN</td><td>Fully-Qualified Domain Name</td><td></td></tr>
+<tr><td align="center">FW</td><td>Fire Wire</td><td>火线</td></tr>
+<tr><td align="center">GCM</td><td>Galios/Counter Mode</td><td></td></tr>
+<tr><td align="center">GENIVI</td><td>GENeva In-Vehicle Infotainment</td><td></td></tr>
+<tr><td align="center">GPT</td><td>General Purpose Timer</td><td>通用定时器</td></tr>
+<tr><td align="center">GSM</td><td>Global System for Mobile Communication</td><td></td></tr>
+<tr><td align="center">HMAC</td><td>Hash-based Message Authentication Code</td><td>基于散列的消息认证码</td></tr>
+<tr><td align="center">HTTP</td><td>Hypertext Transport Protocol</td><td>超文本传输协议</td></tr>
+<tr><td align="center">HW</td><td>Hardware</td><td>硬件</td></tr>
+<tr><td align="center">I-PDU</td><td>Interaction Layer Protocol Data Unit</td><td></td></tr>
+<tr><td align="center">ICC</td><td>Implementation Conformance Class</td><td></td></tr>
+<tr><td align="center">ICMP</td><td>Internet Control Message Protocol</td><td></td></tr>
+<tr><td align="center">ICOM</td><td>Intelligent COMmunication controller</td><td></td></tr>
+<tr><td align="center">ICU</td><td>Input Capture Unit</td><td></td></tr>
+<tr><td align="center">ID</td><td>IDentifier</td><td></td></tr>
+<tr><td align="center">IDL</td><td>Interface Description Language</td><td></td></tr>
+<tr><td align="center">IEC</td><td>International Electrotechnical Commission</td><td></td></tr>
+<tr><td align="center">IFI</td><td>Interpolation Floating point</td><td></td></tr>
+<tr><td align="center">IFx</td><td>Interpolation Fixed point</td><td></td></tr>
+<tr><td align="center">IO</td><td>Input/ Output</td><td></td></tr>
+<tr><td align="center">IP</td><td>Internet Protocol</td><td></td></tr>
+<tr><td align="center">ISO</td><td>International Standardization Organization</td><td></td></tr>
+<tr><td align="center">ISR</td><td>Interrupt Service Routine</td><td></td></tr>
+<tr><td align="center">JSON</td><td>JavaScript Object Notation</td><td></td></tr>
+<tr><td align="center">LAN</td><td>Local Area Network</td><td></td></tr>
+<tr><td align="center">L-PDU</td><td>Protocol Data Unit of the data Link layer</td><td></td></tr>
+<tr><td align="center">L-SDU</td><td>SDU of the data Link layer</td><td></td></tr>
+<tr><td align="center">LET</td><td>Logical Execution Time</td><td>逻辑执行时间</td></tr>
+<tr><td align="center">LIFO</td><td>Last In First Out</td><td>后进先出</td></tr>
+<tr><td align="center">LIN</td><td>Local Interconnected Network</td><td></td></tr>
+<tr><td align="center">LT</td><td>Log and Trace</td><td></td></tr>
+<tr><td align="center">LSB</td><td>Least Significant Bit</td><td>最低有效位</td></tr>
+<tr><td align="center">MAC</td><td>Media Access Control</td><td></td></tr>
+<tr><td align="center">MAC</td><td>Message Authentication Code</td><td></td></tr>
+<tr><td align="center">mC（ <em>μC</em>）</td><td>MicroController</td><td>微控制器</td></tr>
+<tr><td align="center">MCAL</td><td>Microcontroller Abstraction Layer</td><td>微控制器抽象层</td></tr>
+<tr><td align="center">MCU</td><td>Micro Controller Unit</td><td></td></tr>
+<tr><td align="center">MD</td><td>Message Digest</td><td></td></tr>
+<tr><td align="center">ME</td><td>Mappable Element</td><td></td></tr>
+<tr><td align="center">MFI</td><td>Mathematical Floating point</td><td></td></tr>
+<tr><td align="center">MFx</td><td>Math - Fixed Point</td><td></td></tr>
+<tr><td align="center">MIPS</td><td>Million Instructions Per Second</td><td>每秒百万条指令</td></tr>
+<tr><td align="center">MMU</td><td>Memory Management Unit</td><td>内存管理单元</td></tr>
+<tr><td align="center">MMI</td><td>Man Machine Interface</td><td>人机接口</td></tr>
+<tr><td align="center">MOST</td><td>Media Oriented Systems Transport</td><td>MOST总线</td></tr>
+<tr><td align="center">mP</td><td>MicroProcessor</td><td></td></tr>
+<tr><td align="center">MPU</td><td>Memory Protection Unit</td><td></td></tr>
+<tr><td align="center">MSB</td><td>Most Significant Bit</td><td>最高有效位</td></tr>
+<tr><td align="center">MTU</td><td>Maximum Transmission Unit</td><td>最大传输单元</td></tr>
+<tr><td align="center">NM</td><td>Network Management</td><td>网络管理</td></tr>
+<tr><td align="center">N-PDU</td><td>Protocol Data Unit of the Network layer (transport protocols)</td><td></td></tr>
+<tr><td align="center">N-SDU</td><td>SDU of the Network layer (transport protocols)</td><td></td></tr>
+<tr><td align="center">NVRAM</td><td>Non-Volatile Random Access Memory</td><td>非易失性存储器</td></tr>
+<tr><td align="center">OBD</td><td>On-Board Diagnostic</td><td>车载诊断系统</td></tr>
+<tr><td align="center">OEM</td><td>Original Equipment Manufacturer</td><td>原始设备制造商</td></tr>
+<tr><td align="center">OIL</td><td>ISO 17356-6 (OSEK/VDX Implementation Language)</td><td>vehicle distributed executive汽车分布式执行标准，OSEK实现语言</td></tr>
+<tr><td align="center">ODX</td><td>Open Diagnostic Data Exchange</td><td>开放标准诊断格式数据</td></tr>
+<tr><td align="center">OS</td><td>Operating System</td><td>操作系统</td></tr>
+<tr><td align="center">OSEK</td><td>Open Systems and the Corresponding Interfaces for Automotive Electronics</td><td>汽车电子的开放式系统及接口</td></tr>
+<tr><td align="center">PCI</td><td>Protocol Control Information</td><td>协议控制信息</td></tr>
+<tr><td align="center">PDEP</td><td>Profile of Data Exchange Point</td><td></td></tr>
+<tr><td align="center">PDU</td><td>Protocol Data Unit</td><td>协议数据单元</td></tr>
+<tr><td align="center">PHM</td><td>Platform Health Management</td><td>平台健康管理</td></tr>
+<tr><td align="center">PKCS</td><td>Public Key Cryptography Standards</td><td>公钥加密标准</td></tr>
+<tr><td align="center">POSIX</td><td>Portable Operating System Interface</td><td>可移植操作系统接口</td></tr>
+<tr><td align="center">PS</td><td>Product Supplier</td><td></td></tr>
+<tr><td align="center">PSK</td><td>Pre-Shared Key</td><td>预共享秘钥</td></tr>
+<tr><td align="center">PWM</td><td>Pulse Width Modulation</td><td></td></tr>
+<tr><td align="center">RAM</td><td>Random Access Memory</td><td>随机存储器</td></tr>
+<tr><td align="center">RDG</td><td>Runnable Dependency Graph</td><td></td></tr>
+<tr><td align="center">REST</td><td>Representational State Transfer</td><td></td></tr>
+<tr><td align="center">RfC</td><td>Request for Change</td><td></td></tr>
+<tr><td align="center">ROM</td><td>Read-Only Memory</td><td>只读存储器</td></tr>
+<tr><td align="center">RP</td><td>Rapid Prototyping</td><td></td></tr>
+<tr><td align="center">RPC</td><td>Remote Procedure Call</td><td></td></tr>
+<tr><td align="center">RSA</td><td>Cryptographic approach according to Rivest, Shamir, and Adleman</td><td></td></tr>
+<tr><td align="center">RTE</td><td>Runtime Environment</td><td>运行环境</td></tr>
+<tr><td align="center">SAE</td><td>Society of Automotive Engineers</td><td></td></tr>
+<tr><td align="center">SD</td><td>Service Discovery</td><td></td></tr>
+<tr><td align="center">SDG</td><td>Special Data Group</td><td></td></tr>
+<tr><td align="center">SDU</td><td>Service Data Unit</td><td></td></tr>
+<tr><td align="center">SHA</td><td>Secure Hash Algorithm</td><td></td></tr>
+<tr><td align="center">SHM</td><td>System Health Monitoring</td><td></td></tr>
+<tr><td align="center">SIL</td><td>Safety Integrity Level</td><td></td></tr>
+<tr><td align="center">SOA</td><td>Service Oriented Architecture</td><td></td></tr>
+<tr><td align="center">SOME/IP</td><td>Scalable service-Oriented MiddlewarE over IP</td><td></td></tr>
+<tr><td align="center">SP</td><td>Synchronization Point</td><td></td></tr>
+<tr><td align="center">SPEM</td><td>Software &amp; Systems Process Engineering Meta-model</td><td></td></tr>
+<tr><td align="center">SPI</td><td>Serial Peripheral Interface</td><td>串行外设接口</td></tr>
+<tr><td align="center">SST</td><td>Signal-Service Translation</td><td></td></tr>
+<tr><td align="center">SW</td><td>Software</td><td>软件</td></tr>
+<tr><td align="center">SW-C</td><td>Software Component</td><td>软件组件</td></tr>
+<tr><td align="center">SWCT/SWC-T</td><td>Software Component Template</td><td></td></tr>
+<tr><td align="center">SWS</td><td>Software Specification</td><td>软件规范</td></tr>
+<tr><td align="center">SYST/SYS-T</td><td>System Template</td><td></td></tr>
+<tr><td align="center">TC</td><td>Timed Communication</td><td></td></tr>
+<tr><td align="center">TC</td><td>Test Case</td><td></td></tr>
+<tr><td align="center">TCP</td><td>Transmission Control Protocol</td><td></td></tr>
+<tr><td align="center">TIMEX</td><td>TIMing EXTensions</td><td></td></tr>
+<tr><td align="center">TLS</td><td>Transport Layer Security</td><td></td></tr>
+<tr><td align="center">TLV</td><td>Tag Length Value</td><td></td></tr>
+<tr><td align="center">TP</td><td>Transport Protocol</td><td>传输协议</td></tr>
+<tr><td align="center">TTCAN</td><td>Time Triggered CAN</td><td></td></tr>
+<tr><td align="center">TTL</td><td>Time To Live</td><td></td></tr>
+<tr><td align="center">TTP</td><td>Time Triggered Protocol</td><td></td></tr>
+<tr><td align="center">UDP</td><td>User (Universal) Datagram Protocol</td><td></td></tr>
+<tr><td align="center">UDS</td><td>Unified Diagnostic Services</td><td>统一诊断服务</td></tr>
+<tr><td align="center">UDPNM</td><td>UDP Network Management</td><td></td></tr>
+<tr><td align="center">UML</td><td>Unified Modeling Language</td><td></td></tr>
+<tr><td align="center">URI</td><td>Uniform Resource Identifier</td><td></td></tr>
+<tr><td align="center">URL</td><td>Uniform Resource Locator</td><td></td></tr>
+<tr><td align="center">USB</td><td>Universal Serial Bus</td><td>通用串行总线</td></tr>
+<tr><td align="center">UTF</td><td>Universal coded character set Transformation Format</td><td></td></tr>
+<tr><td align="center">UUID</td><td>Universally Unique Identifier</td><td></td></tr>
+<tr><td align="center">VFB</td><td>Virtual Functional Bus</td><td>虚拟功能总线</td></tr>
+<tr><td align="center">V2X</td><td>Vehicle-To-Everything</td><td></td></tr>
+<tr><td align="center">VLAN</td><td>Virtual Local Area Network</td><td></td></tr>
+<tr><td align="center">VSA</td><td>Variable Size Array</td><td></td></tr>
+<tr><td align="center">VSM</td><td>Vehicle State Manager</td><td></td></tr>
+<tr><td align="center">VISS</td><td>Vehicle Information Service Specification</td><td></td></tr>
+<tr><td align="center">VMM</td><td>Vehicle Mode Management</td><td></td></tr>
+<tr><td align="center">WCET</td><td>Worst Case Execution Time</td><td></td></tr>
+<tr><td align="center">WCRT</td><td>Worst Case Response time</td><td></td></tr>
+<tr><td align="center">WP</td><td>Autosar Work Package</td><td>Autosar工作包</td></tr>
+<tr><td align="center">W3C</td><td>World Wide Web Consortium</td><td></td></tr>
+<tr><td align="center">XCP</td><td>Universal Calibration Protocol</td><td>通用标定服务</td></tr>
+<tr><td align="center">XML</td><td>Extensible Markup Language</td><td></td></tr>
+<tr><td align="center">XP</td><td>Abstract Platform</td><td></td></tr>
+<tr><td align="center">XSD</td><td>XML Schema Definition</td><td></td></tr>
+<tr><td align="center">..To be updated</td><td></td><td></td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../continuous-integration.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../misc/整车开发术语表.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../continuous-integration.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../misc/整车开发术语表.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../assets/custom.js"></script>
+        <script type="text/javascript" src="../assets/bigPicture.js"></script>
+    </body>
+</html>

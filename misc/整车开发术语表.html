@@ -1,0 +1,712 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>整车开发术语 - AUTOSAR学习</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style3.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">AUTOSAR学习项目</a></li><li class="chapter-item expanded affix "><li class="part-title">AUTOSAR入门</li><li class="spacer"></li><li class="chapter-item expanded "><a href="../guide/汽车电子入门.html"><strong aria-hidden="true">1.</strong> 汽车电子背景知识</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR简介.html"><strong aria-hidden="true">2.</strong> AUTOSAR简介</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR发展.html"><strong aria-hidden="true">3.</strong> AUTOSAR发展</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR架构.html"><strong aria-hidden="true">4.</strong> AUTOSAR架构</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../guide/AUTOSAR应用层.html"><strong aria-hidden="true">4.1.</strong> AUTOSAR应用层 (AppL)</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR实时运行环境.html"><strong aria-hidden="true">4.2.</strong> AUTOSAR实时运行环境 (RTE))</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR基础软件层.html"><strong aria-hidden="true">4.3.</strong> AUTOSAR基础软件层 (BSW)</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR方法论.html"><strong aria-hidden="true">4.4.</strong> AUTOSAR方法论 (methodology)</a></li></ol></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR文档阅读.html"><strong aria-hidden="true">5.</strong> AUTOSAR文档如何阅读</a></li><li class="chapter-item expanded "><a href="../guide/工具.html"><strong aria-hidden="true">6.</strong> AUTOSAR实践</a></li><li class="chapter-item expanded "><a href="../guide/工具.html"><strong aria-hidden="true">7.</strong> Adaptive AUTOSAR简介</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">AUTOSAR专题</li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.</strong> UDS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topic/uds_glossary.html"><strong aria-hidden="true">8.1.</strong> UDS术语</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.2.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.3.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.4.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.5.</strong> UDS</a></li></ol></li><li class="chapter-item expanded "><a href="../mis/misrac.html"><strong aria-hidden="true">9.</strong> MisraC</a></li><li class="chapter-item expanded "><a href="../for_developers/index.html"><strong aria-hidden="true">10.</strong> For Developers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../for_developers/preprocessors.html"><strong aria-hidden="true">10.1.</strong> Preprocessors</a></li><li class="chapter-item expanded "><a href="../for_developers/backends.html"><strong aria-hidden="true">10.2.</strong> Alternative Backends</a></li></ol></li><li class="chapter-item expanded "><a href="../continuous-integration.html"><strong aria-hidden="true">11.</strong> Continuous Integration</a></li><li class="chapter-item expanded "><a href="../misc/术语表.html"><strong aria-hidden="true">12.</strong> AUTOSAR术语表</a></li><li class="chapter-item expanded "><a href="../misc/整车开发术语表.html" class="active"><strong aria-hidden="true">13.</strong> 整车开发术语</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../misc/贡献者.html">贡献者</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTOSAR学习</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/dingtang2008/dingtang2008.github.io/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/dingtang2008/dingtang2008.github.io/edit/main/src/misc/整车开发术语表.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <table><thead><tr><th>英文缩写</th><th>英文全称</th><th>中文含义</th></tr></thead><tbody>
+<tr><td>100%  Cal</td><td>100% Calibration</td><td>100%标定</td></tr>
+<tr><td>100%  IVER</td><td>100% Integration Vehicle  Engineering Release</td><td>100%集成车工程发布</td></tr>
+<tr><td>100%  PPAP</td><td>All parts at full PPAP for  Vehicle program</td><td>为了整车项目，所有零件须完全通过PPAP</td></tr>
+<tr><td>100%  SVER</td><td>100% Structure Vehicle  Engineering Release</td><td>100%结构车工程发布</td></tr>
+<tr><td>65% Cal</td><td>65% Calibration</td><td>65%的动力总成标定</td></tr>
+<tr><td>80% Cal</td><td>80% Calibration</td><td>80%的动力总成标定</td></tr>
+<tr><td>8D</td><td>8 Disciplines</td><td>问题解决8步法</td></tr>
+<tr><td>A</td><td>Alpha</td><td>Alpha阶段（动力总成产品开发的一个阶段）</td></tr>
+<tr><td>A MRD</td><td>Alpha Material Required Date</td><td>Alpha样件需求日期</td></tr>
+<tr><td>A/T</td><td>Automatic Transmission</td><td>自动变速器</td></tr>
+<tr><td>A/T</td><td>Automatic Transmission</td><td>自动变速器</td></tr>
+<tr><td>AA</td><td>Architecture Approval</td><td>架构批准</td></tr>
+<tr><td>AAM</td><td>Alliance of Automobile  Manufactures</td><td>汽车制造商联盟</td></tr>
+<tr><td>ABS</td><td>Anti-lock Brake System or  Anti-Block Steering</td><td>防抱死制动系统</td></tr>
+<tr><td>AC</td><td>Architecture Confirmation</td><td>架构确认</td></tr>
+<tr><td>ACE</td><td>Assistant Chief Engineer</td><td>总工助理</td></tr>
+<tr><td>ACT</td><td>Activity</td><td>工艺路线</td></tr>
+<tr><td>ACT BOM</td><td>Assembly Component Tree BOM</td><td>总成件树形BOM</td></tr>
+<tr><td>AD</td><td>Alternatives Development</td><td>主题开发</td></tr>
+<tr><td>ADV</td><td>Analysis / Development /  Validation</td><td>分析/开发/验证</td></tr>
+<tr><td>ADV</td><td>Analysis, Development and  Validation</td><td>分析，开发和认证</td></tr>
+<tr><td>AE</td><td>Application Engineer</td><td>应用工程师</td></tr>
+<tr><td>AE</td><td>Application Engineer</td><td>应用工程师</td></tr>
+<tr><td>AEM</td><td>Assimilability evaluation method</td><td>可装配性评估方法</td></tr>
+<tr><td>AFI</td><td>Architecture Framing Initiation</td><td>架构框架启动</td></tr>
+<tr><td>AIAC</td><td>Automotive Industry Action Group</td><td>美国汽车工业行动集团</td></tr>
+<tr><td>ALY</td><td>Alloy</td><td>铝合金</td></tr>
+<tr><td>AMT</td><td>Automatic Machincal Transmission</td><td>机械式自动变速器</td></tr>
+<tr><td>ANSI</td><td>American National Standards  Institute</td><td>美国国家标准协会</td></tr>
+<tr><td>AP</td><td>Advanced Purchasing</td><td>提前采购</td></tr>
+<tr><td>AP</td><td>Assembly Plant</td><td>总装厂</td></tr>
+<tr><td>APB</td><td>Automotive Product Board</td><td>汽车产品委员会</td></tr>
+<tr><td>APD</td><td>Approved Product Description</td><td>批准的产品描述</td></tr>
+<tr><td>APE</td><td>Annual Program Execution</td><td>年度项目执行</td></tr>
+<tr><td>APEC</td><td>Asia Pacific Economic  Cooperation</td><td>亚太经济联盟</td></tr>
+<tr><td>APQP/CP</td><td>Advanced Product Quality  Planning and Control Plan</td><td>先期产品质量规划和控制计划</td></tr>
+<tr><td>APSB</td><td>Asia Pacific Strategy Board</td><td>亚太战略委员会（通用汽车的高层管理组织）</td></tr>
+<tr><td>AR</td><td>Appropriation Request</td><td>项目预算</td></tr>
+<tr><td>ARC</td><td>Architecture Refinement Complete</td><td>架构优化完成</td></tr>
+<tr><td>ASB</td><td>Automotive Strategy Board</td><td>汽车战略委员会（通用汽车的高层管理组织）</td></tr>
+<tr><td>ASC</td><td></td><td>经销商售后管理系统</td></tr>
+<tr><td>ASE</td><td>Automotive Safety Engineering</td><td>汽车安全工程</td></tr>
+<tr><td>ASE</td><td>Aftersales Engineering</td><td>售后工程</td></tr>
+<tr><td>ASN</td><td>Advanced shipping notice</td><td>发货通知单</td></tr>
+<tr><td>ASSI</td><td>Architecture Statement of  Strategic Intent</td><td>战略意向的架构陈述</td></tr>
+<tr><td>Assy  Check-in</td><td>Assembly Line Check-in</td><td>装配线进场</td></tr>
+<tr><td></td><td></td><td>启动现场安调</td></tr>
+<tr><td>Assy  PPAP</td><td>Assembly Line PPAP</td><td>装配线</td></tr>
+<tr><td></td><td></td><td>通过PPAP</td></tr>
+<tr><td>Assy  PPAP</td><td>Assembly Line PPAP</td><td>装配线通过PPAP</td></tr>
+<tr><td>Assy  PPV</td><td>Assembly Line Products and  Process Validation</td><td>装配线交付后的产品工艺验证</td></tr>
+<tr><td>Assy  PPV</td><td>Assembly Line Production and  Process Validation</td><td>装配线交付后产品工艺验证</td></tr>
+<tr><td>Assy  Run-Off</td><td>Assembly Line Run-Off</td><td>装配线试装</td></tr>
+<tr><td></td><td></td><td>交样日期</td></tr>
+<tr><td>Assy  Run-off</td><td>Assembly Line RUN-Off</td><td>装配线整线打通，启动试装，允许手工装配</td></tr>
+<tr><td>Assy  Run-off MRD</td><td>Assembly Line RUN-Off Material  Requied Date</td><td>装配线</td></tr>
+<tr><td>ATC</td><td>Auto Temperature Controller</td><td>自动空调控制器</td></tr>
+<tr><td>ATF</td><td>Automatic Transmission Fluid</td><td>自动变速箱油</td></tr>
+<tr><td>ATT</td><td>Attachment</td><td>附件</td></tr>
+<tr><td>ATT</td><td>Actual takt time</td><td>实际单件工时</td></tr>
+<tr><td>AVD</td><td>Advanced Vehicle Development</td><td>先期车辆开发</td></tr>
+<tr><td>AVDC</td><td>Advance Vehicle Development  Center</td><td>先期车辆开发中心</td></tr>
+<tr><td>AVD-LT</td><td>Advanced Vehicle  Development-Leadership Team</td><td>前期整车开发-领导小组</td></tr>
+<tr><td>AVDP</td><td>Advanced Vehicle Development  Process (Time between DSI and VPI)</td><td>先期车辆开发流程（在DSI与VPI之间）</td></tr>
+<tr><td>AVPM</td><td>Advanced Vehicle Planning  Manager</td><td>先期车辆计划经理</td></tr>
+<tr><td>B</td><td>Beta</td><td>Beta阶段（动力总成产品开发的一个阶段）</td></tr>
+<tr><td>B</td><td>Build</td><td>制造</td></tr>
+<tr><td>B MRD</td><td>Beta Material Required Date</td><td>Beta样件需求日期</td></tr>
+<tr><td>B+U</td><td>Building and Utility</td><td>土建公用</td></tr>
+<tr><td>BAD</td><td>Build Authorization Document</td><td>试制授权文档</td></tr>
+<tr><td>BC</td><td>Business Case</td><td>业务计划</td></tr>
+<tr><td>BCM</td><td>Body Control Module</td><td>车身控制器</td></tr>
+<tr><td>BDC</td><td>Body Distributon Central</td><td>车辆调配中心</td></tr>
+<tr><td>BESC</td><td>Base Engine Steering Committee</td><td>发动机总成战略转向委员会</td></tr>
+<tr><td>BIQ</td><td>Building in Quality</td><td>制造质量</td></tr>
+<tr><td>BIR</td><td>Prototype Build Issue Report</td><td>试制问题报告</td></tr>
+<tr><td>BIR</td><td>Build Issues Resolution</td><td>试制问题</td></tr>
+<tr><td>BIR</td><td>Build Incident Report</td><td>装车问题报告</td></tr>
+<tr><td>BIR</td><td>Bulding issue report</td><td>造车问题报告</td></tr>
+<tr><td>BIW</td><td>Body-In-White</td><td>白车身</td></tr>
+<tr><td>BIW</td><td>Body in White</td><td>白车身</td></tr>
+<tr><td>BOD</td><td>Bill of Design</td><td>设计清单</td></tr>
+<tr><td>BOE</td><td>Bill of Equipment</td><td>设备清单</td></tr>
+<tr><td>BOM</td><td>Bill of Material</td><td>物料清单</td></tr>
+<tr><td>BOM</td><td>Bill of Material</td><td>物料清单</td></tr>
+<tr><td>BOM</td><td>Bill of Material</td><td>物料清单</td></tr>
+<tr><td>BOM</td><td>Bill Of Material</td><td>物料清单</td></tr>
+<tr><td>BOM</td><td>Bill Of Material</td><td>物料清单</td></tr>
+<tr><td>BOM</td><td>Bill of Material</td><td>物料清单</td></tr>
+<tr><td>BOP</td><td>Bill of Process</td><td>工艺清单</td></tr>
+<tr><td>BOP</td><td>Bill Of Process</td><td>工艺清单</td></tr>
+<tr><td>BP</td><td>Break Point</td><td>断点</td></tr>
+<tr><td>BPD</td><td>Business Plant Deployment</td><td>业务计划实施</td></tr>
+<tr><td>BPP</td><td>Best people practices</td><td>最佳人员准则</td></tr>
+<tr><td>BPR</td><td>Business plan recompose</td><td>业务流程重组</td></tr>
+<tr><td>BS</td><td>Body Shop</td><td>车身车间</td></tr>
+<tr><td>BSD</td><td>Build Site Direction</td><td>试制现场指导书</td></tr>
+<tr><td>BUFFER</td><td>Buffer</td><td>线边缓存区</td></tr>
+<tr><td>C/CAP</td><td>Construction/Conversion and  Acceleration Plan</td><td>土建/改造和生产提速计划</td></tr>
+<tr><td>CAB</td><td>Change Approval Board</td><td>更改审批会</td></tr>
+<tr><td>CAC</td><td></td><td>服务热线专员</td></tr>
+<tr><td>CAFE</td><td>Corporate Average Fuel Economy</td><td>公司平均油耗</td></tr>
+<tr><td>Cal</td><td>Calibration</td><td>动力总成标定</td></tr>
+<tr><td>CARE</td><td>Customer acceptance review  evaluation</td><td>整车报交检查</td></tr>
+<tr><td>CARE</td><td>Customer Acceptance &amp; Review  Evaluation</td><td>用户接受度和审查评估</td></tr>
+<tr><td>CC</td><td>Concept Confirmation</td><td>验证概念</td></tr>
+<tr><td>CC</td><td>Consolidation Center</td><td>集散中心</td></tr>
+<tr><td>CC</td><td>Confirmation Clinic</td><td>确认临床</td></tr>
+<tr><td>Cert  LSO</td><td>Certification Lift Stop Order</td><td>通过排放认证通知</td></tr>
+<tr><td>CET</td><td>Cold Environment Test</td><td>寒区试验</td></tr>
+<tr><td>CH</td><td>Chassis Department</td><td>底盘部</td></tr>
+<tr><td>CI</td><td>Concept Initiation</td><td>提出项目概念</td></tr>
+<tr><td>CIM</td><td>Customer Interface Manager</td><td>客户服务经理</td></tr>
+<tr><td>CIP</td><td>Continue Improve Process</td><td>持续改进</td></tr>
+<tr><td>CIP</td><td>Continue Improve Process</td><td>持续改进</td></tr>
+<tr><td>CIT</td><td>Continuous Improvement Team</td><td>不断改进小组</td></tr>
+<tr><td>CIT</td><td>Compartment Integration Team</td><td>车厢集成小组</td></tr>
+<tr><td>CMC</td><td>Container Management Center</td><td>空箱管理中心</td></tr>
+<tr><td>CME</td><td>Change Management Engineer</td><td>更改管理工程师</td></tr>
+<tr><td>Cmk</td><td>N/A</td><td>临界机器能力指数</td></tr>
+<tr><td>Cmk</td><td>Capability Machine Index</td><td>机器设备能力</td></tr>
+<tr><td>CMM</td><td></td><td>三坐标测量</td></tr>
+<tr><td>C-NCAP</td><td>China New CAR Assessment Process</td><td>中国标准新车评估体系</td></tr>
+<tr><td>COC</td><td>Centre of Competence</td><td>能力中心</td></tr>
+<tr><td>COE</td><td>Center of Expertise</td><td>经验总结中心</td></tr>
+<tr><td>CP</td><td>Control Plan</td><td>控制计划</td></tr>
+<tr><td>CPIT</td><td>Current Product Improvement Team</td><td>现有产品改进小组</td></tr>
+<tr><td>Cpk</td><td>Complex Process Capability</td><td>过程能力指数</td></tr>
+<tr><td>Cpk</td><td>Process Capability Index</td><td>稳定过程的能力指数</td></tr>
+<tr><td>CPQE</td><td>Current Product Quality Engineer</td><td>现有产品质量工程师</td></tr>
+<tr><td>CPV</td><td>Cost per Vehicle</td><td>单车成本</td></tr>
+<tr><td>CR/DN</td><td>Change Request / Decision Notice</td><td>更改决议</td></tr>
+<tr><td>CR/DN</td><td>Change Request/Decision Notice</td><td>变更申请/决议通知</td></tr>
+<tr><td>CRB</td><td>Change Review Board</td><td>更改评审小组</td></tr>
+<tr><td>CS</td><td>Contract Signing</td><td>动力总成签署项目合同</td></tr>
+<tr><td>CS</td><td>Contract Signing</td><td>合同签订</td></tr>
+<tr><td>CS1</td><td>Controled Shipping 1</td><td>一级受控发运</td></tr>
+<tr><td>CS2</td><td>Controled Shipping 2</td><td>二级受控发运</td></tr>
+<tr><td>CSC</td><td>Controls Steering Committee</td><td>控制模块战略转向委员会</td></tr>
+<tr><td>CSI</td><td>Customer Satisfaction Index</td><td>用户满意度指标</td></tr>
+<tr><td>CSI</td><td>Customer Satisfaction Index</td><td>售后满意度</td></tr>
+<tr><td>CSN</td><td>Current Sequence Number</td><td>流水号</td></tr>
+<tr><td>CSO</td><td>Contract Sign-Off</td><td>合同签署</td></tr>
+<tr><td>CSO</td><td>Contract Sign-Off (VDP)</td><td>整车签署项目合同（VDP术语）</td></tr>
+<tr><td>CSO HC</td><td>Contract Sign-Off Health Check</td><td>合同签署健康检查</td></tr>
+<tr><td>CSO HC</td><td>Contract Sign-Off Health Check</td><td>合同签署健康检查</td></tr>
+<tr><td>CT</td><td>Cycle Time</td><td>制程周期</td></tr>
+<tr><td>CT</td><td>Cycle time</td><td>周期时间</td></tr>
+<tr><td>CT</td><td>Creativity Teams</td><td>创造性工作小组</td></tr>
+<tr><td>CT</td><td>Critical Test</td><td>关键试验</td></tr>
+<tr><td>CTS</td><td>Component Technical  Specification</td><td>零部件技术标准</td></tr>
+<tr><td>CTT</td><td>Common Timing Template</td><td>标准2级进度模板</td></tr>
+<tr><td>CVER</td><td>Concept Vehicle Engineering  Release</td><td>概念车工程发布</td></tr>
+<tr><td>CVER LL</td><td>Concept Vehicle Engineering  Release Long Lead</td><td>概念车工程发布－－长周期</td></tr>
+<tr><td>CVIS</td><td>Completed Vehicle Inspection  Standards</td><td>整车检验标准</td></tr>
+<tr><td>CVQC</td><td>Completed vehicle quality ceter</td><td>整车质量中心</td></tr>
+<tr><td>CVQCB</td><td>Completed vehicle quality ceter  board</td><td>整车质量目视板</td></tr>
+<tr><td>CVT</td><td>Continuously Variable  Transmission</td><td>无级变速器</td></tr>
+<tr><td>D.Q.R</td><td></td><td>合格率概况</td></tr>
+<tr><td>DAS</td><td>Design &amp; Analysis Section</td><td>设计分析科</td></tr>
+<tr><td>DC</td><td>Deliver Charter</td><td>递交项目章程</td></tr>
+<tr><td>DCN</td><td>Design Change Notice</td><td>设计更改通知</td></tr>
+<tr><td>DCN</td><td>Design Change Notice</td><td>设计更改通知</td></tr>
+<tr><td>DCP</td><td>Dimension Control Plan</td><td>尺寸控制计划</td></tr>
+<tr><td>DCS</td><td>Design Concept Sheet</td><td>概念设计表</td></tr>
+<tr><td>DCT</td><td>Double Clutch Transmission</td><td>双离合器变速箱</td></tr>
+<tr><td>DD</td><td>Direct Delivery</td><td>直接投线</td></tr>
+<tr><td>DDSP</td><td>Driver Door Switch Pack</td><td>驾驶席门控开关</td></tr>
+<tr><td>DEI</td><td>Die Engineering Integration</td><td>模具工程集成</td></tr>
+<tr><td>DFA</td><td>Design for Assembly</td><td>装配工艺性设计</td></tr>
+<tr><td>DFM</td><td>Design for Manufacturability</td><td>制造工艺性设计</td></tr>
+<tr><td>DFMEA</td><td>Design failure mode and effects  analysis</td><td>设计失效模式和效果分析</td></tr>
+<tr><td>DFMEA</td><td>Design FMEA</td><td>设计失效模式分析</td></tr>
+<tr><td>DIFF</td><td>Differential</td><td>差速器</td></tr>
+<tr><td>DL 3b</td><td>Design Level 3b</td><td>设计阶段3b</td></tr>
+<tr><td>DMS</td><td>Dealer Manage System</td><td>经销商管理系统</td></tr>
+<tr><td>DOL</td><td>Dealer On Line</td><td>经销商在线系统</td></tr>
+<tr><td>DP</td><td>Demand Plan</td><td>需求计划</td></tr>
+<tr><td>DPV</td><td>Defects per vehicle</td><td>单车缺陷数</td></tr>
+<tr><td>DPV</td><td>Defect per Vehicle</td><td>单车缺陷数</td></tr>
+<tr><td>DQ&amp;V</td><td>Design Quality &amp; Validation</td><td>设计质量和验证</td></tr>
+<tr><td>DR</td><td>Direct run</td><td>直接通过率</td></tr>
+<tr><td>DRC</td><td>Design Review Committee</td><td>设计评审委员会</td></tr>
+<tr><td>DRE</td><td>Design Responsible Engineer</td><td>设计和发布工程师</td></tr>
+<tr><td>DRE</td><td>Design Release Engineer</td><td>设计发布工程师</td></tr>
+<tr><td>DRE</td><td>Design release engineer</td><td>设计发布工程师</td></tr>
+<tr><td>DRL</td><td>Direct run loss</td><td>直接通过损失率</td></tr>
+<tr><td>Drop  Off</td><td>Drop Off</td><td>停产</td></tr>
+<tr><td>DS44</td><td>HIGH SPEED DURABILITY TEST</td><td>高速耐久试验（MGRES 标准）</td></tr>
+<tr><td>DSG</td><td>Direct shift gearbox</td><td>双离合器变速箱</td></tr>
+<tr><td>DSI</td><td>Document of Strategic Intent</td><td>战略意向书</td></tr>
+<tr><td>DSM</td><td>Driver Seat Module</td><td>驾驶席座椅控制模块</td></tr>
+<tr><td>DSO</td><td>Design Sign Off</td><td>设计签署</td></tr>
+<tr><td>DTA</td><td>Design Theme Alternatives</td><td>设计主题选项</td></tr>
+<tr><td>DTC</td><td>Diagnostic Trouble Code</td><td>诊断故障码</td></tr>
+<tr><td>DV</td><td>Design Validation</td><td>设计验证</td></tr>
+<tr><td>DV</td><td>Design Validation</td><td>产品设计验证</td></tr>
+<tr><td>DVP</td><td>Design Validation Plan</td><td>设计验证计划</td></tr>
+<tr><td>DVT</td><td>Dynamic vehicle test</td><td>整车综合动态测试</td></tr>
+<tr><td>E/T/C</td><td>Engine/Transmission/Controller</td><td>发动机/变速器/控制模块</td></tr>
+<tr><td>EBA</td><td>Emergency Brake Assistant</td><td>紧急制动辅助系统</td></tr>
+<tr><td>EBD</td><td>Electronical Brake Distribute</td><td>电子制动力分配系统</td></tr>
+<tr><td>EBOM</td><td>Engineering BOM</td><td>工程BOM</td></tr>
+<tr><td>EC</td><td>Embedded Controller</td><td>控制模块</td></tr>
+<tr><td>ECC</td><td>ERP Central Component</td><td>ERP核心组建</td></tr>
+<tr><td>ECR</td><td>Engineering Change Request</td><td>工程更改请求</td></tr>
+<tr><td>ECR</td><td>Engineering Change Request</td><td>工程更改请求</td></tr>
+<tr><td>ECR</td><td>Engineering Change Request</td><td>工程更改申请</td></tr>
+<tr><td>ECR</td><td>Engineering Change Request</td><td>工程项目变更申请</td></tr>
+<tr><td>ECS</td><td>Engineering Change Summary</td><td>工程变更摘要</td></tr>
+<tr><td>ECT</td><td>Emission Control System</td><td>电子控制自动变速器</td></tr>
+<tr><td>EDS</td><td>Electronic Data Systems</td><td>电子数据系统</td></tr>
+<tr><td>EEVC</td><td>European Enhanced Vehicle-Safety  Committee</td><td>欧洲提高车辆安全性委员会</td></tr>
+<tr><td>EFEO</td><td>Emissions &amp; Fuel Economy</td><td>排放和燃料经济</td></tr>
+<tr><td>EGM</td><td>Engineering Group Manager</td><td>产品工程小组经理</td></tr>
+<tr><td>EI&amp;S</td><td>Electronics Integration &amp;  Software</td><td>电器零件集成和软件</td></tr>
+<tr><td>ELV</td><td>End of life vehicle</td><td>整车寿命结束</td></tr>
+<tr><td>EMlS</td><td>Emission</td><td>排放</td></tr>
+<tr><td>EMS</td><td>Engine Management System</td><td>发动机管理系统</td></tr>
+<tr><td>ENB</td><td>Build-Test Section</td><td>试制试验科</td></tr>
+<tr><td>E-NCAP</td><td>Euro New Car Assessment Process</td><td>欧洲标准新车评估体系</td></tr>
+<tr><td>ENG</td><td>Engineer</td><td>工程师</td></tr>
+<tr><td>EOA</td><td>End of Acceleration</td><td>生产提速的完成</td></tr>
+<tr><td>EOLT</td><td>End of Line Test</td><td>生产线试验结束</td></tr>
+<tr><td>EP</td><td>Engineering Prototype</td><td>工程样车（件）</td></tr>
+<tr><td>EPA</td><td>Environmental Protection Agency</td><td>环境保护厅</td></tr>
+<tr><td>EPC</td><td>Engineering Program Committee</td><td>工程项目委员会</td></tr>
+<tr><td>EPN</td><td>Engineering Project Number</td><td>工程项目数目</td></tr>
+<tr><td>ERD</td><td>Early Requirement Document</td><td>早期的要求文件</td></tr>
+<tr><td>ESB</td><td>European Strategy Board</td><td>欧洲战略委员会（通用汽车的高层管理组织）</td></tr>
+<tr><td>ESO</td><td>Engineering Sign Off</td><td>发动机整机</td></tr>
+<tr><td>工程签署</td><td></td><td></td></tr>
+<tr><td>ESO</td><td>Engineering Sign Off</td><td>工程签署</td></tr>
+<tr><td>ESO</td><td>Engineering Sign-off</td><td>工程签署</td></tr>
+<tr><td>ET</td><td>Engineering Technology</td><td>工程技术</td></tr>
+<tr><td>EV</td><td>Engineering Vehicle</td><td>工程样车</td></tr>
+<tr><td>EWO</td><td>Engineering Work Order</td><td>工程工作指令</td></tr>
+<tr><td>EWO</td><td>Engineering Work Order</td><td>工程更改号</td></tr>
+<tr><td>EWO</td><td>Engineering workorder</td><td>工程更改流程</td></tr>
+<tr><td>Exp Cal</td><td>Experimental Calibration</td><td>尝试性标定</td></tr>
+<tr><td>FA</td><td>Final Approval</td><td>批准正式生产</td></tr>
+<tr><td>FAC</td><td></td><td>集团销售经理</td></tr>
+<tr><td>FATG</td><td>Final Approval to Grain</td><td>生产最终批准</td></tr>
+<tr><td>FBIW</td><td>First Body in White Complete</td><td>第一轮白车身完成</td></tr>
+<tr><td>FE</td><td>Functional Evaluation</td><td>功能评估</td></tr>
+<tr><td>FE LSO</td><td>Fuel Economy Label Lift Stop  Order</td><td>通过油耗认证的通知</td></tr>
+<tr><td>FIVC</td><td>First Integration Vehicle  Complete</td><td>第1辆集成车制造完毕</td></tr>
+<tr><td>FIVC</td><td>First Integration Vehicle  Complete</td><td>第一轮集成车完成</td></tr>
+<tr><td>FLO</td><td>Factory Layout</td><td>工厂布局</td></tr>
+<tr><td>FM</td><td></td><td>功能尺寸</td></tr>
+<tr><td>FM</td><td>Finance Manager</td><td>财务经理</td></tr>
+<tr><td>FMC</td><td>First Mule Complete</td><td>第一轮骡子车完成</td></tr>
+<tr><td>FMC</td><td></td><td>区域售后支持</td></tr>
+<tr><td>FMEA</td><td>Failure model effectiveness  analysis</td><td>失效模式分析</td></tr>
+<tr><td>FMEA</td><td>Failure model effectiveness  analysis</td><td>失效模式分析</td></tr>
+<tr><td>FMEA</td><td>Failure Mode and Effects  Analysis</td><td>潜在失效模式及后果分析</td></tr>
+<tr><td>FMEA</td><td>Failure mode and effects  analysis</td><td>失效模式和后果分析</td></tr>
+<tr><td>FMEA</td><td>Failure Mode and Effect Analysis</td><td>失效模式和影响分析</td></tr>
+<tr><td>FMS</td><td>Flexible manufacturing systems</td><td>柔性制造系统</td></tr>
+<tr><td>FMVSS</td><td>Federal Motor Vehicle Safety  Standards</td><td>联邦汽车安全标准</td></tr>
+<tr><td>FPPV  BIW</td><td>First Product/Process Body in  White Complete</td><td>第一轮产品/工艺白车身完成</td></tr>
+<tr><td>FPPVC</td><td>First Product/Process Validation  Vehicle Complete</td><td>第一轮产品/工艺验证车辆完成</td></tr>
+<tr><td>FPS</td><td>Fixed Point Stop</td><td>固定停止位置</td></tr>
+<tr><td>FTC</td><td>First Time Capability</td><td>首次能力</td></tr>
+<tr><td>FTP/FTQ</td><td>First time pass/quality</td><td>一次通过合格率</td></tr>
+<tr><td>FTQ</td><td>First time quality</td><td>下线合格率</td></tr>
+<tr><td>FWD</td><td>Four Wheel Drive</td><td>四轮驱动</td></tr>
+<tr><td>G</td><td>Gamma</td><td>Gamma阶段（动力总成产品开发的一个阶段）</td></tr>
+<tr><td>G MRD</td><td>Gamma Material Required Date</td><td>Gamma样件需求日期</td></tr>
+<tr><td>G/L</td><td>Group leader</td><td>工段长</td></tr>
+<tr><td>GA</td><td>General Assembly</td><td>总装</td></tr>
+<tr><td>GA</td><td>General Assembly</td><td>总装</td></tr>
+<tr><td>GADT</td><td>Global Architecture Development  Team</td><td>全球架构开发小组</td></tr>
+<tr><td>GBOM</td><td>Global Bill of Material</td><td>全球物料清单</td></tr>
+<tr><td>GMNA</td><td>General Motors North America</td><td>通用汽车北美分部</td></tr>
+<tr><td>GMPT</td><td>General Motors Powertrain</td><td>通用汽车动力总成分部</td></tr>
+<tr><td>GPDC</td><td>Global Product Development  Council</td><td>全球产品开发理事会</td></tr>
+<tr><td>GPDP</td><td>Global Powertrain Development  Process</td><td>全球动力总成开发流程</td></tr>
+<tr><td>GPDS</td><td>Global Product Description  System</td><td>全球产品管理系统</td></tr>
+<tr><td>GSD</td><td>Global Segment Director</td><td>全球细分主管</td></tr>
+<tr><td>GSS</td><td>Global Sales and Service</td><td>全球销售和服务</td></tr>
+<tr><td>GVDP</td><td>Global Vehicle Development  Process</td><td>全球整车开发流程</td></tr>
+<tr><td>GVDP</td><td>Global Vehicle Development  Process</td><td>整车开发流程</td></tr>
+<tr><td>GVDP</td><td>Global Vehicle Development  Process</td><td>整车开发流程</td></tr>
+<tr><td>GVDP</td><td>Global Vehicle Development  Process</td><td>全球汽车开发流程</td></tr>
+<tr><td>GVDP</td><td>Global Vehicle Development  Process</td><td>全球整车开发流程</td></tr>
+<tr><td>GVDP</td><td>Global Vehicle Development  Process</td><td>整车开发流程</td></tr>
+<tr><td>GVLE</td><td>Global Vehicle Line Executive</td><td>整车平台执行</td></tr>
+<tr><td>GVW</td><td>Gross Vehicle Weight</td><td>车辆总重</td></tr>
+<tr><td>GW</td><td>Gateway</td><td>网关</td></tr>
+<tr><td>HET</td><td>Hot Environment Test</td><td>热带试验</td></tr>
+<tr><td>HRC</td><td>Hardware Release Center</td><td>硬件发布中心</td></tr>
+<tr><td>ICD</td><td>Interface Control Document</td><td>接口控制文件</td></tr>
+<tr><td>IDR</td><td>Initial Data Release</td><td>初始数据发布</td></tr>
+<tr><td>IDSR</td><td>Integration Driven Subsystem  Requirement</td><td>集成驱动子系统要求</td></tr>
+<tr><td>ILP</td><td>Inbound Logistic Planning</td><td>入厂物流规划</td></tr>
+<tr><td>IMES</td><td>Integration Manufacturing  Executive System</td><td>生产执行系统</td></tr>
+<tr><td>Initial  Cal</td><td>Initial Calibration</td><td>初始标定</td></tr>
+<tr><td>IOM</td><td>Inspection operator method</td><td>检验操作方法</td></tr>
+<tr><td>IOS</td><td>Inspection operator summary</td><td>检验操作概要</td></tr>
+<tr><td>IPPE</td><td>integrated Product and Process  Engineering</td><td>集成产品与工艺工程</td></tr>
+<tr><td>IPTV</td><td>Incident per Thousand Vehicles</td><td>每千辆车的故障率</td></tr>
+<tr><td>IPTV</td><td>Incidents Per Thousand Vehicles</td><td>每一千台车事故率</td></tr>
+<tr><td>IPTV</td><td>Incidents Per Thousand Vehicles</td><td>每千辆车的故障率</td></tr>
+<tr><td>IPTV</td><td>Incidents Per Thousand Vehicles</td><td>千辆车故障率</td></tr>
+<tr><td>IR</td><td>Incident Report</td><td>事故报告</td></tr>
+<tr><td>IRP</td><td>Issue Resolution Process</td><td>问题解决流程</td></tr>
+<tr><td>IRR</td><td>Internal Rate of Return</td><td>内含报酬率</td></tr>
+<tr><td>ISO</td><td>International Standard  Organization</td><td>国际标准化组织</td></tr>
+<tr><td>IV</td><td>Integration Vehicle</td><td>集成车</td></tr>
+<tr><td>IV MRD</td><td>Integration Vehicle Material  Required Date</td><td>集成车的物料需求日期</td></tr>
+<tr><td>IVBR</td><td>Integration Vehicle Build  Readiness Review</td><td>集成车制造准备评审</td></tr>
+<tr><td>IVER</td><td>Integration Vehicle Engineering  Release</td><td>集成车工程发布</td></tr>
+<tr><td>JIS</td><td>Just In Sequence</td><td>排序供货</td></tr>
+<tr><td>JIS</td><td>Just In Sort</td><td>供应商排序供货方式</td></tr>
+<tr><td>JIS</td><td>Job Instruction Sheet</td><td>岗位指导书</td></tr>
+<tr><td>JIT</td><td>Just In Time</td><td>及时供货</td></tr>
+<tr><td>JIT</td><td>Just In Time</td><td>供应商及时供货方式</td></tr>
+<tr><td>JPH</td><td>Job per Hour</td><td>生产节拍</td></tr>
+<tr><td>JRS</td><td>Joint Ride Session</td><td>联合评审</td></tr>
+<tr><td>JSC</td><td></td><td>生产采购委员会</td></tr>
+<tr><td>JSC-GP</td><td>Joint Sourcing Committee -  General purchase</td><td>联合采购委员会-一般采购</td></tr>
+<tr><td>Kcc</td><td>Key Control Characteristic</td><td>关键过程控制特性</td></tr>
+<tr><td>KCC</td><td>Key Control Character</td><td>关键控制特性</td></tr>
+<tr><td>KCDS</td><td>Key Characteristic Designation  System</td><td>产品关键特性定义系统</td></tr>
+<tr><td>KO</td><td>Kick-Off</td><td>启动</td></tr>
+<tr><td>Kpc</td><td>Key Product Characteristic</td><td>关键产品特性</td></tr>
+<tr><td>KPC</td><td>Key Product Characteristic</td><td>关键产品特性</td></tr>
+<tr><td>KPC</td><td>Key product characteristic</td><td>主要产品特性</td></tr>
+<tr><td>KPC</td><td>Key product characteristic</td><td>主要产品特性</td></tr>
+<tr><td>KPC</td><td>Key process control</td><td>关键过程控制</td></tr>
+<tr><td>KPC</td><td>Key process control</td><td>关键过程控制</td></tr>
+<tr><td>LAAMSB</td><td>Latin America, Africa, Middle  East Strategy Board</td><td>通用的拉美，非洲，中东战略委员会</td></tr>
+<tr><td>LCL</td><td>Lower Control Limit</td><td>管制下限</td></tr>
+<tr><td>LCS</td><td>Logistic Confirmation Sheet</td><td>物流确认单</td></tr>
+<tr><td>LL</td><td>Learning Loop</td><td>学习周期</td></tr>
+<tr><td>LL</td><td>Long Lead</td><td>长周期</td></tr>
+<tr><td>LLPR</td><td>Long Lead Production Release</td><td>长周期的产品发布</td></tr>
+<tr><td>LM</td><td>Launch Manager</td><td>启动经理</td></tr>
+<tr><td>LOU</td><td>Line of Usage BOM</td><td>整车BOM行</td></tr>
+<tr><td>LSL</td><td>Lower Specification Limit</td><td>规格下限</td></tr>
+<tr><td>LSP</td><td>Lean sales and marketing  prograne</td><td>精宜营销</td></tr>
+<tr><td>LTR</td><td>Launch Team Release</td><td>启动小组释放</td></tr>
+<tr><td>LWO</td><td>Logistic Work Order</td><td>物流属性更改号</td></tr>
+<tr><td>M+E</td><td>Machine &amp; Equipment</td><td>机器设备</td></tr>
+<tr><td>MAC</td><td></td><td>区域经理</td></tr>
+<tr><td>MBOM</td><td>Manufacturing BOM</td><td>制造BOM</td></tr>
+<tr><td>MDS</td><td>Materiel Data Sheet</td><td>物料数据单</td></tr>
+<tr><td>ME</td><td>Manufacture Engineer</td><td>样车试制工程师或生产线制造工程师</td></tr>
+<tr><td>ME</td><td>Machine and Electronic</td><td>电器设备</td></tr>
+<tr><td>ME</td><td>Manufacturing Engineering</td><td>制造工程</td></tr>
+<tr><td>ME</td><td>Manufacturing Engineering</td><td>制造工程</td></tr>
+<tr><td>MEC</td><td></td><td>区域市场支持</td></tr>
+<tr><td>MEIS</td><td>Manufacturing Engineering Info  System</td><td>制造工程信息系统</td></tr>
+<tr><td>MES</td><td>Manufacturing Execution System</td><td>制造执行系统</td></tr>
+<tr><td>MES</td><td>Manufacturing Execution System</td><td>制造执行系统</td></tr>
+<tr><td>MFG  Site Dec</td><td>Manufacturing Site Decision</td><td>确定生产厂址</td></tr>
+<tr><td>MIC</td><td>Marketing Information Center</td><td>市场信息中心</td></tr>
+<tr><td>MILKRUN</td><td>Milkrun</td><td>循环取货</td></tr>
+<tr><td>MKT</td><td>Marketing</td><td>营销</td></tr>
+<tr><td>MMR</td><td>Manufacturable Math Release</td><td>制造数模发布</td></tr>
+<tr><td>MO</td><td>Manufacturing Operations</td><td>生产管理部门</td></tr>
+<tr><td>MP OTS  100%</td><td>100% Made Parts in OTS</td><td>100%自制件达到OTS状态</td></tr>
+<tr><td>MP OTS  100％</td><td>100％ Made Parts in OTS</td><td>100%自制件达到OTS状态</td></tr>
+<tr><td>MP  PPAP</td><td>Made Parts PPAP</td><td>自制件</td></tr>
+<tr><td>通过PPAP</td><td></td><td></td></tr>
+<tr><td>MP PPAP</td><td>Made Parts PPAP</td><td>自制件通过PPAP</td></tr>
+<tr><td>MP PPV</td><td>Made Parts Production and  Process Validation</td><td>自制件生产线交付后的产品工艺验证</td></tr>
+<tr><td>MP PPV</td><td>Made Parts Production and  Process Validation</td><td>自制件生产线交付后的产品工艺验证</td></tr>
+<tr><td>MPS</td><td>Master Planning System</td><td>主计划系统</td></tr>
+<tr><td>MPV</td><td>Multi-Purpose Vehicle</td><td>多用途轿车</td></tr>
+<tr><td>MR</td><td>Manufacturing Requirements</td><td>制造要求</td></tr>
+<tr><td>MRD</td><td>Material Required Date</td><td>交样日期</td></tr>
+<tr><td>MRD</td><td>Material Requirement Date</td><td>物料需求日期</td></tr>
+<tr><td>MRD</td><td>Material Required Date (for  physical builds)</td><td>物料需求日期（用于制造样机）</td></tr>
+<tr><td>MRD</td><td>Math Required Date (for virtual  builds)</td><td>数模需求日期（用于虚拟制造）</td></tr>
+<tr><td>MRE</td><td>Manufacturing Responsible  Engineer</td><td>制造工程师</td></tr>
+<tr><td>MS</td><td>Manufacturing Studies</td><td>制造车间</td></tr>
+<tr><td>MSA</td><td>Measurement System Analysis</td><td>测量系统分析手册</td></tr>
+<tr><td>MSA</td><td>Measurement System Analysis</td><td>测量系统分析</td></tr>
+<tr><td>MSA</td><td>Measure System Analyse</td><td>测量系统分析</td></tr>
+<tr><td>MSA</td><td>Measurement system analysis</td><td>测量系统分析</td></tr>
+<tr><td>MSS</td><td>Market Segment Specification</td><td>市场细分规范</td></tr>
+<tr><td>MSS</td><td></td><td>区域销售支持</td></tr>
+<tr><td>MSS</td><td>Market Segment Specification</td><td>市场分割规范</td></tr>
+<tr><td>MT</td><td>Manual Transmission</td><td>手动变速箱</td></tr>
+<tr><td>MT&amp;E</td><td>Machines, Tools and Equipment</td><td>机床，工装和设备</td></tr>
+<tr><td>MTS</td><td>Manufacturing Technical  Specification</td><td>制造技术标准</td></tr>
+<tr><td>MVB</td><td>Manufacturing Validation Build</td><td>用于认证制造工艺的整车制造</td></tr>
+<tr><td>MVB</td><td>Manufacturing Validation Build</td><td>制造验证造车</td></tr>
+<tr><td>MVB (ns)</td><td>Manufacturing Validation Build  (non saleable)</td><td>用于认证制造工艺的整车制造（不可销售的）</td></tr>
+<tr><td>MVB (s)</td><td>Manufacturing Validation Build  (saleable)</td><td>用于认证制造工艺的整车制造（可销售的）</td></tr>
+<tr><td>MVBns</td><td>Manufacturing Validation Build  Non-Salable</td><td>非销售制造验证造车</td></tr>
+<tr><td>MVBs</td><td>Manufacturing Validation Build  Salable</td><td>销售制造验证造车</td></tr>
+<tr><td>MVSS</td><td>Motor Vehicle Safety Standards</td><td>汽车安全标准</td></tr>
+<tr><td>MWO</td><td>Manufacture Work Order</td><td>制造属性更改号</td></tr>
+<tr><td>MY</td><td>Model Year</td><td>年度款</td></tr>
+<tr><td>MYM</td><td>Model Year Manager</td><td>车型年经理</td></tr>
+<tr><td>NAO</td><td>North American Operations</td><td>通用的北美分部</td></tr>
+<tr><td>NEO</td><td>New Employee Orientation</td><td>新员工培训</td></tr>
+<tr><td>NOA</td><td>Notice of Authorization</td><td>授权书</td></tr>
+<tr><td>NOD</td><td>Notice of Decision</td><td>决议</td></tr>
+<tr><td>NOD</td><td>Notice of Decision</td><td>决议通知</td></tr>
+<tr><td>NPV</td><td>Net Present Value</td><td>净现值</td></tr>
+<tr><td>NRD</td><td>Normal Road</td><td>一般公路</td></tr>
+<tr><td>NSB</td><td>North American Strategy Board</td><td>通用的北美传略委员会（通用的高层管理组织）</td></tr>
+<tr><td>OBD</td><td>On Board Diagnostics</td><td>车载诊断系统</td></tr>
+<tr><td>OEM</td><td>Original Equipment manufacturers</td><td>原始设备制造商（主机厂）</td></tr>
+<tr><td>OEM  Run-Off</td><td>Original Equipment  Manufacturer Run-Off</td><td>零件供应商</td></tr>
+<tr><td>工装设备具备试生产条件</td><td></td><td></td></tr>
+<tr><td>OEM  Run-off</td><td>Original Equipment Manufacturer  Run-off</td><td>零件供应商工装设备具备试生产条件</td></tr>
+<tr><td>OJT</td><td>On Job Training</td><td>在岗培训</td></tr>
+<tr><td>OPO</td><td>Office of Product Operations</td><td>产品高层管理组织</td></tr>
+<tr><td>ORS</td><td>Occupant Restraint System</td><td>乘员约束系统</td></tr>
+<tr><td>OT</td><td>Overtime</td><td>加班</td></tr>
+<tr><td>OTD</td><td>Order to Delivery</td><td>订单到货时间</td></tr>
+<tr><td>OTP</td><td>On Time Performance</td><td>及时性能</td></tr>
+<tr><td>OTS</td><td></td><td>装车评审</td></tr>
+<tr><td>OTS</td><td>Off-tool Sample</td><td>工装样件</td></tr>
+<tr><td>OTS</td><td>Off-tool Sample</td><td>工装样件</td></tr>
+<tr><td>OTS</td><td>Off-tool Sample</td><td>工装样件</td></tr>
+<tr><td>OTS</td><td>OFF-TOOL-SAMPLE</td><td>工装样件</td></tr>
+<tr><td>OTS  QV</td><td>OTS Quality Valve</td><td>OTS质量阀</td></tr>
+<tr><td>OTS交付状态满足质保的开阀要求</td><td></td><td></td></tr>
+<tr><td>OTS QV</td><td>OTS Quality Valve</td><td>OTS质量阀，OTS交付状态满足质保的开阀要求</td></tr>
+<tr><td>OTS TG2</td><td>Off Tooling Samples Tooling Go  Level 2</td><td>OTS设计达到TG2阶段，发布图纸用于供应商启动工装和设备投入</td></tr>
+<tr><td>OTS  TGL2</td><td>Off Tooling Samples Tooling Go  Level 2</td><td>OTS设计达到TG2阶段</td></tr>
+<tr><td>P</td><td>Pilot</td><td>批量试生产</td></tr>
+<tr><td>P</td><td>Pilot</td><td>小批量生产</td></tr>
+<tr><td>PA</td><td>Production Approval</td><td>批准正式生产</td></tr>
+<tr><td>PA</td><td>Program Administrator</td><td>项目管理专员</td></tr>
+<tr><td>PaC</td><td>Physical Alpha for Customer</td><td>提交客户的Alpha样机</td></tr>
+<tr><td>PACK</td><td>Packaging</td><td>包装规划</td></tr>
+<tr><td>PAD</td><td>Product Assembly Documentation</td><td>产品装配文件</td></tr>
+<tr><td>PAM</td><td>Product Assemble Manual</td><td>样车装配指南</td></tr>
+<tr><td>PAM</td><td>Product Assemble Manual</td><td>产品装配手册</td></tr>
+<tr><td>PAPIR</td><td>Product and Process Integration  Review</td><td>产品和工艺集成会议</td></tr>
+<tr><td>PAS</td><td>Packaging Approval Sheet</td><td>包装确认单</td></tr>
+<tr><td>PAS</td><td>Parking Aid System</td><td>泊车辅助系统</td></tr>
+<tr><td>PAS</td><td>Parking Aid System</td><td>泊车辅助系统</td></tr>
+<tr><td>PbC</td><td>Physical Beta for Customer</td><td>提交客户的Beta样机</td></tr>
+<tr><td>PBS</td><td>Painted Body Store</td><td>油漆车身存储区</td></tr>
+<tr><td>PC</td><td>Deliver Pilot to Customer</td><td>向客户提交Pilot产品</td></tr>
+<tr><td>PC</td><td>Pullcord</td><td>拉环</td></tr>
+<tr><td>PC</td><td>Problem Communication</td><td>问题信息</td></tr>
+<tr><td>PC&amp;L</td><td>Production Control and Logistics</td><td>PC&amp;L部门（GM的一个部门）</td></tr>
+<tr><td>PCL</td><td>Production Control Manager</td><td>生产控制与支持</td></tr>
+<tr><td>PCM</td><td>Powertrain Control Module</td><td>动力总成控制模块</td></tr>
+<tr><td>PCM</td><td>Process Control Manager</td><td>工艺控制负责人</td></tr>
+<tr><td>PCN</td><td>Project Cost Change Notice</td><td>项目更改通知单</td></tr>
+<tr><td>PCN</td><td>Project Costbook Change Notice</td><td>项目Costbook更改通知单</td></tr>
+<tr><td>PCR</td><td>Problem communication report</td><td>问题交流报告</td></tr>
+<tr><td>PCR</td><td>Problem communication report</td><td>问题交流报告</td></tr>
+<tr><td>PCR</td><td>Problem Communication Report</td><td>问题交流报告</td></tr>
+<tr><td>PCR</td><td>Problem Communication Report</td><td>问题交流报告</td></tr>
+<tr><td>PDC</td><td>Parking Distance Control</td><td>泊车距离控制</td></tr>
+<tr><td>PDC</td><td>Parking Distance Control</td><td>泊车距离控制</td></tr>
+<tr><td>PDCA</td><td>Plan、Do、Check、Action</td><td>计划、实施、检查、行动</td></tr>
+<tr><td>PDCA</td><td>Plan-Do-Check-Action</td><td>计划,实施,检查,行动</td></tr>
+<tr><td>PDI</td><td>Product delivery inspection</td><td>产品交付检查</td></tr>
+<tr><td>PDI</td><td>Preliminary Data Indicator</td><td>初步数据指示器</td></tr>
+<tr><td>PDI</td><td>Pre-delivery Inspection</td><td>车辆行运“零公里”检查报告</td></tr>
+<tr><td>PDS</td><td>Product Data Structure</td><td>产品数据结构，在SCM中用到的数据对象，集成了BOM、工艺和工厂布局信息</td></tr>
+<tr><td>PDT</td><td>Product Development Team</td><td>产品开发组</td></tr>
+<tr><td>PDT</td><td>Product Development Team</td><td>产品开发小组</td></tr>
+<tr><td>PDT</td><td>Product Development Team</td><td>产品开发小组</td></tr>
+<tr><td>PDT</td><td>Product Development Team</td><td>产品开发小组</td></tr>
+<tr><td>PDT</td><td>Product Development Team</td><td>产品开发小组</td></tr>
+<tr><td>PE</td><td>Product Engineering</td><td>产品工程</td></tr>
+<tr><td>PET</td><td>Program Executive Team</td><td>项目执行小组</td></tr>
+<tr><td>PET</td><td>Program Execution Team</td><td>项目组</td></tr>
+<tr><td>PET</td><td>Program Execution Team</td><td>项目执行小组</td></tr>
+<tr><td>PFI</td><td>Program Framing Initiated</td><td>项目框架启动</td></tr>
+<tr><td>PFMEA</td><td>Process failure mode and  effectsanalysis</td><td>过程失效模式和后果分析</td></tr>
+<tr><td>PFMEA</td><td>Process FMEA</td><td>工艺失效模式分析</td></tr>
+<tr><td>PFMEA</td><td>Process failure mode &amp;  effects analysis</td><td>过程失效模式分析</td></tr>
+<tr><td>PFSE</td><td>Product Focus Systems Engineer</td><td>产品系统工程师</td></tr>
+<tr><td>PG3</td><td>Powertrain Gateway</td><td>关键里程碑节点</td></tr>
+<tr><td>PgC</td><td>Physical Gamma for Customer</td><td>向客户发运Gamma样机</td></tr>
+<tr><td>PGM</td><td>Program Management / Project  Management</td><td>项目管理</td></tr>
+<tr><td>PGM</td><td>Program Management</td><td>项目管理</td></tr>
+<tr><td>PGM</td><td>Program Management</td><td>项目管理</td></tr>
+<tr><td>Pilot</td><td>Pilot</td><td>试生产</td></tr>
+<tr><td>Pilot</td><td>Pilot</td><td>试生产</td></tr>
+<tr><td>Pilot QV</td><td>Pilot Quality Valve</td><td>试生产质量阀满足启动试生产的开阀要球</td></tr>
+<tr><td>Pilot  MRD</td><td>Pilot Material Requied Date</td><td>Pilot交样日期</td></tr>
+<tr><td>Pilot  MRD</td><td>Pilot Material Required Date</td><td>Pilot的物料需求日期</td></tr>
+<tr><td>Pilot  QV</td><td>Pilot Quality Valve</td><td>试生产质量阀</td></tr>
+<tr><td>满足启动试生产的开阀要求</td><td></td><td></td></tr>
+<tr><td>PIM</td><td>Powertrain Interface Manager</td><td>动力总成接口经理</td></tr>
+<tr><td>PLM</td><td>Production Launch Manager</td><td>生产启动经理</td></tr>
+<tr><td>PLP</td><td></td><td>单车利润表</td></tr>
+<tr><td>PM</td><td>Programme Manager</td><td>项目工程经理</td></tr>
+<tr><td>PM</td><td>Program Manager</td><td>项目经理</td></tr>
+<tr><td>PM</td><td>Program Manager</td><td>项目经理</td></tr>
+<tr><td>PM</td><td>Plan maintain</td><td>计划维护</td></tr>
+<tr><td>PM</td><td>Prevention Maintenance</td><td>预防性维护</td></tr>
+<tr><td>PM</td><td>Program Manager</td><td>项目经理</td></tr>
+<tr><td>PMO</td><td>Program Management Office</td><td>项目管理办公室（通用的一个部门）</td></tr>
+<tr><td>PMP</td><td></td><td>常规尺寸</td></tr>
+<tr><td>PMT</td><td>Product Management Team</td><td>产品管理小组</td></tr>
+<tr><td>PN</td><td>Part NO.</td><td>零件号</td></tr>
+<tr><td>PP</td><td>Pre-pilot</td><td>前期试生产</td></tr>
+<tr><td>PP</td><td>Pre-Pilot</td><td>预试生产</td></tr>
+<tr><td>PP</td><td>Pre-pilot</td><td>试生产</td></tr>
+<tr><td>P-P</td><td>Pre-Pilot</td><td>试生产</td></tr>
+<tr><td>PP PPAP</td><td>Purchased Parts Production Parts  Approval Process</td><td>外购件完成生产件批准程序</td></tr>
+<tr><td>PP  Appr.</td><td>Purchased Parts  Approved</td><td>外购件批准</td></tr>
+<tr><td>SQE开具入库许可单</td><td></td><td></td></tr>
+<tr><td>PP ESO</td><td>Purchased Parts Engineering Sign  Off</td><td>外购件工程签署，完成OTS认可/阶段认可</td></tr>
+<tr><td>PP OTS  100％</td><td>100％ Purchased Parts in OTS</td><td>外购件的OTS交样率达到100％</td></tr>
+<tr><td>PP OTS  80%</td><td>80% Purchased Parts in OTS</td><td>外购件的OTS交样率达到80%</td></tr>
+<tr><td>PP OTS  80％</td><td>80％ Purchased Parts in OTS</td><td>外购件的OTS交样率达到80％</td></tr>
+<tr><td>PP PPAP</td><td>Purchased Parts PPAP</td><td>外购件完成PPAP</td></tr>
+<tr><td>PPA</td><td>Product Planning Approval</td><td>产品规划批准</td></tr>
+<tr><td>PPAP</td><td>Production Parts Approval  Process</td><td>生产件批准程序</td></tr>
+<tr><td>PPAP</td><td>Production Part Approval Process</td><td>生产零部件批准程序</td></tr>
+<tr><td>PPAP</td><td>Production Part Approval Process</td><td>生产件批准程序</td></tr>
+<tr><td>PPAP</td><td>Production Part Approval Process</td><td>生产件批准程序</td></tr>
+<tr><td>PPAP</td><td>Production Parts Approval  Process</td><td>生产件批准程序</td></tr>
+<tr><td>PPAP</td><td>Production Part Approval Process</td><td>生产件批准流程PPAP</td></tr>
+<tr><td>PPAP</td><td>Production Part Approval Process</td><td>产品零部件批准流程</td></tr>
+<tr><td>PPAP</td><td>Production Part Approval Process</td><td>生产零部件批准程序</td></tr>
+<tr><td>PPC</td><td>Deliver Pre-Pilot to Customer</td><td>向客户发运Pre-pilot动力总成</td></tr>
+<tr><td>PPC</td><td>Product Program Content</td><td>项目任务书</td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../misc/术语表.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../misc/贡献者.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../misc/术语表.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../misc/贡献者.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../assets/custom.js"></script>
+        <script type="text/javascript" src="../assets/bigPicture.js"></script>
+    </body>
+</html>

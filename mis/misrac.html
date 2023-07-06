@@ -1,0 +1,411 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>MisraC - AUTOSAR学习</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style3.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">AUTOSAR学习项目</a></li><li class="chapter-item expanded affix "><li class="part-title">AUTOSAR入门</li><li class="spacer"></li><li class="chapter-item expanded "><a href="../guide/汽车电子入门.html"><strong aria-hidden="true">1.</strong> 汽车电子背景知识</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR简介.html"><strong aria-hidden="true">2.</strong> AUTOSAR简介</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR发展.html"><strong aria-hidden="true">3.</strong> AUTOSAR发展</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR架构.html"><strong aria-hidden="true">4.</strong> AUTOSAR架构</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../guide/AUTOSAR应用层.html"><strong aria-hidden="true">4.1.</strong> AUTOSAR应用层 (AppL)</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR实时运行环境.html"><strong aria-hidden="true">4.2.</strong> AUTOSAR实时运行环境 (RTE))</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR基础软件层.html"><strong aria-hidden="true">4.3.</strong> AUTOSAR基础软件层 (BSW)</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR方法论.html"><strong aria-hidden="true">4.4.</strong> AUTOSAR方法论 (methodology)</a></li></ol></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR文档阅读.html"><strong aria-hidden="true">5.</strong> AUTOSAR文档如何阅读</a></li><li class="chapter-item expanded "><a href="../guide/工具.html"><strong aria-hidden="true">6.</strong> AUTOSAR实践</a></li><li class="chapter-item expanded "><a href="../guide/工具.html"><strong aria-hidden="true">7.</strong> Adaptive AUTOSAR简介</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">AUTOSAR专题</li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.</strong> UDS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topic/uds_glossary.html"><strong aria-hidden="true">8.1.</strong> UDS术语</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.2.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.3.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.4.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.5.</strong> UDS</a></li></ol></li><li class="chapter-item expanded "><a href="../mis/misrac.html" class="active"><strong aria-hidden="true">9.</strong> MisraC</a></li><li class="chapter-item expanded "><a href="../for_developers/index.html"><strong aria-hidden="true">10.</strong> For Developers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../for_developers/preprocessors.html"><strong aria-hidden="true">10.1.</strong> Preprocessors</a></li><li class="chapter-item expanded "><a href="../for_developers/backends.html"><strong aria-hidden="true">10.2.</strong> Alternative Backends</a></li></ol></li><li class="chapter-item expanded "><a href="../continuous-integration.html"><strong aria-hidden="true">11.</strong> Continuous Integration</a></li><li class="chapter-item expanded "><a href="../misc/术语表.html"><strong aria-hidden="true">12.</strong> AUTOSAR术语表</a></li><li class="chapter-item expanded "><a href="../misc/整车开发术语表.html"><strong aria-hidden="true">13.</strong> 整车开发术语</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../misc/贡献者.html">贡献者</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTOSAR学习</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/dingtang2008/dingtang2008.github.io/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/dingtang2008/dingtang2008.github.io/edit/main/src/mis/misrac.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="misra-c"><a class="header" href="#misra-c">MISRA C</a></h1>
+<h2 id="一简介"><a class="header" href="#一简介">一、简介</a></h2>
+<p>MISRA C是由汽车产业软件可靠性协会（MISRA）提出的C语言开发标准。其目的是在增进嵌入式系统的<strong>安全性及可移植性</strong>。针对C++语言也有对应的标准MISRA C++。本文主要关注C语言部分。MISRA C一开始主要是针对汽车产业，不过其他产业也逐渐开始使用MISRA C：包括<strong>航天、电信、国防、医疗设备、铁路</strong>等领域中都已有厂商使用MISRA C。</p>
+<p>MISRA C的第一版《Guidelines for the use of the C language in vehicle based software》是在1998年发行，一般称为MISRA-C:1998.。MISRA-C:1998有127项规则，规则从1号编号到127号，其中有93项是必需要求，其余的34项是推荐使用的规则。</p>
+<p>在2004年时发行了第二版的MISRA C的第一版《Guidelines for the use of the C language in critical systems》（或称作MISRA-C:2004），其中有许多重要建议事项的变更，其规则也重新编号。MISRA-C:2004有141项规则，其中121项是必需要求，其余的20项是推荐使用的规则。规则分为21类，从“开发环境”到“运行期错误”。</p>
+<p>2012年发布第三版，为当前最新有效的C语言规范版本，称为MISRAC:2012。 </p>
+<p>Misra C不能100%保证程序不出问题，但是能尽可能的预防，总结一下，基本上使用Misra C具有以下五个维度的优势：</p>
+<ul>
+<li><strong>提升可靠性</strong></li>
+<li><strong>提升可读性</strong></li>
+<li><strong>提升可移植性</strong></li>
+<li><strong>提升可维护性</strong></li>
+<li><strong>提升安全性</strong></li>
+</ul>
+<h2 id="二具体规则翻译"><a class="header" href="#二具体规则翻译">二、具体规则（翻译）</a></h2>
+<h4 id="21-一个标准c环境"><a class="header" href="#21-一个标准c环境">2.1 一个标准C环境</a></h4>
+<ol>
+<li><strong>必需</strong>。程序应不包含违反标准C语法和限制的内容，也不应超出执行的翻译限制。</li>
+<li>建议。不应使用语言扩展。</li>
+<li><strong>必需</strong>。不应该出现未定义或是临界的未指定行为。</li>
+</ol>
+<h4 id="22-不使用的代码"><a class="header" href="#22-不使用的代码">2.2 不使用的代码</a></h4>
+<ol>
+<li><strong>必需</strong>。不应包含未执行的代码。</li>
+<li><strong>必需</strong>。不应该有死代码。</li>
+<li>建议。不应包含被声明但未使用的类型。</li>
+<li>建议。不应包含未使用的标签声明。</li>
+<li>建议。不应包含未使用的宏定义。</li>
+<li>建议。函数中不应包含未使用的标记。</li>
+<li>建议。不应有未使用的函数参数。</li>
+</ol>
+<h4 id="23-注释"><a class="header" href="#23-注释">2.3 注释</a></h4>
+<ol>
+<li><strong>必需</strong>。不允许嵌套注释。</li>
+<li><strong>必需</strong>。不允许在//注释中进行行拼接。</li>
+</ol>
+<h4 id="24-字符集"><a class="header" href="#24-字符集">2.4 字符集</a></h4>
+<ol>
+<li>必需。八进制和十六进制转义字符序列应被终止。</li>
+<li><strong>建议</strong>。三字母词不应使用。</li>
+</ol>
+<h4 id="25-标识符"><a class="header" href="#25-标识符">2.5 标识符</a></h4>
+<ol>
+<li><strong>必需</strong>。外部标识符应区分开。</li>
+<li><strong>必需</strong>。标识符声明在同一作用域且位域应被区分。</li>
+<li><strong>必需</strong>。声明于内部作用域的标识符不应隐藏外部作用域的标识符。</li>
+<li><strong>必需</strong>。宏标识符应被区分。</li>
+<li><strong>必需</strong>。标识符要区别于宏名。</li>
+<li><strong>必需</strong>。Typedef名应是独一无二的标识符。</li>
+<li><strong>必需</strong>。标签应是独一无二的标识符。</li>
+<li><strong>必需</strong>。定义有外部链接的对象或函数的标识符应是独一无二的。</li>
+<li>建议。定义有内部链接的对象或函数的标识符应是独一无二的。</li>
+</ol>
+<h4 id="26-类型"><a class="header" href="#26-类型">2.6 类型</a></h4>
+<ol>
+<li>
+<p><strong>必需</strong>。位域只能被定义为一个合适的类型。</p>
+<p>C90：无符号整型和有符号整型。C99：除上述两个以外还有布尔类型。</p>
+</li>
+<li>
+<p><strong>必需</strong>。单比特命名的位域不应是有符号类型。</p>
+</li>
+</ol>
+<h4 id="27-常量"><a class="header" href="#27-常量">2.7 常量</a></h4>
+<ol>
+<li><strong>必需</strong>。不要使用八进制常量和八进制的转义字符串；</li>
+<li><strong>必需</strong>。所有以无符号类型表示的整型常量都应加上u或U后缀。</li>
+<li><strong>必需</strong>。小写字母l不应用于文字后缀。</li>
+<li><strong>必需</strong>。除非对象类型是指向字符常量的指针，否则字符串不应赋给对象。</li>
+</ol>
+<h4 id="28声明与定义"><a class="header" href="#28声明与定义">2.8声明与定义</a></h4>
+<ol>
+<li><strong>必需</strong>。类型应被显式声明。</li>
+<li><strong>必需</strong>。函数应以原型形式命名参数。</li>
+<li><strong>必需</strong>。所有对象和函数的声明需要使用完全相同的名字和参数。</li>
+<li><strong>必需</strong>。当定义有外部链接的对象或函数时，兼容声明是可见的。</li>
+<li><strong>必需</strong>。外部变量或函数应被在仅一个文件内被声明过。</li>
+<li><strong>必需</strong>。有外部链接的标识符应有一个确切的外部定义。</li>
+<li>建议。若函数和对象仅被一个单元引用，最好不定义外部链接。</li>
+<li><strong>必需</strong>。静态存储类说明符应在所有具有内部链接的对象和函数的声明中使用。</li>
+<li>建议。如果一个对象的标识符仅在一个函数内出现，该对象应被定义在一个块域中。</li>
+<li><strong>必需</strong>。内联函数定义时应有静态存储类。</li>
+<li>建议。当有外部链接的数组被定义，它的大小应明确表示。</li>
+<li><strong>必需</strong>。枚举列表内的枚举值应独一无二。</li>
+<li>建议。可能的话指针最好指向一个const类型的变量。</li>
+<li><strong>必需</strong>。restrict限定词不应使用。</li>
+</ol>
+<h4 id="29-初始化"><a class="header" href="#29-初始化">2.9 初始化</a></h4>
+<p>1、<strong>强制</strong>。自动变量在使用前应该被赋值。</p>
+<p>2、<strong>必需</strong>。结构和和联合体的初始化应在大括号内完成。</p>
+<p>3、<strong>必需</strong>。数组不应被部分初始化。</p>
+<p>4、<strong>必需</strong>。一个对象的元素不应被多次初始化。</p>
+<p>5、<strong>必需</strong>。若一个数组对象被指定初始化，那么数组大小应明确表示。</p>
+<h4 id="210-基本数据类型"><a class="header" href="#210-基本数据类型">2.10 基本数据类型</a></h4>
+<ol>
+<li><strong>必需</strong>。操作数不应是不合适的数据类型。</li>
+<li><strong>必需</strong>。表达式字符之间不应使用加减法。</li>
+<li><strong>必需</strong>。不应将表达式的值赋给不同类型或更窄的类型。</li>
+<li><strong>必需</strong>。一个运算符的两个操作数应是相同类型。</li>
+<li>建议。表达式的值不应被转换成一个不合适的类型。</li>
+<li><strong>必需</strong>。复合表达式的值不应赋给一个有更宽类型的对象。</li>
+<li><strong>必需</strong>。若复合表达式参与数学运算，那么另一个操作数不应是更宽的基本类型。</li>
+<li><strong>必需</strong>。复合表达式的值不应被转换为不同的基本类型分类或更宽的基本类型。</li>
+</ol>
+<h4 id="211指针类型转换"><a class="header" href="#211指针类型转换">2.11指针类型转换</a></h4>
+<ol>
+<li><strong>必需</strong>。不应在函数指针和其他类型间进行转换。例外：空指针可被转换为函数指针。函数指针可被转换为void类型。函数可以被隐式转换为该函数类型的指针。</li>
+<li><strong>必需</strong>。指向不完全类型的指针与其他类型间的转换不应出现。</li>
+<li><strong>必需</strong>。不同类型指针间不应转换。</li>
+<li>建议。不应将指针转换为整形变量。</li>
+<li>建议。不应直接将void类型指针转换为指向对象的指针。</li>
+<li><strong>必需</strong>。算数类型和void类型指针不应转换。</li>
+<li><strong>必需</strong>。指向对象的指针和一个非整型算数类型不应转换。</li>
+<li><strong>必需</strong>。指针指向的const和volatile修饰的变量不应被删除。</li>
+</ol>
+<h4 id="212-表达式"><a class="header" href="#212-表达式">2.12 表达式</a></h4>
+<ol>
+<li>建议。表达式中的运算符优先级应明确。</li>
+<li><strong>必需</strong>。移位运算符的右手操作数应该小于左手操作数的基本类型的位宽。</li>
+<li>建议。不应使用逗号运算符。</li>
+<li>建议。常量表达式的计算不应导致无符号整数的回绕。</li>
+</ol>
+<h4 id="213-副作用"><a class="header" href="#213-副作用">2.13 副作用</a></h4>
+<ol>
+<li><strong>必需</strong>。初始化列表不应包含持续副作用。</li>
+<li><strong>必需</strong>。表达式的值和他的持续副作用应在允许的计算顺序下保持相同。</li>
+<li>建议。包含自增或自减的完整表达式应无其他除自增自减外的潜在副作用。</li>
+<li>建议。不应使用赋值运算的结果。</li>
+<li><strong>必需</strong>。逻辑与和逻辑或的右手操作数不应包含持续副作用。</li>
+<li>强制。sizeof运算符的操作数不应包含任何有潜在副作用的表达式。</li>
+</ol>
+<h4 id="214-控制语句表达式"><a class="header" href="#214-控制语句表达式">2.14 控制语句表达式</a></h4>
+<ol>
+<li><strong>必需</strong>。循环计数器不应有浮点型数据。</li>
+<li><strong>必需</strong>。for循环应完整。</li>
+<li><strong>必需</strong>。控制语句不应一成不变。</li>
+<li><strong>必需</strong>。if语句和迭代表达式应有布尔类型。</li>
+</ol>
+<h4 id="215-控制流"><a class="header" href="#215-控制流">2.15 控制流</a></h4>
+<ol>
+<li>建议。不应该使用goto语句。</li>
+<li><strong>必需</strong>。goto语句应跳跃至同一函数后定义的语句处。</li>
+<li><strong>必需</strong>。被goto语句引用的任何标志都应在同一块内定义或任何包含goto语句的块。</li>
+<li>建议。不应有多个break或goto语句来结束迭代语句。</li>
+<li>建议。一个函数在其结尾应该有单一的退出点，即一个函数最多有一个return语句。</li>
+<li><strong>必需</strong>。迭代语句和选择语句的主体应是复合语句。</li>
+<li><strong>必需</strong>。if elseif语句应由一个else语句结束。</li>
+</ol>
+<h4 id="216-switch语句"><a class="header" href="#216-switch语句">2.16 Switch语句</a></h4>
+<ol>
+<li><strong>必需</strong>。所有switch语句都要是完整的。</li>
+<li><strong>必需</strong>。switch标签应仅用于最紧密封闭的复合语句作为switch语句的主体时。</li>
+<li><strong>必需</strong>。每个switch分支都要有一个break语句。</li>
+<li><strong>必需</strong>。每个switch语句都要有一个default标签。</li>
+<li><strong>必需</strong>。default标签应出现在switch语句的第一个或最后一个标签处。</li>
+<li><strong>必需</strong>。每个switch语句都要至少包含两个分支。</li>
+<li><strong>必需</strong>。switch表达式不应有布尔类型。</li>
+</ol>
+<h4 id="217-函数"><a class="header" href="#217-函数">2.17 函数</a></h4>
+<ol>
+<li><strong>必需</strong>。头文件&lt;stdarg.h&gt;内的功能不可使用。</li>
+<li><strong>必需</strong>。函数不能调用自身，不管是直接或者间接的，即不允许递归调用；</li>
+<li><strong>必需</strong>。函数应被明确定义。</li>
+<li><strong>必需</strong>。所有函数退出位置都应有相应的返回语句，除了返回值为void类型的函数。</li>
+<li>建议。函数参数中若有数组，在调用函数的时候数组大小应与定义时的数组大小相同。</li>
+<li><strong>强制</strong>。定义数组时不应在[]中包含static修饰的变量。</li>
+<li><strong>必需</strong>。非空返回值的函数的返回值应被使用。</li>
+<li>建议。函数参数不应被修改。</li>
+</ol>
+<h4 id="218-指针和数组"><a class="header" href="#218-指针和数组">2.18 指针和数组</a></h4>
+<ol>
+<li><strong>必需</strong>。数组的索引应该是指针数学运算中唯一可允许的方式。</li>
+<li><strong>必需</strong>。只有基类型相同的指针间才可以相减。</li>
+<li><strong>必需</strong>。除非指针指向同一个对象，否则不应使用关系运算符进行比较。</li>
+<li>建议。不要使用+、+=和-=操作符来应用于指针类型表达式。</li>
+<li>建议。不要定义两级以上的指针。</li>
+<li><strong>必需</strong>。具有自动存储功能的对象的地址不得复制到第一个对象停止存在后仍然存在的另一个对象。</li>
+<li><strong>必需</strong>。数组定义时必需指定大小。</li>
+<li><strong>必需</strong>。变长数组不应使用。</li>
+</ol>
+<h4 id="219-重叠存储"><a class="header" href="#219-重叠存储">2.19 重叠存储</a></h4>
+<ol>
+<li><strong>强制</strong>。一个对象不得分配或复制到一个重叠的对象。</li>
+<li><strong>建议</strong>。union关键字不应被使用。</li>
+</ol>
+<h4 id="220-预处理指令"><a class="header" href="#220-预处理指令">2.20 预处理指令</a></h4>
+<ol>
+<li>建议。#include指令前应只存在预处理器指令或注释。</li>
+<li><strong>必需</strong>。头文件名中不应包含‘，’和注释字符。</li>
+<li><strong>必需</strong>。#include后应跟随<filename>或“filename”。</li>
+<li><strong>必需</strong>。宏名不应与关键字冲突。</li>
+<li>建议。不要使用#undef。</li>
+<li><strong>必需</strong>。宏的参数中不应出现类似预处理指令的符号。</li>
+<li><strong>必需</strong>。由宏参数扩展产生的表达式应用括号括起来。</li>
+<li><strong>必需</strong>。#if或#elif预处理指令的控制表达式应赋值为0或1.</li>
+<li><strong>必需</strong>。#if或#elif中控制表达式使用的标识符在赋值前应被#define。</li>
+<li>建议。#和##预处理器操作符不应使用。</li>
+<li><strong>必需</strong>。宏参数在紧随#后后续不得有##紧跟该参数。</li>
+<li><strong>必需</strong>。宏参数用作#或##操作符的操作数，这本身就是收到进一步的宏替换，应仅被用作这些操作符的操作数。</li>
+<li><strong>必需</strong>。以#开头的一行应是有效的预处理指令。</li>
+<li><strong>必需</strong>。所有的#else、#elif和#endif预处理指令应该同与他们相关的#if或者#ifdef指令放在相同的文件中。</li>
+</ol>
+<h4 id="221-标准库"><a class="header" href="#221-标准库">2.21 标准库</a></h4>
+<ol>
+<li><strong>必需</strong>。#define和#undef不得用于保留标识符或保留宏的名字。</li>
+<li><strong>必需</strong>。不应定义保留的标识符或宏名。</li>
+<li><strong>必需</strong>。&lt;stdlib.h&gt;的allocation和deallocation函数不应使用。</li>
+<li><strong>必需</strong>。不应使用标准头文件&lt;setjmp.h&gt;。</li>
+<li><strong>必需</strong>。不应使用标准头文件&lt;signal.h&gt;。</li>
+<li><strong>必需</strong>。标准库中的输入输出函数不应使用。</li>
+<li><strong>必需</strong>。不应使用&lt;stdlib.h&gt;的atof，atoi，atoll函数。</li>
+<li><strong>必需</strong>。不应使用&lt;stdlib.h&gt;的abort，exit，getenv和system函数。</li>
+<li><strong>必需</strong>。不应使用&lt;stdlib.h&gt;的bsearch函数。</li>
+<li><strong>必需</strong>。不应使用标准库中的时间和日期函数。</li>
+<li><strong>必需</strong>。不应使用标准头文件&lt;tgmath.h&gt;。</li>
+<li>建议。不应使用&lt;fenv.h&gt;中的异常处理功能。</li>
+</ol>
+<h4 id="222-资源"><a class="header" href="#222-资源">2.22 资源</a></h4>
+<ol>
+<li><strong>必需</strong>。用标准库函数动态获得的资源应显式释放。</li>
+<li><strong>强制</strong>。仅用标准库函数分配的内存需要被释放。</li>
+<li><strong>必需</strong>。同一文件不应在同一时间在不同流中读写。</li>
+<li><strong>强制</strong>。不应尝试在以只读形式打开的流中写入数据。</li>
+<li><strong>强制</strong>。指向文件对象的指针不应被引用。</li>
+<li><strong>强制</strong>。在相关流关闭后文件指针的值不应使用。</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../topic/uds.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../for_developers/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../topic/uds.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../for_developers/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../assets/custom.js"></script>
+        <script type="text/javascript" src="../assets/bigPicture.js"></script>
+    </body>
+</html>

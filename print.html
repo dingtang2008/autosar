@@ -1,0 +1,2412 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>AUTOSAR学习</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/style3.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">AUTOSAR学习项目</a></li><li class="chapter-item expanded affix "><li class="part-title">AUTOSAR入门</li><li class="spacer"></li><li class="chapter-item expanded "><a href="guide/汽车电子入门.html"><strong aria-hidden="true">1.</strong> 汽车电子背景知识</a></li><li class="chapter-item expanded "><a href="guide/AUTOSAR简介.html"><strong aria-hidden="true">2.</strong> AUTOSAR简介</a></li><li class="chapter-item expanded "><a href="guide/AUTOSAR发展.html"><strong aria-hidden="true">3.</strong> AUTOSAR发展</a></li><li class="chapter-item expanded "><a href="guide/AUTOSAR架构.html"><strong aria-hidden="true">4.</strong> AUTOSAR架构</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="guide/AUTOSAR应用层.html"><strong aria-hidden="true">4.1.</strong> AUTOSAR应用层 (AppL)</a></li><li class="chapter-item expanded "><a href="guide/AUTOSAR实时运行环境.html"><strong aria-hidden="true">4.2.</strong> AUTOSAR实时运行环境 (RTE))</a></li><li class="chapter-item expanded "><a href="guide/AUTOSAR基础软件层.html"><strong aria-hidden="true">4.3.</strong> AUTOSAR基础软件层 (BSW)</a></li><li class="chapter-item expanded "><a href="guide/AUTOSAR方法论.html"><strong aria-hidden="true">4.4.</strong> AUTOSAR方法论 (methodology)</a></li></ol></li><li class="chapter-item expanded "><a href="guide/AUTOSAR文档阅读.html"><strong aria-hidden="true">5.</strong> AUTOSAR文档如何阅读</a></li><li class="chapter-item expanded "><a href="guide/工具.html"><strong aria-hidden="true">6.</strong> AUTOSAR实践</a></li><li class="chapter-item expanded "><a href="guide/工具.html"><strong aria-hidden="true">7.</strong> Adaptive AUTOSAR简介</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">AUTOSAR专题</li><li class="chapter-item expanded "><a href="topic/uds.html"><strong aria-hidden="true">8.</strong> UDS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="topic/uds_glossary.html"><strong aria-hidden="true">8.1.</strong> UDS术语</a></li><li class="chapter-item expanded "><a href="topic/uds.html"><strong aria-hidden="true">8.2.</strong> UDS</a></li><li class="chapter-item expanded "><a href="topic/uds.html"><strong aria-hidden="true">8.3.</strong> UDS</a></li><li class="chapter-item expanded "><a href="topic/uds.html"><strong aria-hidden="true">8.4.</strong> UDS</a></li><li class="chapter-item expanded "><a href="topic/uds.html"><strong aria-hidden="true">8.5.</strong> UDS</a></li></ol></li><li class="chapter-item expanded "><a href="mis/misrac.html"><strong aria-hidden="true">9.</strong> MisraC</a></li><li class="chapter-item expanded "><a href="for_developers/index.html"><strong aria-hidden="true">10.</strong> For Developers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="for_developers/preprocessors.html"><strong aria-hidden="true">10.1.</strong> Preprocessors</a></li><li class="chapter-item expanded "><a href="for_developers/backends.html"><strong aria-hidden="true">10.2.</strong> Alternative Backends</a></li></ol></li><li class="chapter-item expanded "><a href="continuous-integration.html"><strong aria-hidden="true">11.</strong> Continuous Integration</a></li><li class="chapter-item expanded "><a href="misc/术语表.html"><strong aria-hidden="true">12.</strong> AUTOSAR术语表</a></li><li class="chapter-item expanded "><a href="misc/整车开发术语表.html"><strong aria-hidden="true">13.</strong> 整车开发术语</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="misc/贡献者.html">贡献者</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTOSAR学习</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/dingtang2008/dingtang2008.github.io/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="项目起因"><a class="header" href="#项目起因">项目起因</a></h2>
+<p>从事Android系统开发10余年，切换到自动驾驶领域后，发现汽车相关的代码、文档、工具链资料信息比较少，大多需要付费，而且价格不菲，和之前做的安卓有着天壤之别，这里不得不感叹谷歌商业化的强大，迅速吸引了大量的开发者涌入到android，这也是android成功的一部分吧，言归正传，汽车领域的知识非常多，并且比较零散，很多工具个人很难获取，所以，在我自己自学的同时也希望把自己的经验分享给大家，本项目从AUTOSAR的文档中文本地化开始，后续将补充学习导读、工具链、源码分析等等，自己刚刚开始学习，希望不要烂尾 😊</p>
+<p><strong>所有的文档来自于<a href="../www.autosar.org"><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212150004306.svg" alt="AUTOSAR" /></a></strong> 和互联网。</p>
+<h2 id="项目约定"><a class="header" href="#项目约定">项目约定</a></h2>
+<p>本项目用于开展AUTOSAR文档的中文翻译工作，并确保项目的可持续性，特别做如下约定：</p>
+<ul>
+<li>所有翻译工作转到 <a href="https://www.github.com/">Github</a> 来协同，可以通过 Github Pull Request 来完成评审。</li>
+<li>所有翻译结果用 <a href="https://autosar.ltd">autosar.ltd</a> 来展示，并方便导出</li>
+<li>所有翻译后的文档格式统一为 <a href="https://github.com/rust-lang/mdBook">MDBOOK</a>支持的 Markdown 格式。</li>
+<li>目录结构尽量遵循<strong>AUTOSAR组织</strong>原有发布的格式。</li>
+</ul>
+<p><br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /></p>
+<hr />
+<footer>
+<p style="text-align:center">备案号：<a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2023000315号-1</a></p>
+</footer>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="前言"><a class="header" href="#前言">前言</a></h1>
+<p>为了顺利的从android消费类电子进入车载领域大门，先介绍一些基础知识方便后面的沟通中能够不蒙圈。</p>
+<blockquote>
+<p>你认识几个车？</p>
+</blockquote>
+<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221454660.png" style="zoom: 33%;" />
+<hr />
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221455605.png" alt="image-20221222145515541" /></p>
+<h2 id="汽车电子相关知识"><a class="header" href="#汽车电子相关知识">汽车电子相关知识：</a></h2>
+<blockquote>
+<p><strong>1.开发常见黑话</strong></p>
+</blockquote>
+<ul>
+<li><strong>OEM</strong>：<strong>O</strong>riginal <strong>E</strong>quipment <strong>M</strong>anufacturer的缩写，通常指设备厂商/主机厂/整车厂。</li>
+<li><strong>Tier 1</strong>：一级供应商，也就是跟<strong>OEM</strong>签订供应合同的供应商。一级供应商所供应的零部件，并不一定全部来自自身的产线生产制造，比如液晶仪表供应商的液晶屏幕就会采取外购的形式，液晶屏幕供应商，就是二级供应商。</li>
+<li><strong>Tier 2</strong>：二级供应商，是跟一级供应商签订合同的供应商。在一般零部件制造中，一级供应商制造的零件中也会采用购买或外包的形式获取所需的零部件和服务。</li>
+<li><strong>Tier0.5</strong>：源于主机厂全栈自研的诉求，通过与主机厂深度绑定，Tier0.5将从全流程介入主机厂研发、生产、制造，甚至后期的数据管理和运营。</li>
+<li><strong>SOP：</strong>  <strong>S</strong>tart <strong>O</strong>f <strong>P</strong>roduction批量生产启动，不少网站写的是small-outline package，个人认为这个不适用在这里，一般这种指的是一种封装工艺，更多在芯片封装上。</li>
+<li><strong>EOP：</strong>  <strong>E</strong>nd <strong>o</strong>f <strong>P</strong>rodcuction 量产结束</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212152358844.png" alt="image-20221215235759759" /></p>
+<ul>
+<li><strong>A样件</strong>：prototype 零件设计初期，<strong>手工样件，关键尺寸要求</strong>，加工周期短，用于基本性能试验及mule car造车；</li>
+<li><strong>B样件</strong>：soft tooling <strong>手工样件，全尺寸要求</strong>，零件材料与结构都与量产件一致，但模具为软钢模，用于设计验证DV；</li>
+<li><strong>C样件</strong>：hard tooling <strong>批量样件，尺寸以及老化验证</strong>，量产用的模具，用于工艺和生产试验验证 PV。</li>
+</ul>
+<blockquote>
+<p><strong>2.MPU，CPU，MCU，ECU，SOC是什么？</strong></p>
+</blockquote>
+<ul>
+<li>
+<p><strong>CPU</strong>：Central <strong>Processing</strong> Unit。<strong>中央处理器</strong>，CPU由运算器、控制器和寄存器及实现它们之间联系的数据、控制及状态的总线构成。</p>
+</li>
+<li>
+<p><strong>MPU</strong>：Micro <strong>Processor</strong> Unit，叫微<strong>处理器</strong>，有时记作µP（读micro processor unit）,通常代表一个功能强大的CPU(暂且理解为增强版的CPU吧),但不是为任何已有的特定计算目的而设计的芯片。这种芯片往往是个人计算机和高端工作站的核心CPU。Intel X86，ARM的一些<strong>Cortex-A芯片</strong>如飞思卡尔i.MX6、全志A20、TI AM335X等都属于MPU。</p>
+</li>
+<li>
+<p><strong>MCU</strong>：Micro <strong>Control</strong> Unit，叫微<strong>控制</strong>器(不是微控制器)，有时记作µC（读micro Control），是指随着大规模集成电路的出现及其发展，将计算机的CPU、RAM、ROM、定时计数器和多种I/O接口集成在一片芯片上，根据外界的信号，产生一些反应，做一点简单的人机界面，侧重点在于<strong>控制</strong>，而计算比较少。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212191310902.jpeg" alt="img" /></p>
+</li>
+<li>
+<p><strong>ECU</strong>：ECU原指的是<strong>Engine Control Unit</strong>，即发动机控制单元，特指电喷发动机的电子控制系统。后来随着汽车电子的迅速发展，ECU的定义变成了Electronic Control Unit，即电子控制单元，泛指汽车上所有电子控制系统。而原来的发动机ECU有很多的公司称之为EMS： Engine Management System。</p>
+<blockquote>
+<p>NOTE: In the AUTOSAR sense an ECU means one microcontroller plus peripherals and the according software/configuration. The mechanical design is not in the scope of AUTOSAR. This means that if more than one microcontroller in arranged in a housing, then each microcontroller requires its own description of an AUTOSAR-ECU instance.</p>
+<p>注：就AUTOSAR意义上而言，ECU是指一个MCU微控制器加上外围设备软件/配置。机械设计不在AUTOSAR的范围内。这意味着如果超过一个微控制器布置在外壳中，那么每个微控制器都需要对AUTOSAR-ECU实例。</p>
+</blockquote>
+</li>
+</ul>
+<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212191313663.jpeg" alt="img" style="zoom:50%;" />
+<ul>
+<li>
+<p><strong>SoC：<strong>System-on-a-Chip ，中文的的意思就是“<strong>把系统都做在一个芯片上</strong> ”,SoC上集成了很多关键的部件，比如</strong>CPU</strong> 、<strong>GPU</strong> 、<strong>内存</strong> 、也就说虽然它在主板上的存在是一个芯片，但是它里边可是由很多部件封装组成的。例如MTK6833，天玑9000，高通8155，麒麟970，三星的exynos 4412等
+| <img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212161503438.png" alt="img" /> |
+| :----------------------------------------------------------: |
+|                     <strong>基于ARM架构的SOC</strong>                     |</p>
+</li>
+<li>
+<p><strong>NoC：</strong> (Network on Chip)中文称之为片上网络。随着 SoC 技术的发展，芯片内部的 IP 核越来越多，有可能在一颗芯片中集成了数以百记的处理器内核（包括同构处理器内核和异构处理器内核）、数以千计控制器 IP 核等等，那么这种情况下 IP 核之间的互联就成为 SoC 性能一个重要组成部分。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>3.A 核、R核、M核具体是什么？</strong></p>
+</blockquote>
+<ul>
+<li>ARM公司目前主流处理器以Cortex来命名，下面是ARM的产品图：</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212161501064.png" alt="" /></p>
+<h5 align="center">ARM公司发布的处理器型号</h5>
+<ul>
+<li>
+<p><strong>Cortex-A</strong>系列：Application Processors（应用处理器)，基于虚拟内存的操作系统和用户应用，可以运行Linux，<strong>偏向消费产品</strong>，应用包括智能手机、智能本和上网本、电子阅读器、数字电视、家用网络、家用网关和其他各种产品。这类处理器运行在很高的时钟频率（超过1GHz），支持像Linux，Android， Windows和移动操作系统等完整操作系统</p>
+</li>
+<li>
+<p><strong>Cortex-R</strong>系列：Real-time Processors（实时处理器）–面向实时应用的高性能处理器系列，例如硬盘控制器，汽车传动系统和无线通讯的基带控制。<strong>多数实时处理器不支持MMU</strong>，不过通常具有MPU、Cache和其他针对工业应用设计的存储器功能。实时处理器运行在比较高的时钟频率（例如200MHz 到 &gt;1GHz ），响应延迟非常低。虽然实时处理器不能运行完整版本的Linux和Windows操作系统，但是支持大量的实时操作系统（RTOS）。</p>
+</li>
+<li>
+<p><strong>Cortex-M系列</strong>：Microcontroller Processors（微控制器处理器）–微控制器处理器通常设计成面积很小和能效比很高。通常这些处理器的流水线很短，最高时钟频率很低（虽然市场上有此类的处理器可以运行在200Mhz之上）。 并且，新的Cortex-M处理器家族设计的非常容易使用。因此，ARM 微控制器处理器在单片机和深度嵌入式系统市场非常成功和受欢迎。</p>
+<ul>
+<li>
+<blockquote>
+<p><strong>英飞凌的TC397 ,</strong> 是自研的Tricore架构，不属于arm，也不是任何A，R，M系列</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p><strong>NXP的S32G</strong> 使用ARM Cortex M系列</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>4.车规级芯片和消费电子类芯片的区别</strong></p>
+</blockquote>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212161645502.jpeg" alt="img" /></p>
+<ul>
+<li>汽车行业和其他行业，特别是消费产品行业是有很大区别的，零部件的级别分<strong>军工级、车规级和消费级</strong>。很显然，汽车行业的技术要求比消费级的高。因为它涉及道路安全。</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201359231.jpeg" alt="图片" /></p>
+<ul>
+<li>于是，软件上就有个叫<strong>AUTOSAR</strong>的东西，甚至还有个叫<strong>ASPICE</strong>的过程管理来管控整个产品的开发过程。</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201421757.png" alt="image-20221220142156712" /></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201400753.jpeg" alt="图片" /></p>
+<blockquote>
+<p>AutoSar是我们进入车圈避不开的一个东西，相关的从业人员不多，技术比较封锁（主要体现在和android差距比较大，不开源，找啥都没有，找啥都收费~！~），这东西也不似我们学习的C、Java语言一样，一书一电脑一个IDE足矣，基本上学习的头一个月是懵的，这也是接下来讲述的重点，可能要分好几部分</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>ASPICE：</strong> <strong>A</strong>utomotive <strong>S</strong>oftware <strong>P</strong>rocess Improvement and <strong>C</strong>apability d<strong>E</strong>termination汽车产业的软件流程改进和能力测定标准</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201429842.jpeg" alt="img" /></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201414886.png" alt="image.png" /></p>
+</li>
+<li>
+<p><strong>CAN、LIN、FLEXRAY、ETH、MOST</strong> 汽车上使用的各类总线，CAN、ETH为主</p>
+</li>
+<li>
+<p><strong>ASIL：</strong> <strong>A</strong>utomotive <strong>S</strong>afety <strong>I</strong>ntegrity <strong>L</strong>evel 汽车安全完整等级</p>
+<ul>
+<li>
+<p><strong>ISO：</strong> <strong>I</strong>nternational <strong>S</strong>tandardization <strong>O</strong>rganization，ISO26262 道路车辆功能安全</p>
+</li>
+<li>
+<p><strong>MISRA:</strong> The Motor Industry Software Reliability Association,汽车工业软件可靠性联合会，以<strong>MISRA-C</strong>而闻名，同样为了安全。</p>
+</li>
+<li>
+<p><strong>CPU lockstep</strong> 为了满足汽车功能安全（如ISO26262），有许多有用的措施来规避E/E系统异常崩溃造成的不必要伤害，CPU-LockStep是实现高诊断覆盖度（检测错误发生的能力）的一种常见手段，大致方法：两个核运行同样的程序，将结果输入一个逻辑比较器中，周期性（一般会存在周期delay）比较两个核的输出结果是否相同。如果相同，则继续运行；否则，则需要采取一定的措施（例如中断上报）。如果一段时间后错误还是存在，可能重启或者重新检查。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212191815402.webp" alt="img" /><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212191815782.png" alt="img" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="汽车电子电气架构eea"><a class="header" href="#汽车电子电气架构eea">汽车电子电气架构EEA</a></h2>
+<p>EEA（Electrical/Electronic Architecture）把汽车中的各类传感器、ECU（电子控制单元）、线束拓扑和电子电气分配系统整合在一起完成运算、动力和能量的分配，进而实现整车的各项功能。 </p>
+<p><strong>汽车电气</strong>：涵盖<em><strong>汽车电器、汽车电子、汽车线束</strong></em>以及他们的连接关系；</p>
+<ul>
+<li><strong>汽车电器</strong>只是汽车上安装或使用的一个用电设施（或叫设备），包括蓄电池、发电机、起动机灯具、暖风机、汽车电子设备（如收放机、导航仪等）等等，也可以把汽车线束看成是汽车电器的一种（一个成员）；</li>
+<li><strong>汽车线束</strong>是将汽车上蓄电池、发电机及所有用电设备，按照一定规则连接起来的导线的集合体，这些导线往往是捆扎成束，按需求分叉，分叉也捆扎成束。 </li>
+<li><strong>汽车电子</strong>是指电子技术在汽车上的应用。包括：汽车上的电子设备（如收放机导航仪、电子点火器、电喷电控发动机用的ECU、ABS系统、安全气囊等等）、汽车上的网络通讯系统（比如CAN总线）、汽车防盗系统、定位系统等等</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212150001603.jpg" alt="汽车电气电子结构" /></p>
+<h5 align="center">汽车电气电子结构</h5>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201458796.jpeg" alt="img" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="autosar的简介"><a class="header" href="#autosar的简介">AUTOSAR的简介</a></h1>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212181208858.jpeg" alt="图片" /></p>
+<h5 align="center">AUTOSAR</h5>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212150004306.svg" alt="AUTOSAR" />是汽车和软件行业领先公司的全球合作联盟，为智能移动开发和建立标准化的软件框架以及开放的E/E系统架构。考虑到目前和<em>未来市场中不同的汽车E/E架构</em>(Electrical/Electronic Architecture)，他们制定了一套专门用于汽车的开放性的框架和行业标准，它将用作管理将来的应用程序和标准软件模块中功能的基本基础结构。AUTOSAR的是<strong>AUT</strong>omotive <strong>O</strong>pen <strong>S</strong>ystem <strong>AR</strong>chitecture的缩写，是一种软件架构，因此AUTOSAR有两种含义：</p>
+<ol>
+<li>
+<p>代表<strong>AUTOSAR联盟</strong></p>
+</li>
+<li>
+<p>代表<strong>AUTOSAR软件架构</strong>。</p>
+</li>
+</ol>
+<h2 id="一autosar成员"><a class="header" href="#一autosar成员">一、AUTOSAR成员</a></h2>
+<p><a href="https://www.autosar.org/about/partners/">AutoSAR官网的成员的介绍界面</a>，目前有<strong>7类</strong>合作伙伴(最近新增了premium plus)</p>
+<ul>
+<li>核心合作伙伴（创始成员9个无法申请），战略合作伙伴一个<strong>电装</strong></li>
+<li>高级合作伙伴 +</li>
+<li>高级合作伙伴</li>
+<li>开发合作伙伴</li>
+<li>关联合作伙伴</li>
+<li>参与者</li>
+<li>订阅者</li>
+</ul>
+<p><img src="https://www.autosar.org/fileadmin/_processed_/4/5/csm_Autosar_Partner_Types_51abd0ae99.jpg" alt="img" /></p>
+<h5 align="center">AUTOSAR会员类型</h5>
+<h2 id="二合作伙伴"><a class="header" href="#二合作伙伴">二、合作伙伴</a></h2>
+<p>目前已经有超过300+AUTOSAR合作伙伴。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201952478.png" alt="image-20221220195204392" /></p>
+<h5 align="center">AUTOSAR合作伙伴</h5>
+<h2 id="三成员发展"><a class="header" href="#三成员发展">三、成员发展</a></h2>
+<blockquote>
+<p>西门子VDO原本也是核心成员，被Continental 收购，因此西门子VDO不再是AUTOSAR的核心成员</p>
+</blockquote>
+<p><img src="https://www.autosar.org/fileadmin/_processed_/5/6/csm_csm_partner_history_e2ab579698_d648bcfbe9.png" alt="img" /></p>
+<h5 align="center">合作伙伴发展历史</h5>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212181538756.png" alt="image-20221218153811580" /></p>
+<h5 align="center">AUTOSAR合作伙伴的遍布全球</h5>
+<h2 id="四autosar的组织"><a class="header" href="#四autosar的组织">四、AUTOSAR的组织</a></h2>
+<ul>
+<li>AUTOSAR标准主要是由<strong>AUTOSAR Working Group</strong>组织制作的</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201504421.png" alt="image-20221220150420358" /></p>
+<ul>
+<li>
+<p>AUTOSAR还有一个用户组，用户组是变化的，当前主要有三个用户组：</p>
+<ul>
+<li>
+<p><strong>UG-CN China，UG-CN的愿景是为中国市场启用AUTOSAR。</strong></p>
+<ul>
+<li>为了实现此目标，用户组在AUTOSAR演示程序项目上工作，以提供用户指南“如何从AUTOSAR开始”和演示程序的启动配置。</li>
+</ul>
+</li>
+<li>
+<p><strong>UG-NA North America，UG-NA的愿景是增强北美用户在AUTOSAR方面的技能，以充分利用AUTOSAR带来的汽车EE体系结构开发的优势。</strong></p>
+<ul>
+<li>为实现这一愿景，他们提供了一个协作环境，以促进AUTOSAR在北美地区的使用。</li>
+<li>开发关键文档以帮助理解AUTOSAR标准，并提供示例和配置以解决特定的用例。</li>
+</ul>
+</li>
+<li>
+<p><strong>UG-IE Improved Exploitation，UG-IE代表了更好地利用AUTOSAR工业标准。</strong></p>
+<ul>
+<li>他们的任务是分享AUTOSAR的利用和开发经验。其他任务包括为战略方向准备提案，以提高AUTOSAR的可用性以及节省更多的精力。</li>
+<li>UG-IE的总结结果创建了演示文稿和技术论文，对AUTOSAR战略，技术工作组和用户产生了推动作用。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201548167.png" alt="image-20221220154850123" /></p>
+<ul>
+<li><strong>AUTOSAR软件框架</strong>，AUTOSAR分为CP和AP和合作平台</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201532865.png" alt="image-20221220153214810" /></p>
+<table><thead><tr><th>指标</th><th>CP</th><th>AP</th></tr></thead><tbody>
+<tr><td>开发工具</td><td>C</td><td>C++</td></tr>
+<tr><td>开源程度</td><td>非开源</td><td>开源</td></tr>
+<tr><td>适用环境</td><td>传统ECU、MCU</td><td>自动驾驶、V2X</td></tr>
+<tr><td>实时方式</td><td>硬实时</td><td>软实时</td></tr>
+<tr><td>通信方式</td><td>CAN、LIN</td><td>以太网</td></tr>
+<tr><td>操作系统</td><td>OSEK-OS based</td><td>POSIX</td></tr>
+<tr><td>升级方式</td><td>固定，不可升级</td><td>SOA</td></tr>
+<tr><td>功能安全等级</td><td>ASIL D</td><td>ASIL B以上</td></tr>
+</tbody></table>
+<h5 align="center">AUTOSAR CP和AP对比</h5>
+<ul>
+<li>
+<p><strong>AUTOSAR交付内容</strong></p>
+<p>从“Foundation”出发的，扩展出Classic Platform（简称CP）和Adaptive Platform（简称AP）两大平台，继而定义各种接口和测试等。</p>
+<ul>
+<li><strong>CP交付了规范文档</strong></li>
+<li>AP提供示例代码和文档</li>
+<li>白色部分属于还在扩展中的部分标准</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201606424.png" alt="image-20221220160634363" /></p>
+<ul>
+<li>
+<p>Foundation(FO)主要作用是确保不同AUTOSAR标准的兼容性，因此包含了所有常见的Artifact和协议，例如</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201610063.png" alt="image-20221220161033000" /></p>
+</li>
+</ul>
+<h2 id="五autosar带来了什么好处"><a class="header" href="#五autosar带来了什么好处">五、AUTOSAR带来了什么好处</a></h2>
+<ul>
+<li>对于<strong>OEM</strong>车厂</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212182057233.png" alt="image-20221218205705166" /></p>
+<ul>
+<li>对于<strong>供应商</strong></li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212182057027.png" alt="image-20221218205714959" /></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201615733.png" alt="image-20221220161548667" /></p>
+<ul>
+<li>对于<strong>工具供应商</strong></li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212191056028.png" alt="image-20221219105650964" /></p>
+<ul>
+<li>对于<strong>新入市场者</strong></li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212191102603.png" alt="image-20221219110253540" /></p>
+<h3 id="六autosar开发流程"><a class="header" href="#六autosar开发流程">六、AUTOSAR开发流程</a></h3>
+<p>AUTOSAR的方法论从参与者角色分工来看，分别支撑不同的工作。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221430204.png" alt="image-20221222143002147" /></p>
+<ul>
+<li>
+<p><strong>Software Component  Description</strong></p>
+<ul>
+<li>该SWC用到或被用到的Operation和Data</li>
+<li>SWC对基础构架(network)和对硬件(latency times, timing, etc.)的要求</li>
+<li>SWC使用的资源 (memory, CPU time, etc.)</li>
+<li>运行机制(repetition rate)</li>
+<li>SWC软件接口</li>
+</ul>
+</li>
+<li>
+<p><strong>ECU Resource Description</strong></p>
+<ul>
+<li>Sensor, actuator 传感器，执行器</li>
+<li>Memory 存储器</li>
+<li>Processor 处理器</li>
+<li>Communications periphery 通信外部设备（如 收发器）</li>
+<li>Pin assignments 引脚分配</li>
+</ul>
+</li>
+<li>
+<p><strong>System Constraint Description</strong> 系统约束申明</p>
+<ul>
+<li>Information on network topologies 网络拓扑</li>
+<li>Limitations (“Constraints”) 限制</li>
+<li>Protocol 协议</li>
+<li>K-matrix 通信矩阵</li>
+<li>Baud rate, timing 波特率，定时</li>
+<li>ECU映射</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221439529.png" alt="image-20221222143901471" /></p>
+<p>前面提到了TOOL供应商，autosar的创始成员里面也有比如大陆集团的EB，博世旗下的ETAS，还有一些国产厂商也做的非常棒东软睿驰、经纬恒润，华为等。</p>
+<p>不过市场占有率最高的还是<strong>Vector</strong>，工具链最全，市场占有率最高，同样价格也是非常美丽。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221446274.png" alt="image-20221222144629203" /></p>
+<p>工具大致介绍</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221453506.png" alt="image-20221222145341450" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="autosar的发展"><a class="header" href="#autosar的发展">AUTOSAR的发展</a></h1>
+<blockquote>
+<p>首先思考一个问题，为什么需要AUTOSAR？</p>
+</blockquote>
+<h2 id="1早期开发状态"><a class="header" href="#1早期开发状态">1、早期开发状态</a></h2>
+<p>裸写代码法，目前这种开发方式还是存在的，例如一些简单的ECU（锂电池管理单元BMS）在使用这种方式开发，<strong>缺点</strong>比较明显，软硬件耦合严重换颗芯片就要进行重新<strong>裸写</strong>。大致总结存在如下问题：</p>
+<ul>
+<li>电子系统的<strong>复杂性</strong>不断增长，<strong>软件代码</strong>量急速上升</li>
+<li><strong>生命周期差别</strong>: 整车的生命周期往往长于ECU的生命周期</li>
+<li>嵌入式系统不支持<strong>硬件抽象</strong></li>
+<li>有限的软件<strong>模块化</strong></li>
+<li><strong>重用性</strong>差: 当硬件（处理器型号）更换后，软件往往要推倒重写</li>
+<li>五花八门的<strong>硬件平台</strong></li>
+</ul>
+<h2 id="2基于封装思想的开发状态"><a class="header" href="#2基于封装思想的开发状态">2、基于封装思想的开发状态</a></h2>
+<p>裸写多了，程序员总会想着偷懒，通过有经验的架构师做出一套优化架构，并且结合一些操作系统（OS）对代码进行封装，这样一来便可以大大降低裸写代码法的很多弊端，极大的解决了软件的日益复杂化，可重用低的问题，不过<strong>缺点</strong>仍然有：</p>
+<ol>
+<li>对于不同的客户，由于各家客户需求不同，重用性依然不好</li>
+<li>软件耦合也会存在，同时该方法的优劣和架构师的能力直接挂钩，存在一定的安全隐患</li>
+</ol>
+<p>如下图是<strong>Vector</strong>以前的解决方案:</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212151117585.png" alt="image-20221215111724522" /></p>
+<h5 align="center">Vector在AUTOSAR之前的解决方案</h5>
+<blockquote>
+<p>为了解决行业内嵌人式软件开发所面临的问题,提高软件的开发效率和可重用性,降低软件的开发成本,全球主流的汽车整车厂、零部件供应商以及软件、半导体和电子工业的企业于2003年联合成立了汽车开放系统架构AUTOSAR联盟旨在推动建立汽车电气/电子(E/E)架构的开放式标准,使其成为汽车嵌人式应用功能管理的基础架构,并规范汽车电子产品、软件和元器件的互通性,使用户避免因为采用私有的协议和解决方案而导致开发成本日益增长</p>
+</blockquote>
+<h2 id="3使用autosar作为解决办法"><a class="header" href="#3使用autosar作为解决办法">3、使用AutoSAR作为解决办法</a></h2>
+<p>AUTOSAR定义了一套支持分布式的、功能驱动的汽车电子软件开发方法和电子控制单元上的软件架构标准化方案。从结构化概念设计阶段设计AUTOSAR软件组件及其在ECU间的分配,到定义通信和ECU间的配置,通过工具为软件开发流程提供通用的支持采用成熟的工具实现需求的结构化并进行相应的管理,同时建立相应的配置。</p>
+<h3 id="1autosar的诞生"><a class="header" href="#1autosar的诞生">1、AUTOSAR的诞生</a></h3>
+<p>自从德国发明汽车后，在后来的岁月里，汽车不断地改进不断地演化，车内的系统和零部件越来越复杂和繁多。时至今日，汽车行业，变成了一个蓬勃发展的行业</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212191105333.png" alt="图片" /></p>
+<p>作为汽车发源地的欧洲大地，准确地讲，德国，于2002年8月，有一群车企大佬（宝马、博世、大陆集团、戴姆勒克莱斯勒和大众汽车公司，后来西门子威迪欧也加入了）就共同的挑战和目标进行了讨论，成立一个<strong>联盟</strong>，制定标准，准备一统江湖。</p>
+<p>很快，在2003年，他们就将AUTOSAR kickoff了，同时也制定了AUTOSAR Classic Platform的Draft版。</p>
+<p>在后来几年，这个联盟吸引了无数车企和相关设备商加入，规模不断地发展壮大，所制定的标准框架也日益完善。</p>
+<p>逐渐地，后来发现Classic Platform只覆盖了低端的设备，是基于微处理器之上的，上面更高端的系统或服务（有哪些？想想手机业务的发展情况），没有覆盖到。他们的野心是大大的，目标是宏伟的，到了2017年，一个Adaptive Platform就这样诞生了</p>
+<h3 id="2autosar软硬件隔离"><a class="header" href="#2autosar软硬件隔离">2、AUTOSAR软硬件隔离</a></h3>
+<p>Android是一个非常优秀的架构设计，做到了分层软件，<strong>软硬件解耦</strong>、<strong>高度可重用</strong></p>
+<table><thead><tr><th><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212151349681.png" alt="android_stack" /></th><th><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212151327296.jpg" alt="11" /> <img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212151326322.png" alt="treble_vndk" /></th></tr></thead><tbody>
+</tbody></table>
+<h5 align="center">一、Android解决碎片化问题退出的Project Treble</h5>
+<p>大家经常能看到的下图能很形象的说明这一点，隔离后的好处就是不管你用NXP的还是英飞凌的亦或者是TI的；不管你的硬件是怎么设计的，我们都不用修改我们的代码，只需要配置一下AutoSAR，告诉它我换硬件了，然后AutoSAR帮你匹配硬件。当然，实际操作起来还是需要对AuoSAR配置的熟练掌握的,因为要改很多</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212151349298.png" alt="image-20221215134911259" /></p>
+<h5 align="center">二、AUTOSAR的作用</h5>
+<p>旧实现各家方案是各搞各的，并且自己内部也是各项目各搞个的，也就意味着APP无法内外部复用，需要消耗大量的适配成本。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201539799.png" alt="image-20221220153904740" /></p>
+<h3 id="3autosar的出现因素"><a class="header" href="#3autosar的出现因素">3.Autosar的出现因素</a></h3>
+<ul>
+<li>汽车电子系统复杂度和代码量的不断提升，当前整车控制系统的代码量都已达到千万行代码的级别，其复杂度远比高端的航空航天要高，只是安全性比他们要低些。</li>
+<li>软件的复习用性差，由于软件依赖于固定的硬件开发，当硬件发生变更时功能往往需要推倒重来，无疑增加重复开发的工作量和周期，这都是血琳琳的投入和成本。</li>
+</ul>
+<p>汽车行业里有众多的整车厂（OEM）和供应商。一般来说，每一家OEM会生产不止一种车型，每一家OEM对不同子系统和零部件会选择不止一个供应商，每个供应商也会向不止一家OEM供货。减少开发成本最有效的办法就是，尽可能让产品可重复利用，用数量来分摊开发成本。OEM希望可以让同一套系统和部件用在不同的车型上；同一辆车上来自不同供应商的的各个系统和部件可以相互兼容；而供应商希望开发出来的部件和算法可以通过简单的软件调整就供给不同的OEM。</p>
+<p>另一方面，各个供应商的开发进度往往是不同步的。人们希望可以在供应商开发的过程中就可以测试该部件能否与整车上的其它系统正确配合。因此需要一种统一的、标准化的系统描述方法。</p>
+<p>这便是AUTOSAR的初衷，即<strong>通过提升OEM以及供应商之间软件模块的可复用性和可互换性来改进对复杂汽车电子电气架构的管理。</strong></p>
+<p>对于此，汽车圈，德国为主的几个大佬拉倒一起讨论了300来回，并成为最初的九大核心成员（博世、BMW、大陆、福特、戴姆勒、PSA、通用、丰田和大众）。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="autosar架构"><a class="header" href="#autosar架构">AUTOSAR架构</a></h1>
+<p>AUTOSAR总的思想是，<code>Cooperate on standards – Compete on implementation</code>，<strong>标准上合作，实现上竞争。</strong></p>
+<p>意思就是<strong>汽车行业的整车厂和供应商共同合作开发一套汽车电子系统的软件开发标准，这样大家就可以专注于功能的开发，而无需顾虑目标硬件平台。</strong></p>
+<ul>
+<li>
+<p>将汽车系统的基础软件标准化为一个跨OEM的 <strong>标准栈</strong></p>
+</li>
+<li>
+<p><strong>集成</strong>不同供应商生产的功能模块</p>
+</li>
+<li>
+<p><strong>适用</strong>于不同的车辆及不同的车型</p>
+</li>
+</ul>
+<p>AUTOSAR的计划目标主要有三个：</p>
+<ul>
+<li>规范分布式开发流程中的<strong>交换格式</strong></li>
+<li>为应用程序的开发提供<strong>方法论</strong></li>
+<li>制定各种<strong>应用接口规范</strong></li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201644103.png" alt="image-20221220164436028" /></p>
+<h5 align="center">AUTOSAR的使用</h5>
+<h2 id="autosar架构分层"><a class="header" href="#autosar架构分层">AUTOSAR架构分层</a></h2>
+<p>AUTOSAR的应用范围：AUTOSAR专用于汽车ECU。此类ECU具有以下属性：</p>
+<ul>
+<li>与硬件（传感器和执行器）强交互</li>
+<li>与CAN、LIN、FlexRay或以太网等车辆网络的连接，</li>
+<li>具有有限计算能力和内存资源的微控制器（通常为16或32位）（与企业解决方案相比）</li>
+<li>实时系统和从内部或外部闪存执行程序。</li>
+</ul>
+<p>分层架构是实现软硬件分离的关键，使汽车系统软件开发者摆脱了之前ECU软件开发与验证时对硬件系统的依赖,在AUTOSAR分层架构中，汽车嵌入式系统软件自上而下分别为：</p>
+<ul>
+<li>基础软件层（Basic Software Layer， <strong>BSW</strong>)</li>
+<li>应用软件层（Application Software ,<strong>ASW</strong>）</li>
+<li>运行时环境 （Runtime Environment，<strong>RTE</strong>）</li>
+<li>微控制器（Microcontroller）</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201729014.png" alt="image-20221220172941975" /></p>
+<h5 align="center">AUTOSAR分层示意图</h5>
+<h3 id="1基础软件层base-software-layer"><a class="header" href="#1基础软件层base-software-layer">1、基础软件层（Base Software Layer）</a></h3>
+<ul>
+<li>进一步，BSW 基础软件层（Basic Software Layer，BSW）又可分为四层:
+<ol>
+<li>微控制器抽象层（Microcontroller Abstraction Layer，<strong>MCAL</strong>）</li>
+<li>ECU抽象层（<strong>ECU</strong> Abstraction Layer）</li>
+<li>服务层（<strong>Services</strong> Layer）</li>
+<li>复杂驱动 （Complex Device Drivers  ，<strong>CDD</strong>）</li>
+</ol>
+</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201719333.png" alt="image-20221220171927299" /></p>
+<h5 align="center">基础软件层详细划分</h5>
+<ul>
+<li>基础软件层被进一步划分为功能组（<strong>functional groups</strong>）。服务层**（Services Layer）** 分为系统服务、内存服务和通信服务等。</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201804696.png" alt="image-20221220180442655" /></p>
+<h5 align="center">基础软件功能分组</h5>
+<p>从上图可以看到，BSW这一层的划分有点乱，既有纵向的，也有横向的，CDD可以认为是纵向的独立的一个功能组，这些跨越多个层级的都是一些比较特殊的，比如左侧的系统服务跨越多个层级，并且包含了OS(AUTOSAR OS后面描述)；然后还有一个I/O硬件抽象。每个功能组在纵向上都是一个分类，但这并不是说每个模块/功能组只能在自己所属纵向上使用。比如SPI底层驱动可能划分在Communication Drivers里面。但是该模块的调用路径很可能是通过RTE → I/O Hardware Abstraction → SPI。但是像<strong>CAN</strong>这种外设，它就是通过RTE → Communication Services → Communication Hardware Abstraction → Communication Drivers/CAN这条线来使用的。</p>
+<h4 id="11-微控制器抽象层microcontroller-abstraction-layer"><a class="header" href="#11-微控制器抽象层microcontroller-abstraction-layer">1.1 微控制器抽象层（Microcontroller Abstraction Layer）</a></h4>
+<p>微控制器抽象层是基本软件中最低的软件层。它包含内部<strong>驱动程序</strong>，这是一种可以直接访问µC和内部外设的软件模块。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212211430245.png" alt="image-20221221143024193" /></p>
+<h5 align="center">微控制器抽象层</h5>
+<p><strong>任务：</strong></p>
+<p>让MCAL层的上层软件独立于/不依赖微控制器。</p>
+<p><strong>特性：</strong>：</p>
+<ul>
+<li>
+<p>实现：依赖于µC的实现</p>
+</li>
+<li>
+<p>接口：标准化和µC独立</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>举个例子：</strong></p>
+<p>例如我们现在有一个芯片A，基本开发完成了，但是为了cost down，，要求换个芯片吧（叫芯片B），芯片B不但便宜，还Pin2Pin兼容。这时候做应用及上面服务层的同事一片叫好（反正没他们啥事，吃瓜群众）。做MCAL的人就苦逼了，他们得重新针对新的芯片B重新弄一遍。这就是上面不依赖于芯片，有MCAL搞定。</p>
+</blockquote>
+<p>微控制器抽象层包括：</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201804655.png" alt="image-20221220180419618" /></p>
+<h5 align="center">微控制器抽象层驱动分组</h5>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201811582.png" alt="image-20221220181113543" /></p>
+<h5 align="center">微控制器层详细划分</h5>
+<p>如果更详细一点的划分如上图</p>
+<ul>
+<li>
+<p><strong>微控制器驱动</strong>（Microcontroller Drivers）</p>
+<ul>
+<li>内部外设的驱动程序（如看门狗、通用计时器）功能</li>
+<li>具有直接访问µC的函数（如核心测试）</li>
+</ul>
+</li>
+<li>
+<p><strong>存储器驱动</strong> （Memory Drivers）</p>
+<ul>
+<li>芯片上存储设备（例如内部Flash、内部EEPROM)和内存映射的外部内存设备（例如外部闪存）的驱动程序</li>
+</ul>
+</li>
+<li>
+<p><strong>加密驱动</strong> </p>
+<ul>
+<li>如SHE(Secure Hardware Extension)或HSM(Hardware Secure Module)等芯片上加密设备的驱动程序</li>
+</ul>
+</li>
+<li>
+<p><strong>无线通信</strong>（Wireless Communication Drivers）</p>
+<ul>
+<li>无线网络系统的驱动（V2X、车内无线网络系统和非车载ECU通信系统）</li>
+</ul>
+</li>
+<li>
+<p><strong>通信驱动</strong>（Communication Drivers）</p>
+<ul>
+<li>车载ECU(如SPI)和车辆通信(如CAN)</li>
+<li>OSI网络分层结构的数据链路层的一部分</li>
+<li>SPIHandlerDriver
+<ul>
+<li><strong>SPIHandlerDriver</strong>允许并行访问一个或多个SPI总线</li>
+<li>为了抽象专用于芯片选择的SPI微控制器引脚的所有特征，这些特征应由<strong>SPIHandlerDriver</strong>直接处理。这意味着这些引脚在DIO Driver中不可用。
+<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201824464.png" alt="image-20221220182440436" /></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>I/O驱动</strong> （I/O Drivers）</p>
+</li>
+<li>
+<p>模拟和数字I/O的驱动程序（如ADC、PWM、DIO)</p>
+</li>
+</ul>
+<h4 id="12--ecu抽象层ecu-abstraction-layer"><a class="header" href="#12--ecu抽象层ecu-abstraction-layer">1.2  ECU抽象层（ECU Abstraction Layer）</a></h4>
+<p>ECU抽象层与微控制器抽象层的驱动程序接口。它还包含外部设备的驱动程序。它提供了一个API 用于访问外围设备和设备，无论其位置（µC内部/外部）以及与µC的连接（端口引脚、接口类型）</p>
+<p><strong>任务：</strong></p>
+<p>使更高的软件层独立于ECU硬件布局</p>
+<p><strong>特性：</strong></p>
+<p>实现：µC独立，依赖于ECU硬件</p>
+<p>上层接口：独立与µC和ECU硬件</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212211433352.png" alt="image-20221221143342316" /></p>
+<p>ECU抽象层（ECU Abstraction Layer）包括</p>
+<ul>
+<li>板载设备抽象 （Onboard Devices Abstraction）</li>
+<li>存储器硬件抽象 （Memory Hardware Abstraction）</li>
+<li>通信硬件抽象 （Communication Hardware Abstraction）</li>
+<li>I/O硬件抽象 （Input/Output Hardware Abstraction）。</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212211813608.png" alt="image-20221221181332552" /></p>
+<p>ECU抽象层<strong>有点类似于Android平台的AOSP 标准化的HAL层</strong>，ECU抽象层是MCAL层的接口，这一层里面有很多名为<strong>Xxx_If</strong>的模块，与MCAL层相应模块对应。实际上这一层也包含驱动程序，但是是针对外部设备的驱动，而前面提到的MCAL是针对微控制器内部外设的。</p>
+<blockquote>
+<p>举个例子:</p>
+<p>由于MCU的资源有限，有些时候我们需要使用外扩Flash，通常这种外扩Flash是通过SPI这种端口连接的。我们知道芯片内部自带的Flash是由MCAL里面的Fls模块负责的，那现在这个外扩Flash就自能自己实现.</p>
+</blockquote>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212211809350.png" alt="image-20221221180943302" /></p>
+<h4 id="13-服务层services-layer"><a class="header" href="#13-服务层services-layer">1.3 服务层（<strong>Services</strong> Layer）</a></h4>
+<p>服务层（Services Layer）可分为系统服务（System Services）、存储器服务 （Memory Services）以及通信服务（Communication Services）<strong>三大部分</strong>。提供包括网络通信管理、存储管理、ECU模式管理和实时操作系统 （Real Time Operating System，RTOS）等服务。除了操作系统外，服务层的软件模块都是与ECU平台无关的。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221543730.png" alt="image-20221222154352692" /></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221542781.png" alt="image-20221222154253701" /></p>
+<p>服务层是基础软件的最高层，它提供了：</p>
+<ul>
+<li>操作系统功能</li>
+<li>车辆网络通信管理服务</li>
+<li>内存服务（NVRAM管理）</li>
+<li>诊断服务（包括UDS通信，内存错误和故障处理）</li>
+<li>ECU状态管理，模式管理</li>
+<li>逻辑和程序时序流监控（Wdg管理）</li>
+</ul>
+<p><strong>任务：</strong></p>
+<p>给应用层，RTE，BSW模块提供基础服务。</p>
+<p><strong>特性：</strong></p>
+<p>实现：除了OS部分功能外,不依赖于µC和ECU</p>
+<p>接口：µC和ECU硬件独立</p>
+<blockquote>
+<p><strong>注意：</strong></p>
+<p>对I/O信号的访问是由ECU抽象层实现的。上面提到服务层应用层，RTE提供服务比较号理解。容易忽略的是也对BSW模块提供服务，其实也很好理解，比如其他BSW模块可能不可避免的需要使用OS服务。这又涉及到前面提到过的调用关系了。总的来说大的原则是从上至下调用。但横向互相调用也是可以的。只有下面调用/通知上面这种情况，AUTOSAR使用callback机制。</p>
+</blockquote>
+<h4 id="14-复杂驱动层complex-drivers-layer-"><a class="header" href="#14-复杂驱动层complex-drivers-layer-">1.4 复杂驱动层（<strong>Complex Drivers Layer</strong> ）</a></h4>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221547260.png" alt="image-20221222154734224" /></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221550840.png" alt="image-20221222155009788" /></p>
+<p>如图所示，复杂驱动层从硬件直接跨越到RTE层。CDD为集成特殊功能提供了可能性。</p>
+<p><strong>任务：</strong></p>
+<ul>
+<li>那些没有在AUTOSAR里面规定的外设驱动。</li>
+<li>对时序约束很高的驱动。</li>
+<li>或者用于迁移集成等。</li>
+</ul>
+<p><strong>特性：</strong></p>
+<p>实现：可能是依赖于应用程序、µC和ECU的硬件的</p>
+<p>上层接口：可能是依赖于应用程序、µC和ECU的硬件的</p>
+<blockquote>
+<p>注意：</p>
+<p>CDD虽然名字叫驱动，但它其实也可以是应用程序。例如vector的实现就是将CDD归类为SWC 与ECU硬件及MCU相关。</p>
+</blockquote>
+<h3 id="2运行时环境层runtime-environment-layer"><a class="header" href="#2运行时环境层runtime-environment-layer">2、运行时环境层（Runtime Environment Layer）</a></h3>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221554367.png" alt="image-20221222155420330" /></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221555910.png" alt="image-20221222155557873" /></p>
+<p>RTE是为应用软件提供通信服务的。这些AUTOSAR软件组件之间/软件组件与服务之间的通信都由RTE来实现。这里说的应用软件包含AUTOSAR软件组件/传感器/执行器组件等。在RTE以上的软件架构风格由下面这种“层”的概念变为“软件组件”的风格。</p>
+<p><strong>任务</strong></p>
+<p>针对ECU进行映射以达到AUTOSAR组件完全独立/不依赖于ECU。</p>
+<p><strong>属性</strong></p>
+<p>实现：ECU和特定应用（为每个ECU单独生成）</p>
+<p>接口：完全独立于ECU</p>
+<div style="break-before: page; page-break-before: always;"></div><p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221638322.png" alt="image-20221222163858277" /></p>
+<h2 id="appl的组成"><a class="header" href="#appl的组成">AppL的组成</a></h2>
+<p>AppL中最重要的就是SWC了，而SWC与其他SWC通信需要接口，每个SWC中又由runnable组成，所以AppL主要的组成就分下面三部分：</p>
+<ol>
+<li><strong>应用软件组件（SWC  Software Component）</strong></li>
+<li><strong>AutoSAR接口（Ports）和连接器（Connector）</strong></li>
+<li><strong>可运行实体（Runnable Entity）</strong></li>
+</ol>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221957414.png" alt="bg" /></p>
+<h2 id="一举个例子"><a class="header" href="#一举个例子">一、举个例子</a></h2>
+<p><strong>汽车顶灯的控制</strong>：</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221958204.jpeg" alt="img" /></p>
+<p>车内的顶灯一般有三种模式：</p>
+<ol>
+<li>常闭的模式</li>
+<li>常开的模式</li>
+<li>随车开关而开关的模式</li>
+</ol>
+<p>好了，那么我们来捋一捋。</p>
+<ul>
+<li>首先肯定是需要传感器（包括图上的和车门上的）</li>
+<li>处理单元</li>
+<li>执行器（图上的车顶灯）。</li>
+</ul>
+<p>假如就以下图为简单逻辑而言：有左右两个车门，左右两个车灯，一个开关传感器。这里我们分配了7个SWC，将传感器、处理单元和执行器都分的很细，且这里并非由一个ECU控制。</p>
+<h2 id="二swc的通信"><a class="header" href="#二swc的通信"><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221958032.png" alt="在这里插入图片描述" />二、SWC的通信</a></h2>
+<p>我们将上图的SWC整理一下，做成大家容易理解的横向一排的样式，如下：</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222007003.png" alt="在这里插入图片描述" />SWC之间的通信是通过独立的一个层级进行交互，我们称其为虚拟功能总线（VFB)，也就是RTE的实现。该总线是意义上的片内外通信的结合体，取了个名字叫虚拟功能总线，其实际就是分两部分：</p>
+<ol>
+<li><strong>在片内</strong>就是通过RTE通信。一个SWC可以理解为一个.c文件，那么c文件间怎么通信呢——全局变量。所以大家可以把ECU内部SWC的通信暂时先想象成全局变量，具体怎么实现的，在后续RTE章节中将做详述</li>
+<li><strong>在片外</strong>就通过片外总线通信（一般汽车上都是CAN Bus）</li>
+</ol>
+<blockquote>
+<p>上图中有几个特殊的符号是指的AutoSAR接口</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222012477.png" alt="在这里插入图片描述" /></p>
+<p>而它们之间蓝色的连接线成为连接器（<strong>Connector</strong>，也即是刚刚说的全局变量)</p>
+</blockquote>
+<h2 id="三应用软件组件swc--software-componentswc类型"><a class="header" href="#三应用软件组件swc--software-componentswc类型">三、应用软件组件（SWC  Software Component）SWC类型</a></h2>
+<ul>
+<li><strong>原子级的SWC（Atomic SWC）</strong></li>
+</ul>
+<p>​		不可再拆分的SWC，其实之前我们列举的都是Atomic SWC，默认情况下说的SWC也是指ASWC。一个SWC是对应一个.c文件，这个c文件就是我们的最小单元，不可再分。</p>
+<blockquote>
+<p>那可运行实体（runnable）不就是组成SWC的更小单元吗？确实如此，但是我们将SWC看成原子，那runnable就是其中的电子、质子和中子，它们与原子密不可分。因此将SWC看成是最小单元，runnable是其中的函数。每个SWC的功能基本都是用来实现特定的算法。</p>
+</blockquote>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222034714.png" alt="在这里插入图片描述" /></p>
+<ul>
+<li><strong>集合级的SWC（Composition SWC）</strong></li>
+</ul>
+<p>​	有不可分割的SWC，就肯定有可分割的SWC。所以AutoSAR还规定了一类集合级的SWC（Composition SWC）。它们可以分为一个一个更小的Atomic SWC。就好像是一个分子由很多原子组成的概念。分子是有实际意义的，很多原子就没有实际意义（但是有些也有，比如金、银和铜等）。</p>
+<table><thead><tr><th>化学概念</th><th>AutoSAR概念</th><th>C语言概念</th></tr></thead><tbody>
+<tr><td>分子</td><td>Composition SWC</td><td>包含xx.c文件的文件夹</td></tr>
+<tr><td>原子</td><td>Atomic SWC</td><td>xx.c文件</td></tr>
+<tr><td>电子、中子、质子等</td><td>runnable</td><td>函数</td></tr>
+</tbody></table>
+<p>还是那个例子，我们可以将功能相近或者需要整合到一处方便观看的SWC（以后Atomic SWC都简称为SWC）利用一个compositon SWC包含起来。这样，就可以方便SWC归类，这里Composition SWC有点从功能角度去看。<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222105150.png" alt="在这里插入图片描述" /></p>
+<p>于是，我们的文件映射也发生了一定的变化：方便大家对比，应该能很快明白composition SWC是啥了：</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222127052.png" alt="在这里插入图片描述" /></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222127884.png" alt="在这里插入图片描述" /></p>
+<blockquote>
+<p><strong>注意：</strong> 在Vector的DaVinci中其实不会生成Composition的文件夹，其实Composition只是一个概念，是用来在配置工具上方便大家归类整理，看起来更加符合功能设定</p>
+</blockquote>
+<ul>
+<li><strong>特殊的SWC</strong></li>
+</ul>
+<p>​		前面描述BSW的时候提到IO硬件抽象层（IoHwAb，BSW章节中会讲到）和复杂驱动（Cdd)，在DaVinci Developer中都是可以作为SWC进行配置和加runnable等操作的。因此，我们将其算成是特殊的SWC来看待</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222130465.png" alt="在这里插入图片描述" /></p>
+<h2 id="四autosar接口ports和连接器connector"><a class="header" href="#四autosar接口ports和连接器connector">四、AutoSAR接口（Ports）和连接器（Connector）</a></h2>
+<p>Ports是SWC和SWC做接口（Interface）通信使用，或者SWC通过RTE和BSW做接口（Interface）通信使用。</p>
+<ul>
+<li>
+<p><strong>Sender Ports</strong>发送端口<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222143069.png" alt="img" />：提供信息</p>
+</li>
+<li>
+<p><strong>Receiver Ports</strong>接收端口<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222143636.png" alt="img" />：接收信息</p>
+</li>
+<li>
+<p><strong>Sender/Receiver Ports</strong>发送/接收端口<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222143959.png" alt="img" />：可在一个Port端口内提供和接收信息</p>
+</li>
+<li>
+<p><strong>Server Ports</strong>服务端口<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222143842.png" alt="img" />：提供服务（operations)</p>
+</li>
+<li>
+<p><strong>Client Ports</strong>客户端端口<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222143614.png" alt="img" />：使用服务（operations)</p>
+</li>
+</ul>
+<blockquote>
+<p>Connector指的是<strong>SwComponen</strong>tType的<strong>PortProto</strong>types来连接建立SwComponentPrototypes之间的实际连接的SwConnector</p>
+</blockquote>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222229334.png" alt="img" /></p>
+<p>Ports主要分为5种类型，列在下面的图中：</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222134696.png" alt="在这里插入图片描述" /></p>
+<p>其中又可分类为：<strong>R-Ports、P-Ports和PR-Ports</strong>。值得注意的是，这里的PR-Ports是在AUTOSAR4.0以后定义。</p>
+<p>或者又可以分为：**Send/Receiver（S/R）接口和Client/Server（C/S）**接口。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212230943861.png" alt="image-20221223094342800" /></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231319852.png" alt="img" /></p>
+<p>需型端口可以和供型端口连接。软件组件SWC1有一个需型端口（R）和一个供型端口（P），其中需型端口与SWC2的供型端口相连，它们之间的交互关系通过连线箭头表示，由SWC2的供型端口指向SWC1的需型端口。SWC3具有一个供需端口，被认为自我相连。 由于端口仅仅定义了方向，所以AUTOSAR中用端口接口 （Port Interface）来表征<strong>端口的属性</strong></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231320113.png" alt="img" /></p>
+<p>软件组件SWC1具有两个端口，其中一个引用的端口接口类型为发送者-接收者（S/R）接口，另一个引用的端口接口类型为客户端-服务器（C/S）接口。从中也可以看出，对于引用发送者-接收者接口的一组端口而言，需型端口为接收者 （Receiver），供型端口为发送者（Sender）。对于引用客户端-服务器 接口的一组端口而言，需型端口为客户（Client），供型端口为服务器（Server）。</p>
+<p><strong>一、S/R接口</strong></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222153959.png" alt="在这里插入图片描述" /></p>
+<blockquote>
+<p><strong>作用：</strong> 传输数据。通过RTE传输数据，并且通过RTE管理数据的传输，避免数据出问题（例如同时调用同一数据时可能出错）</p>
+<p>发送者-接收者接口用于<strong>数据的传递关系</strong>，发送者发送数据到一个或多个接收者。该类型接口中定义了一系列的数据元素（Data Element，DE），这些数据元素之间是相互独立的。如下图所示，该发送者-接收者接口SR_Interface中定义了两个数据元素，名字分别为DE_1与DE_2，并且需要为每个数据元素赋予相应的数据类型</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231327296.png" alt="img" /></p>
+</blockquote>
+<ul>
+<li>
+<p>一个接口可以包含多个数据，类似于通过结构体传输</p>
+</li>
+<li>
+<p>可以传输基础数据类型（int，float等）和复杂数据类型（record，array等）</p>
+</li>
+<li>
+<p>通信方式: 1:n 或者 n:1 </p>
+</li>
+<li>
+<p>如果一个data element要通过总线传输， 那么它必须与一个signal对应起来</p>
+</li>
+<li>
+<p>通信方式 - 不使用队列</p>
+<ul>
+<li>
+<p><strong>直接访问</strong></p>
+<blockquote>
+<p>适用于实时性要求高的数据，直接访问</p>
+<ul>
+<li>RTE直接访问数据地址</li>
+<li>初始值即为默认值</li>
+</ul>
+</blockquote>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231032674.png" alt="image-20221223103245631" /></p>
+</li>
+<li>
+<p><strong>使用缓存</strong></p>
+<blockquote>
+<p>适用于有一致性要求的数据组</p>
+<ul>
+<li>在进入runnable之前RTE为数据建立副本</li>
+<li>在runnable运行结束之后RTE把副本数据拷贝到实际数据地址</li>
+<li>在runnable运行过程中只操作副本，实际数据不会改变</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231031228.png" alt="image-20221223103133182" /></p>
+</li>
+<li>
+<p>通信方式-使用队列</p>
+<blockquote>
+<p><strong>“event” (isQueued=True)</strong>,”event“ 查询接收或等待接收，RTE从队列中读取数据，等待接收有超时处理。</p>
+</blockquote>
+<ul>
+<li>“查询接收” 或 “等待接收”</li>
+<li>RTE从队列中读取数据</li>
+<li>“等待接收” 有超时处理</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231057377.png" alt="image-20221223105749327" /></p>
+<pre><code class="language-c">//Read表示是一个RPort、同样也会有一个PPort，Rte_Write_xxx_xxx()
+Rte_Read_&lt;Port&gt;_&lt;Data&gt;()
+//这里Data是指的传输的数据类型，比如DoorOpen就是：
+SWC_DoorOpen = Rte_Read_Door_DoorOpen();
+</code></pre>
+</li>
+<li>
+<p>对于S/R通信模式，分为显示（Explicit）和隐式（Implicit）两种模式。当多个运行实体需要读取相同的数据时，若能在运行实体运行之前先把数据读到缓存中，在运行实体运行结束后再把数据写出去，则可以改善运行效率，这就是<strong>隐式模式。</strong></p>
+</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231332721.png" alt="img" /></p>
+<p><strong>二、C/S接口</strong></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222214824.png" alt="在这里插入图片描述" /></p>
+<blockquote>
+<p><strong>作用：</strong> 提供操作。就是Server提供函数供Client调用</p>
+<p>客户端-服务器接口用于操作（Operation，OP），即函数调用关系，<strong>服务器是操作的提供者</strong>，多个客户端可以调用同一个操作，但同一个客户端不能调用多个操作。客户端-服务器接口定义了一系列操作 （Operation），即函数，它（们）由引用该接口的供型端口所在的软件组（服务器）件来实现，并提供给引用该接口的需型端口所在的软件组件调用。如下图所示，该客户端-服务器接口CS_Interface中定义了两个操作OP_1 与OP_2，对于每一个操作需要定义相关参数及其方向，即函数的形参，需要注意的是，每个端口只能引用一种接口类型，并且引用相同端口接口类型的端口才可以进行交互。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231327902.png" alt="img" /></p>
+</blockquote>
+<ul>
+<li>
+<p>可以同步和异步。同步就是直接调用，相当于函数直接插入上下文运行；异步的话需要等待，相当于让函数在另一个线程中运行，运行完了再返回，原上下文依然运行</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231324726.png" alt="img" /></p>
+</li>
+<li>
+<p>一个接口可以提供多个操作，就是一个接口可以包含很多函数</p>
+</li>
+<li>
+<p>ECU内部和跨ECU都可以调用，跨ECU也是通过外部总线</p>
+</li>
+<li>
+<p>通信方式: 1:1 或 n:1 （与S/R对应）</p>
+<pre><code class="language-c">Rte_Call_&lt;Port&gt;_&lt;Function&gt;()
+//这里的Call是指的调用的函数，比如调用State()就是
+Rte_Call_Door_State();
+</code></pre>
+</li>
+</ul>
+<h1 id="runnable-entities-简称runnables"><a class="header" href="#runnable-entities-简称runnables">Runnable entities (简称Runnables)</a></h1>
+<p>Runnable就是SWC中的函数，而在AutoSAR架构在被DaVinci软件生成的时候，Runnable是空函数，需要手动添加代码来实现其实际的功能。
+Runnable可以被触发，比如被定时器触发、被操作调用触发或者被接受数据触发等。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222231713.png" alt="在这里插入图片描述" /></p>
+<p>这里的函数就是我们前面提到的<strong>Send</strong>接口，发送的就是DoorOpen这个数据，由RTE进行管理。然而由于这里的这个SWCn.c文件中并未包含BSW中的.h文件，通过这个方式将AppL和BSW隔离开。
+<img src="https://img-blog.csdnimg.cn/20190720113021314.png" alt="在这里插入图片描述" /></p>
+<blockquote>
+<p>Runnable是需要OS中的Task做载体的。runnable是函数，但是c文件中光有一个函数那没用，必须要调用该函数才能起作用，就必须要有操作系统中的任务来执行这个函数。类比于Linux中的线程就是Task，这里的Runnable更多的像内核中的<strong>threadfn</strong>，或者说是Java中Runnable，需要载体，另外在AppL中没有Task这个概念。</p>
+</blockquote>
+<p><strong>举个例子：</strong></p>
+<p>从传感器到应用程序的过程:</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212230946951.png" alt="image-20221223094615901" /></p>
+<blockquote>
+<p><strong>代码什么样？</strong></p>
+</blockquote>
+<p><strong>1.Runnable Entity(可运行实体 ）</strong></p>
+<p>Runnable是主要用来封装SWC中的功能的。是由C语言函数实现的。一个SWC中需要至少要包含一个Runnable。简单举个例子：</p>
+<pre><code class="language-text">CheckStatusRunnable()
+{
+/* 判断是否完成 */
+    if(!finished)
+    {
+/* 如果未完成，就返回不OK */
+        return E_NOT_OK;
+    }
+    return E_OK； //如果完成，返回OK
+}
+</code></pre>
+<p>Runnable 简单分为两类：</p>
+<p><strong>Category 1</strong>：No WaitPoint （在有限的时间内运行至结束，不能等待）。</p>
+<p><strong>Category 2</strong>：With a WaitPoint at least.（至少包含一个WaitPoint，运行过程中可以等待）</p>
+<p><strong>怎么在Runnable中设置WaitPoint？通过直接调用对应RTE API实现。</strong></p>
+<p><strong>Rte_Receive() : 用于等待接收数据；</strong></p>
+<p><strong>Rte_Feedback() : 用于等待数据发送完成；</strong></p>
+<ul>
+<li>Rte_Invalidate_<p>_<d>()，表示sensor发送的数据无效，接收方feedback对无效值的处理</li>
+</ul>
+<p><strong>Rte_SwitchAck() : 用于等待模式切换操作；</strong></p>
+<p><strong>Rte_Result() : 用于等待异步服务器调用的结果。</strong></p>
+<p><strong>2. Task（任务）</strong></p>
+<p>是操作系统（OS）管理的最小可调度单元。操作系统决定何时在ECU的CPU上运行哪个任务。在OS启动后，所有的Task都处于默认状态：挂起状态（Suspended）。Task被激活（Activated）后进入准备状态（Ready）。Ready的task将会按照优先级（Priority）的高低依次运行（Running）。</p>
+<p>在RTE的代码中：</p>
+<pre><code class="language-text">TASK(TSK_Task1)
+{
+    ...
+    Runnable1();
+    Runnable2();
+    CheckStatusRunnable();
+    Runnable3();
+    ...
+  }
+}
+TASK(TSK_Task2)
+{
+  ...
+}
+</code></pre>
+<p><strong>当TSK_Task1被激活并运行后，map到它的Runnable也会按map的顺序依次执行。</strong></p>
+<p><strong>3.运行实体的RTE事件（RTE Event）</strong></p>
+<p>每个运行实体都会被赋予一个RTE事件（Trigger Event），即RTE 事件（RTE Event），这个事件可以引发这个运行实体的执行。对于 RTE事件可以细分为很多种类，较常用的RTE事件有以下几种：</p>
+<ul>
+<li>周期性（Periodic）事件，即Timing Event；</li>
+<li>数据接收事件（Data-received Event）；</li>
+<li>客户端调用服务器事件（Server-call Event）。</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222237710.png" alt="在这里插入图片描述" /></p>
+<h2 id="一什么是rte"><a class="header" href="#一什么是rte">一、什么是RTE</a></h2>
+<p>RTE的作用有点像Binder的<strong>ServiceManger</strong>，或者说DNS（就是上个世界那种要先打电话到接线员那里，然后通过接线员转接电话线到目的地），其作用就是将一个SWC的信息通过RTE连接到其他SWC或者BSW上。且RTE具有管理这些信息的功能，比如接收的SWC正忙（您所拨打的用户正忙），那么RTE负责让发送信息的SWC等待，或者做其他处理；RTE还能触发SWC，就像是这时接收的SWC在睡觉，这时发送的SWC发信息来了，那么RTE就要把接收的SWC叫醒起床。一句话概括就是RTE提供了SWC的运行环境。</p>
+<h2 id="二rte的作用"><a class="header" href="#二rte的作用">二、RTE的作用</a></h2>
+<ul>
+<li>提供 <strong>跨ECU / ECU内部</strong> 的通信管理，通过COM。</li>
+<li>提供对runnable的管理功能（触发、唤醒等，简单说就是runnable需要映射到Task上运行嘛，而这个映射就是通过RTE具体实现的）</li>
+<li>保证数据一致性(e.g. exclusive area)</li>
+<li>支持简单数据及复杂数据(records)</li>
+<li>在Vector的工具链中，RTE是自动生成的</li>
+</ul>
+<p>下面这张图将其再做细化，就能很清楚的看出其关联关系了。这里的RTE就是统一的管理，具体那些连接时怎么连的，我们是不需要在RTE中关心的（因为AppL中配好，RTE就自动生成嘛）。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222252983.png" alt="在这里插入图片描述" /></p>
+<h2 id="三rte主要功能点"><a class="header" href="#三rte主要功能点">三、RTE主要功能点</a></h2>
+<ul>
+<li><strong>通过RTE给runnable提供触发事件。</strong> 之前说过了runnable是可以被触发的，就是需要通过RTE来实现这个触发和调用runnable</li>
+<li><strong>通过RTE给runnable提供所需资源。</strong> 就是之前说的接口通信，将runnable需要的一些资源通过接口传输给它</li>
+<li><strong>将BSW和SWC做隔绝。</strong> 因此OS和runnables也被隔绝了，runnable的运行条件由RTE提供，不能由OS直接提供</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222258357.png" alt="在这里插入图片描述" /></p>
+<pre><code class="language-c">FUNC(Std_ReturnType, RTE_CODE) Rte_Start(void)
+{
+	... ...
+	/* activate the tasks */
+  (void)ActivateTask(App_Task); 
+  (void)ActivateTask(Task10ms); 
+  (void)ActivateTask(Task1ms); 
+  (void)ActivateTask(Task20ms);
+  ... ...
+  //设置定时alarm，1ms, 2ms, 10ms ... ...
+  (void)SetRelAlarm(Rte_Al_TE_Task1ms_0_1ms, RTE_MSEC_SystemTimer(0) + (TickType)1, RTE_MSEC_SystemTimer(1)); 
+  (void)SetRelAlarm(Rte_Al_TE_Task2ms_0_2ms, RTE_MSEC_SystemTimer(0) + (TickType)1, RTE_MSEC_SystemTimer(2)); 
+  (void)SetRelAlarm(Rte_Al_TE_App_AppRunnable, RTE_MSEC_SystemTimer(0) + (TickType)1, RTE_MSEC_SystemTimer(10)); 
+... ...
+}
+
+//RTE controlled tasks
+//App_Task
+TASK(App_Task)
+{
+  EventMaskType ev;
+
+  for(;;)
+  {
+    (void)WaitEvent(Rte_Ev_Run_DemoApp_DemoRunnable);
+    (void)GetEvent(App_Task, &amp;ev);
+    (void)ClearEvent(ev &amp; (Rte_Ev_Run_DemoApp_DemoRunnable)); 
+
+    if ((ev &amp; Rte_Ev_Run_DemoApp_DemoRunnable) != (EventMaskType)0)
+    {
+      /* call runnable */
+      AppRunnable(); 
+    }
+  }
+} 
+
+TASK(Task10ms) 
+{
+  EventMaskType ev;
+
+  for(;;)
+  {
+    (void)WaitEvent(Rte_Ev_Cyclic_Task10ms_0_10ms); 
+    (void)GetEvent(Task10ms, &amp;ev); 
+    (void)ClearEvent(ev &amp; (Rte_Ev_Cyclic_Task10ms_0_10ms)); 
+
+    if ((ev &amp; Rte_Ev_Cyclic_Task10ms_0_10ms) != (EventMaskType)0)
+    {
+        //10ms swc runnable
+        AppSiganlRunnable();
+        AppConfigRunnable();
+        AppInputRunnable();
+        ... ...
+    }
+  }
+</code></pre>
+<h2 id="runnables的触发条件"><a class="header" href="#runnables的触发条件">Runnables的触发条件</a></h2>
+<table><thead><tr><th><strong>Abbreviation</strong></th><th><strong>Name</strong></th><th>触发条件</th></tr></thead><tbody>
+<tr><td>T</td><td>TimingEvent</td><td>定时器事件：给一个周期定时器，时间到了就触发</td></tr>
+<tr><td>BG</td><td>BackgroundEvent</td><td></td></tr>
+<tr><td>DR</td><td>DataReceivedEvent (S/R Communication only)</td><td>接收数据事件（S/R）：Receiver Port 一旦收到数据，就触发</td></tr>
+<tr><td>DRE</td><td>DataReceiveErrorEvent (S/R Communication only)</td><td>接收数据错误事件（S/R）</td></tr>
+<tr><td>DSC</td><td>DataSendCompletedEvent(explicit S/R Communication only)</td><td>数据发送完成事件（S/R）：Send Port 发送完成，就触发</td></tr>
+<tr><td>DWC</td><td>DataWriteCompletedEvent (implicit S/R Communication only)</td><td>数据写入完成事件（S/R）：Send Port 发送完成，就触发</td></tr>
+<tr><td>OI</td><td>OperationInvokedEvent (C/S Communication only)</td><td>操作调用事件（C/S）：当调用到了该函数的时候</td></tr>
+<tr><td>ASCR</td><td>AsynchronousServerCallReturnsEvent(C/S communication only)</td><td>异步服务返回事件（C/S）：之前说过C/S可以在异步下运行，就是说当我调用一个Server函数，但是我是异步调用的。那么该被掉函数作为一个线程和当前的运行程序并行运行，当被调函数运行结束返回（Return）的时候，这时触发异步服务返回事件</td></tr>
+<tr><td>MS</td><td>SwcModeSwitchEvent</td><td>模式切换事件</td></tr>
+<tr><td>MSA</td><td>ModeSwitchedAckEvent</td><td>模式切换事件</td></tr>
+<tr><td>MME</td><td>SwcModeManagerErrorEvent</td><td></td></tr>
+<tr><td>ETO</td><td>ExternalTriggerOccurredEvent</td><td></td></tr>
+<tr><td>ITO</td><td>InternalTriggerOccurredEvent</td><td></td></tr>
+<tr><td>I</td><td>InitEvent</td><td>初始化事件：初始化自动触发</td></tr>
+<tr><td>THE</td><td>TransformerHardErrorEvent</td><td></td></tr>
+</tbody></table>
+<p><strong>ECU之间通信：</strong></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231026059.png" alt="image-20221223102624993" /></p>
+<p>跨ECU的数据传输，在runnable中使用Rte_Write__()这样的函数后，会需要走runnable (ECU1) -&gt;RTE (ECU1) -&gt;BSW (ECU1) -&gt;外部总线-&gt;BSW (ECU2) -&gt;RTE (ECU2) -&gt;runnable (ECU2)
+COM传输的接口函数:</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231143029.png" alt="在这里插入图片描述" /></p>
+<p><strong>保证数据一致性</strong></p>
+<blockquote>
+<p>同一个SWC内的、运行在不同Task上的runnable之间的通信.</p>
+<p>不同SWC之间的通信，无论是ECU内部还是ECU之间，都不会遇到这个问题，因为RTE会负责保证数据一致性.</p>
+<ul>
+<li>顺序调度策略 </li>
+<li>中断屏蔽策略</li>
+<li>资源锁等</li>
+<li>数据备份</li>
+</ul>
+</blockquote>
+<p>假如有两个任务，分别为Task A和Task B，其中Task A的优先级高于Task B。Task A每次访问均使X加2，Task B每次访问均使X加1。因此这两个任务中都要执行（step1）、修改（step2）、写（step3）三步操作。如果没有原子操作，则可能会发现以下情况，如图所示：</p>
+<ol>
+<li>假定X=5；</li>
+<li>Task B执行读取（step1) X=5，并临时存储（堆栈或MCU寄存器中）；</li>
+<li>Task A 优先级高于Task B， Task B被打断；</li>
+<li>Task A执行读，修改，写操作，将X=7写回内存中；</li>
+<li>Task A结束，继续执行Task B；</li>
+<li>Task B将之前临时存储的X（操作2）取出，并加1，将X=6写回内存。</li>
+</ol>
+<p>显然，开发人员期待的 结果是X = 8，但是最终的确实X  = 6，Task A的运算失效。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231127915.png" alt="nYBfeq" /></p>
+<p><strong>解决办法</strong>:</p>
+<ul>
+<li>
+<p>专用区域(Exclusive Areas )</p>
+<ul>
+<li>
+<p>Entire block or RTE protected</p>
+</li>
+<li>
+<p>Rte_Enter_<name>()</p>
+</li>
+<li>
+<p>Rte_Exit_<name>()</p>
+<pre><code class="language-c">Rte_Enter_&lt;name&gt;();
+//需要保护的代码
+....
+Rte_Exit_&lt;name&gt;();
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>内部变量(Inter-runnable variables)</p>
+<ul>
+<li>运行实体间变量（Inter Runnable Variable，IRV）即两个运行实体之间交互的变量。</li>
+<li>Rte_IrvWrite_<re>_<name></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212231335434.png" alt="img" /></p>
+<h1 id="autosar的接口"><a class="header" href="#autosar的接口">AUTOSAR的接口</a></h1>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222314767.png" alt="image-20221222231421708" /></p>
+<p>AUTOSAR中定义了三种接口，<code>AUTOSAR Interface</code>, <code>Standardized Interface</code> 以及 <code>Standardized AUTOSAR Inerface</code>. 要了解这三种接口，需要首先了解什么是&quot;Standardized&quot;的Interface，以及什么是&quot;AUTOSAR&quot;的Interface.</p>
+<p><strong>Standardaized</strong> 表示的是，这个接口是被事先标准化定义好的, 需要注意的是这里的&quot;标准化定义&quot;，指得就是被AUTOSAR这个标准所定义。用户在使用这个接口的时候，不可以改变接口的内容。所谓&quot;接口&quot;，其实就是一个API函数. AUTOSAR标准中的软件模块被事先定义好，需要向其它模块提供哪些API函数, <strong>这些API函数的输入输出变量的个数，类型以及返回值的类型都会被事先定义好，不能改变</strong>。在开发时需要做的，就是开发API中的内容。</p>
+<p><strong>AUTOSAR</strong> 的接口指的<strong>RTE提供的接口</strong>。RTE向所有的SWC，以及IoHwAb和Complex Drivers模块，提供AUTOSAR 接口，也就是说，这些模块都会连接在RTE上面。当某两个这类模块之间互相收发数据或者调用内部函数时，RTE会帮助它们来做这些。</p>
+<p>理解了Standardized Interface 和 AUTOSAR Interface, 那么 <strong>Standardized AUTOSAR</strong> Interface 就容易理解了。指的是，被AUTOSAR标准<strong>提前定义好的</strong>，并且是<strong>由RTE提供</strong>的接口。</p>
+<p>下面这个表格是关于这三个接口的总结:</p>
+<table><thead><tr><th>是否被AUTOSAR标准提前定义好?</th><th>是否属于RTE提供的接口?</th><th>模块是否连接在RTE上?</th></tr></thead><tbody>
+<tr><td><strong>Standardized</strong> Interface</td><td>是</td><td>否，模块之间的API调用不需要通过RTE的帮助</td></tr>
+<tr><td>AUTOSAR Interface</td><td>否，可以任意改变</td><td>是</td></tr>
+<tr><td><strong>Standardized</strong> AUTOSAR Interface</td><td>是</td><td>是</td></tr>
+</tbody></table>
+<blockquote>
+<p>OS和COM是唯一的两个标准接口允许直接和RTE相连的。因为RTE的很多功能是需要基于这两个模块来实现的。</p>
+</blockquote>
+<p>还是回到之前的案例，如下图</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222315979.png" alt="在这里插入图片描述" /></p>
+<p>上图将所有的接口以及其分布的位置都详细的标识了出来，还是用的原来的那张ECU的图添加，结合上面的描述和上图：</p>
+<p><strong>AutoSAR接口</strong></p>
+<ul>
+<li><strong>一句话概括：</strong> 之前说的S/R和C/S接口就是AutoSAR接口</li>
+<li><strong>特征：</strong> 接口函数名可变，例如之前说过的<code>Std_ReturnType Rte_Read_&lt;port&gt;_&lt;data&gt; (&lt;DataType&gt; *data)</code>这中形式的S/R函数，其中的<code>&lt;port&gt; &lt;data&gt;</code>就是用户自己配置的名字，因此，这些接口的函数名都是可以改变的，但大体的形式是不变的。</li>
+<li><strong>位置：</strong> SWC&lt;&gt;RTE、RTE&lt;&gt;CDD、RTE&lt;&gt;ECU AB(这里提一句，ECU AB之前没有讲到，其实很多的传感器、执行器都放在这里，是ECU的抽象，也是可以看作是SWC的，IoHwAb就在这里面)。说明白一点，就是只要能看成是SWC处理的，就是AutoSAR接口</li>
+</ul>
+<p><strong>标准接口</strong></p>
+<ul>
+<li><strong>一句话概括：</strong> 就是AutoSAR规定的C语言API</li>
+<li><strong>特征：</strong> 接口函数名是固定不变的，是AutoSAR规定好的。比如：<code>Com_SendSignal() WaitEvent()</code>这类都是API函数名，可以有上层调用，但是一般是使用工具配置生成的，做上层应用的一般是不用关心其具体实现的</li>
+<li><strong>位置：</strong> 第一张图中棕色的就是标准接口，说白了就是对函数API的调用。</li>
+</ul>
+<p>需要特殊说明一点的是：下图中两个红圈中的箭头，OS和COM是唯一的两个标准接口允许直接和RTE相连的。因为RTE的很多功能是需要基于这两个模块来实现的</p>
+<p><strong>标准AutoSAR接口</strong></p>
+<ul>
+<li><strong>一句话概括：</strong> 就是AutoSAR接口，不过名称是由AutoSAR官方规定不能修改</li>
+<li><strong>特征：</strong> 就是标准接口和AutoSAR接口的特征它都有一部分。首先是和AutoSAR接口一样，提供的是C/S、S/R接口；然后又和标准接口一样，函数名是不可变的。说白了就是官方规定好的C/S、S/R接口，咱们就当成是AutoSAR接口就行了，函数名字什么不用管它</li>
+<li><strong>位置：</strong> RTE&lt;&gt;Services，就这么一个地方</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="autosar方法论-methodology"><a class="header" href="#autosar方法论-methodology">AUTOSAR方法论 (methodology)</a></h1>
+<h2 id="一ecuex简介"><a class="header" href="#一ecuex简介">一、ECUEX简介</a></h2>
+<p>什么是ECUEX文件呢？开始提到<strong>ECU提取文件</strong>（全称是<strong>ECU Extract of System Description</strong>），简单说就是OEM和TIER1交接的文件。该文件由OEM设计整车时生成，并根据不同的ECU提取出对应的ECUEX文件交接给TIER1，TIER1拿到文件后便可以根据上面的信息来设计和开发ECU。ECUEX文件是arxml文件，但是如果只做通信矩阵这些内容，DBC(<strong>Database Can</strong>)这类文件也可以胜任（不过随着时代的进步，以后还是arxml）。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222330011.png" alt="在这里插入图片描述" /></p>
+<p>要可以包含以下内容（也可以只包含其中一部分）：</p>
+<ul>
+<li><strong>通信矩阵：</strong> 比如CAN总线包含的信息，像CAN ID号、signals、扩展帧还是普通帧和波特率之类的信息</li>
+<li><strong>SWCs、Ports等：</strong> SWC以及内部的runnable都可以在ECUEX文件中给出；还包含其Ports；还有SWC之间的连接关系（Connecters）</li>
+<li><strong>数据映射（Data Mapping）：</strong> 将总线的信号（Network Signals）映射到SWCs中</li>
+</ul>
+<p>ECUEX文件可以很简单（简单到只有通信矩阵），也可以很复杂（复杂到连一部分代码都要自己写）。</p>
+<p><strong>某些OEM和TIER1的分工，不绝对，未来OEM会负责更多的事务：</strong></p>
+<p>| 名称               | 解释                                                     | OEM    | TIER1  |
+| ------------------ | -------------------------------------------------------- | ------ | ------ |
+| Service Components | 为SWCs提供实际使用的BSW服务的接口（需要在BSW中配置过了） | 不负责 | 负责   |
+| Service Mapping    | 连接SWCs和Service Components                             | 不负责 | 负责   |
+| Atomics            | 功能的具体实现                                           | 不负责 | 负责   |
+| Compositions       | 每个SWC上需要哪些Port、连接器之类的                      | 不负责 | 负责   |
+| Data Mapping       | 连接Network Signals到SWCs中                              | 不负责 | 负责   |
+| ECU Composition    | 就是需要哪些SWC                                          | 不负责 | 负责   |
+| Communication      | 就是上面说的通信矩阵                                     | 负责   | 不负责 |</p>
+<h2 id="二autosar开发流程"><a class="header" href="#二autosar开发流程">二、AutoSAR开发流程</a></h2>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212222341969.png" alt="image-20221222234129917" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="autosar文档如何阅读"><a class="header" href="#autosar文档如何阅读">AUTOSAR文档如何阅读</a></h1>
+<h2 id="1文档查询"><a class="header" href="#1文档查询">1、文档查询</a></h2>
+<p>从autosar.org 官网可以下载和查询文档：</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212181317839.png" alt="image-20221218131713772" /></p>
+<h5 align="center">AUTOSAR官网</h5>
+<p>选中classic可以看到有的版本，通过search按钮可以查询对应的文档。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221034945.png" alt="image-20221222103458870" /></p>
+<p>基本上一年一个版本，目前已经release了R22版本，22年11月份。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201651762.png" alt="image-20221220165144730" /></p>
+<p>由于官网的维护和改版，和之前的版本有了较大的变化，没有办法按照功能组去下载对应的文档了。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221039804.png" alt="img" /></p>
+<h2 id="2文档类型"><a class="header" href="#2文档类型">2、文档类型</a></h2>
+<p>文档目前官网处于R22发布重新维护中，当前文档服务无法提供，文档也无法下载，需要下载的我这边可以提供。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221002973.png" alt="image-20221222100214908" /></p>
+<h5 align="center">AUTOSAR文档目录</h5>
+<p>可以看到从文件命名的格式来看，都是AUTOSAR开头，以AUTOSAR_XXX_YYY 等结尾，XXX主要分为如下几个大类：</p>
+<table><thead><tr><th>简写</th><th>详细含义</th><th>解释</th></tr></thead><tbody>
+<tr><td>EXP</td><td>Explaination</td><td>解释说明性的文档，<strong>优先阅读</strong></td></tr>
+<tr><td>EXP_FCDesign</td><td>FUNCTIONAL CLUSTER DESIGN</td><td>示例代码的设计文档，帮助更好地理解 FC 模块</td></tr>
+<tr><td>RS</td><td>Requirement Specification</td><td>详细描述需求规范</td></tr>
+<tr><td>SRS</td><td>Softeware Requirement Specification</td><td>所有软件模块需求规范</td></tr>
+<tr><td>SWS</td><td>Softeware Specification</td><td>软件模块设计和实现的规范</td></tr>
+<tr><td>TPS</td><td>Template Specification</td><td>模板详细介绍</td></tr>
+<tr><td>TR</td><td>Technical Report</td><td>技术规范详细介绍</td></tr>
+<tr><td>MOD</td><td>Model</td><td>建模</td></tr>
+<tr><td>MMOD</td><td>Meta Model</td><td>元模型</td></tr>
+</tbody></table>
+<blockquote>
+<p>文档下载列表中带有 <code>GENERAL</code> 的为 High-level 的一般性文档，应该优先阅读。</p>
+</blockquote>
+<p>下面详细解释一下各项简写的意思：</p>
+<ul>
+<li>
+<p>**MMOD：**Meta Model，介绍AUTOSAR的元模型</p>
+<blockquote>
+<p><strong>元模型的本质是沟通工具，是模型的模型</strong></p>
+<p>举个例子：一个具体的流程图，比如应用启动流程、消息发送流程等都是<strong>模型</strong>，而让不同的人看到模型都能理解其中的含义就是元模型的功劳了，具体来说就是方框代表什么、菱形代表什么，更直白点就是你画图的时候工具栏上的工具条。</p>
+<p>没错，我们常说的UML，就是统一建模语言，AUTOSAR元模型是UML2.0模型（2.0基于1.x，对结构类、精确的接口和端口、拓展性、交互片断和操作符以及基于时间建模能力做了增强）。</p>
+<p>使用UML定义的AUTOSAR Meta-model没有太大必要单独去看，因为所有相关信息和图表都会在AUTOSAR Template Specification里有。下图是基于EA打开的<code>AUTOSAR_MMOD_MetaModel.zip</code>,可以看到各种UML图</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221132667.png" alt="image-20221222113228556" /></p>
+<h5 align="center">AUTOSAR_MMOD_MetaModel</h5>
+</blockquote>
+</li>
+<li>
+<p>**MOD：**model，介绍基于元模型建模的原理，一般指的是如下的arxml，该标准介绍了如何将<a href="https://so.csdn.net/so/search?q=AUTOSAR&amp;spm=1001.2101.3001.7020">AUTOSAR</a>模型序列化为AUTOSAR XML描述的规则，为AUTOSAR工具之间的互操作性提供支持。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221147572.png" alt="XML模式生成规则和ARXML序列化规则之间的关系" /></p>
+<ul>
+<li>AUTOSAR_MOD_GeneralDefinitions.zip</li>
+<li>AUTOSAR_MOD_MiscSupport.zip</li>
+<li>AUTOSAR_MOD_GeneralBlueprints.zip</li>
+<li>AUTOSAR_MOD_BSWUMLModel.zip</li>
+<li>AUTOSAR_MOD_ECUConfigurationParameters.zip</li>
+<li>AUTOSAR_MOD_AdaptivePlatformGeneralBlueprints.zip</li>
+</ul>
+<p>例如所有安全事件定义集中在<strong>AUTOSAR_MOD_GeneralDefinition_SecurityEvents.arxml</strong>文件中</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221135955.png" alt="image-20221222113513931" /></p>
+<h5 align="center">AUTOSAR_MOD_GeneralDefinitions.zip</h5>
+</li>
+<li>
+<p>**RS：**Requirement Specification，需求规范，层次比SRS要高，比如AUTOSAR_RS_Main.pdf中对架构、基础软件、方法论等进行了明确的规范(如下图所示)。</p>
+<table><thead><tr><th align="center"><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221330025.png" alt="image-20221222133037990" /></th><th align="center"><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221332806.png" alt="image-20221222133231764" /></th></tr></thead><tbody>
+<tr><td align="center"><strong>文档需求规范</strong></td><td align="center"><strong>需求规范示例</strong></td></tr>
+</tbody></table>
+</li>
+<li>
+<p>**TR：**Technical Report，技术报告，比如AUTOSAR_TR_PredefinedNames.pdf用于对不同的缩写进行了说明。</p>
+</li>
+<li>
+<p>**TPS：**Template Specification，模板规范，用于介绍模块的处理架构、层次关系等，比如下图对诊断事件的层次结构进行的规范(如下图所示)。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221402466.png" alt="image-20221222140238410" /></p>
+</li>
+<li>
+<p>**EXP：**Explaination，说明文档，<strong>对其他文档中提到的内容</strong>进行解释说明。</p>
+<ul>
+<li>例如AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf，这是非常非常重要的一部分，大多的基础概念来自于这个文档。</li>
+</ul>
+</li>
+<li>
+<p>**SRS：**Software Requirement Specification，软件需求规范，用于对各个软件模块功能需求进行说明。例如AUTOSAR_SRS_OS，定义了OS的各类需求，包括需求来源</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221356226.png" alt="image-20221222135617188" /></p>
+<h5 align="center">图示:AUTOSAR_SRS_OS.pdf SRS需求定义</h5>
+</li>
+<li>
+<p><strong>SWS</strong>：Software Specification，软件规范，详细介绍模块设计和实现原理，包括模块功能的详细介绍，API接口介绍，数据类型介绍，软件的流程图(如下图所示)，<strong>一般软件开发，重点我们看这个文档</strong></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221340571.png" alt="image-20221222134056534" /></p>
+</li>
+</ul>
+<h5 align="center">图示:AUTOSAR_SWS_OS.pdf 软件设计定义</h5>
+<p><strong>如何阅读？</strong></p>
+<p>对于大部分基于工具的AutoSAR工作者来说，只需要看SWS即可；一般来说，对于工具开发商而言，其也会提供一套参考文档（比如Vector公司提供的文档位于TechnicalReferences下）。对于AutoSAR工具的开发者而言，或者一些需要手写AutoSAR代码的，就需要按需求深入理解文档了。</p>
+<p><strong>为什么不建议通读？</strong></p>
+<p>闲来无聊，统计了一下文档的页数：</p>
+<pre><code class="language-python"># !/usr/bin/env python3
+import argparse
+from glob import glob
+from os.path import exists, join
+from PyPDF2 import PdfFileReader
+
+
+def get_total_pages(folder):
+    if not exists(folder):
+        return &quot;文件目录: {}  不存在&quot;.format(folder)
+    pdf_list = glob(join(folder, &quot;*.pdf&quot;))
+
+    pages = []
+    for pdf in pdf_list:
+        reader = PdfFileReader(pdf)
+        num_page = reader.getNumPages()
+        pages.append(num_page)
+    return [sum(pages), len(pdf_list)]
+
+
+if __name__ == &quot;__main__&quot;:
+    parser = argparse.ArgumentParser()
+    parser.add_argument('folder', type=str, help='输入文件路径')
+    args = parser.parse_args()
+    [total_pages, files] = get_total_pages(args.folder)
+
+    print(&quot;'%s'\n 文件数: %d  总页数:%d &quot; % (args.folder, files, total_pages))
+
+</code></pre>
+<table><thead><tr><th>类型</th><th>版本</th><th>文件数</th><th>总页数</th></tr></thead><tbody>
+<tr><td>classic经典平台</td><td>22-11</td><td>210</td><td>21913</td></tr>
+<tr><td>foundation基础</td><td>22-11</td><td>49</td><td>2876</td></tr>
+<tr><td>adaptive自适应平台</td><td>22-11</td><td>39</td><td>2511</td></tr>
+<tr><td></td><td></td><td>298</td><td><strong>27300</strong></td></tr>
+</tbody></table>
+<blockquote>
+<p>按照A4纸每页0.104mm的厚度计算，27300页单面打印出来<strong>2.8米</strong>高，</p>
+</blockquote>
+<h2 id="三autosar文档阅读建议"><a class="header" href="#三autosar文档阅读建议">三、AUTOSAR文档阅读建议</a></h2>
+<blockquote>
+<p>CP文档的阅读：</p>
+</blockquote>
+<p><strong>一般性文档</strong></p>
+<ul>
+<li>
+<p>AUTOSAR_EXP_VFB  虚拟总线，建议从这个了解SWC开发</p>
+</li>
+<li>
+<p>AUTOSAR_EXP_LayeredSoftwareArchitecture 整体 Overview，建议从这份文档开始学习</p>
+</li>
+</ul>
+<h5 id="详细了解文档"><a class="header" href="#详细了解文档">详细了解文档：</a></h5>
+<ul>
+<li>AUTOSAR_SWS_OS  autosar OS的描述</li>
+<li>AUTOSAR_SWS_RTE  运行时环境</li>
+<li>AUTOSAR_SWS_COM    通讯模块</li>
+<li>AUTOSAR_SWS_BSWGeneral BSW模块的规范</li>
+<li>AUTOSAR_TR_Methodology   CP 方法论</li>
+</ul>
+<blockquote>
+<p>AP 部分</p>
+</blockquote>
+<h5 id="一般性文档"><a class="header" href="#一般性文档">一般性文档</a></h5>
+<ul>
+<li>AUTOSAR_EXP_PlatformDesign：整体 Overview，建议从这份文档开始学习</li>
+<li>AUTOSAR_EXP_SWArchitecture：软件架构</li>
+<li>AUTOSAR_EXP_AdaptivePlatformInterfacesGuidelines：接口使用指引</li>
+<li>AUTOSAR_EXP_ARAComAPI：通信管理API</li>
+</ul>
+<h5 id="有些-high-level-文档可以先快速浏览用到的时候再细看"><a class="header" href="#有些-high-level-文档可以先快速浏览用到的时候再细看">有些 High-level 文档可以先快速浏览，用到的时候再细看：</a></h5>
+<ul>
+<li>AUTOSAR_TR_FunctionalClusterShortnames：各个 FC 的缩写</li>
+<li>AUTOSAR_RS_General：编码风格指南</li>
+<li>AUTOSAR_RS_CPP14Guidelines：MISRA C++ 编码规范，已废弃，之后交给 MISRA 维护，不再由 AUTOSAR 维护</li>
+<li>AUTOSAR_TPS_ManifestSpecification：Manifest 规范</li>
+<li>AUTOSAR_TR_AdaptiveMethodology：AP方法论</li>
+<li>AUTOSAR_RS_OperatingSystemInterface：操作系统接口</li>
+<li>AUTOSAR_SWS_AdaptiveCore</li>
+</ul>
+<p>如果你不知道从哪份文档开始阅读，我建议可以从这份开始 AUTOSAR_EXP_PlatformDesign.pdf</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="autosar的hello-world"><a class="header" href="#autosar的hello-world">AUTOSAR的Hello World</a></h1>
+<p>Comming soon.....~~</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="autosar的hello-world-1"><a class="header" href="#autosar的hello-world-1">AUTOSAR的Hello World</a></h1>
+<p>Comming soon.....~~</p>
+<div style="break-before: page; page-break-before: always;"></div><p>1、概述
+DoIP是Diagnostic communication over Internet Protocol 的简称，顾名思义，就是通过网络协议进行诊断通信。</p>
+<div style="break-before: page; page-break-before: always;"></div><table><thead><tr><th align="center">Abbreviation/缩写</th><th>Description/说明</th><th>翻译</th></tr></thead><tbody>
+<tr><td align="center">BRS</td><td>bit rate switch</td><td>比特率开关</td></tr>
+<tr><td align="center">BS</td><td>BlockSize</td><td>块大小</td></tr>
+<tr><td align="center">CAN</td><td>controller area network</td><td>控制器局域网</td></tr>
+<tr><td align="center">CAN FD</td><td>controller area network with flexible data rate and larger payload as defined in ISO 11898-1</td><td>ISO 11898-1中定义的具有灵活数据速率和更大有效负载的控制器局域网</td></tr>
+<tr><td align="center">CLASSICAL CAN</td><td>controller area network with static data rate and up to 8 data bytes as defined in ISO 11898-1</td><td>ISO 11898-1中定义的具有静态数据速率和最多8个数据字节的控制器局域网</td></tr>
+<tr><td align="center">CF</td><td>ConsecutiveFrame</td><td>连续帧</td></tr>
+<tr><td align="center">CTS</td><td>continue to send</td><td>继续发送</td></tr>
+<tr><td align="center">DA</td><td>destination address</td><td>目的地址</td></tr>
+<tr><td align="center">DLC</td><td>CAN frame data link layer data length code</td><td>CAN帧数据链路层数据长度码</td></tr>
+<tr><td align="center">DoCAN</td><td>diagnostic communication over controller area network</td><td>控制器区域网上的诊断通信</td></tr>
+<tr><td align="center">ECM</td><td>Engine Control Module</td><td>发动机控制模块</td></tr>
+<tr><td align="center">ECU</td><td>Electronic Control Unit</td><td>电子控制单元</td></tr>
+<tr><td align="center">FC</td><td>FlowControl</td><td>流控制</td></tr>
+<tr><td align="center">FF</td><td>FirstFrame</td><td>首帧</td></tr>
+<tr><td align="center">FF_DL</td><td>FirstFrame data length in bytes</td><td>首帧数据长度（以字节为单位）</td></tr>
+<tr><td align="center">FMI</td><td>failure mode indicator</td><td>故障模式指示灯</td></tr>
+<tr><td align="center">FS</td><td>FlowStatus</td><td>流状态</td></tr>
+<tr><td align="center">ID</td><td>identifier</td><td>标识符</td></tr>
+<tr><td align="center">Mtype</td><td>message type</td><td>消息类型</td></tr>
+<tr><td align="center">N/A</td><td>not applicable</td><td>不适用</td></tr>
+<tr><td align="center">NA</td><td>network address</td><td>网络地址</td></tr>
+<tr><td align="center">N_AE</td><td>network address extension</td><td>网络地址扩展</td></tr>
+<tr><td align="center">N_AI</td><td>network address information</td><td>网络地址信息</td></tr>
+<tr><td align="center">N_Ar</td><td>network layer timing parameter Ar</td><td>网络层定时参数Ar</td></tr>
+<tr><td align="center">N_As</td><td>network layer timing parameter As</td><td>网络层定时参数As</td></tr>
+<tr><td align="center">N_Br</td><td>network layer timing parameter Br</td><td>网络层定时参数Br</td></tr>
+<tr><td align="center">N_Bs</td><td>network layer timing parameter Bs</td><td>网络层定时参数Bs</td></tr>
+<tr><td align="center">N_ChangeParameter</td><td>network layer service name</td><td>网络层服务名称</td></tr>
+<tr><td align="center">N_Cr</td><td>network layer timing parameter Cr</td><td>网络层定时参数Cr</td></tr>
+<tr><td align="center">N_Cs</td><td>network layer timing parameter Cs</td><td>网络层定时参数Cs</td></tr>
+<tr><td align="center">N_Data</td><td>network data</td><td>网络数据</td></tr>
+<tr><td align="center">N_PCI</td><td>network protocol control information</td><td>网络协议控制信息</td></tr>
+<tr><td align="center">N_PCItype</td><td>network protocol control information type</td><td>网络协议控制信息类型</td></tr>
+<tr><td align="center">N_PDU</td><td>network protocol data unit</td><td>网络协议数据单元</td></tr>
+<tr><td align="center">N_SA</td><td>network source address</td><td>网络源地址</td></tr>
+<tr><td align="center">N_SDU</td><td>network service data unit</td><td>网络服务数据单元</td></tr>
+<tr><td align="center">N_TA</td><td>network target address</td><td>网络目标地址</td></tr>
+<tr><td align="center">SOM</td><td>start of message</td><td>消息开始</td></tr>
+<tr><td align="center">SP</td><td>nominal sample point</td><td>标称采样点</td></tr>
+<tr><td align="center">SPN</td><td>suspect parameter number</td><td>可疑参数编号</td></tr>
+<tr><td align="center">STmin</td><td>Separation Time minimum</td><td>最小分段时间</td></tr>
+<tr><td align="center">STRT</td><td>serviceToRespondTo</td><td>服务回应</td></tr>
+<tr><td align="center">TA</td><td>target address</td><td>目标地址</td></tr>
+<tr><td align="center">TCM</td><td>transmission control module</td><td>变速箱控制模块</td></tr>
+<tr><td align="center">UDS</td><td>unified diagnostic services</td><td>统一诊断服务</td></tr>
+<tr><td align="center">USDT</td><td>unacknowledged segmented data transfer</td><td>未经确认的分段数据传输</td></tr>
+<tr><td align="center">UUDT</td><td>unacknowledged unsegmented data transfer</td><td>未经确认的未分段数据传输</td></tr>
+<tr><td align="center">WWH-OBD</td><td>world-wide harmonized on-board diagnostics</td><td>全球统一的车载诊断</td></tr>
+<tr><td align="center"></td><td></td><td></td></tr>
+</tbody></table>
+<p>：</p>
+<div style="break-before: page; page-break-before: always;"></div><p>1、概述
+DoIP是Diagnostic communication over Internet Protocol 的简称，顾名思义，就是通过网络协议进行诊断通信。</p>
+<div style="break-before: page; page-break-before: always;"></div><p>1、概述
+DoIP是Diagnostic communication over Internet Protocol 的简称，顾名思义，就是通过网络协议进行诊断通信。</p>
+<div style="break-before: page; page-break-before: always;"></div><p>1、概述
+DoIP是Diagnostic communication over Internet Protocol 的简称，顾名思义，就是通过网络协议进行诊断通信。</p>
+<div style="break-before: page; page-break-before: always;"></div><p>1、概述
+DoIP是Diagnostic communication over Internet Protocol 的简称，顾名思义，就是通过网络协议进行诊断通信。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="misra-c"><a class="header" href="#misra-c">MISRA C</a></h1>
+<h2 id="一简介"><a class="header" href="#一简介">一、简介</a></h2>
+<p>MISRA C是由汽车产业软件可靠性协会（MISRA）提出的C语言开发标准。其目的是在增进嵌入式系统的<strong>安全性及可移植性</strong>。针对C++语言也有对应的标准MISRA C++。本文主要关注C语言部分。MISRA C一开始主要是针对汽车产业，不过其他产业也逐渐开始使用MISRA C：包括<strong>航天、电信、国防、医疗设备、铁路</strong>等领域中都已有厂商使用MISRA C。</p>
+<p>MISRA C的第一版《Guidelines for the use of the C language in vehicle based software》是在1998年发行，一般称为MISRA-C:1998.。MISRA-C:1998有127项规则，规则从1号编号到127号，其中有93项是必需要求，其余的34项是推荐使用的规则。</p>
+<p>在2004年时发行了第二版的MISRA C的第一版《Guidelines for the use of the C language in critical systems》（或称作MISRA-C:2004），其中有许多重要建议事项的变更，其规则也重新编号。MISRA-C:2004有141项规则，其中121项是必需要求，其余的20项是推荐使用的规则。规则分为21类，从“开发环境”到“运行期错误”。</p>
+<p>2012年发布第三版，为当前最新有效的C语言规范版本，称为MISRAC:2012。 </p>
+<p>Misra C不能100%保证程序不出问题，但是能尽可能的预防，总结一下，基本上使用Misra C具有以下五个维度的优势：</p>
+<ul>
+<li><strong>提升可靠性</strong></li>
+<li><strong>提升可读性</strong></li>
+<li><strong>提升可移植性</strong></li>
+<li><strong>提升可维护性</strong></li>
+<li><strong>提升安全性</strong></li>
+</ul>
+<h2 id="二具体规则翻译"><a class="header" href="#二具体规则翻译">二、具体规则（翻译）</a></h2>
+<h4 id="21-一个标准c环境"><a class="header" href="#21-一个标准c环境">2.1 一个标准C环境</a></h4>
+<ol>
+<li><strong>必需</strong>。程序应不包含违反标准C语法和限制的内容，也不应超出执行的翻译限制。</li>
+<li>建议。不应使用语言扩展。</li>
+<li><strong>必需</strong>。不应该出现未定义或是临界的未指定行为。</li>
+</ol>
+<h4 id="22-不使用的代码"><a class="header" href="#22-不使用的代码">2.2 不使用的代码</a></h4>
+<ol>
+<li><strong>必需</strong>。不应包含未执行的代码。</li>
+<li><strong>必需</strong>。不应该有死代码。</li>
+<li>建议。不应包含被声明但未使用的类型。</li>
+<li>建议。不应包含未使用的标签声明。</li>
+<li>建议。不应包含未使用的宏定义。</li>
+<li>建议。函数中不应包含未使用的标记。</li>
+<li>建议。不应有未使用的函数参数。</li>
+</ol>
+<h4 id="23-注释"><a class="header" href="#23-注释">2.3 注释</a></h4>
+<ol>
+<li><strong>必需</strong>。不允许嵌套注释。</li>
+<li><strong>必需</strong>。不允许在//注释中进行行拼接。</li>
+</ol>
+<h4 id="24-字符集"><a class="header" href="#24-字符集">2.4 字符集</a></h4>
+<ol>
+<li>必需。八进制和十六进制转义字符序列应被终止。</li>
+<li><strong>建议</strong>。三字母词不应使用。</li>
+</ol>
+<h4 id="25-标识符"><a class="header" href="#25-标识符">2.5 标识符</a></h4>
+<ol>
+<li><strong>必需</strong>。外部标识符应区分开。</li>
+<li><strong>必需</strong>。标识符声明在同一作用域且位域应被区分。</li>
+<li><strong>必需</strong>。声明于内部作用域的标识符不应隐藏外部作用域的标识符。</li>
+<li><strong>必需</strong>。宏标识符应被区分。</li>
+<li><strong>必需</strong>。标识符要区别于宏名。</li>
+<li><strong>必需</strong>。Typedef名应是独一无二的标识符。</li>
+<li><strong>必需</strong>。标签应是独一无二的标识符。</li>
+<li><strong>必需</strong>。定义有外部链接的对象或函数的标识符应是独一无二的。</li>
+<li>建议。定义有内部链接的对象或函数的标识符应是独一无二的。</li>
+</ol>
+<h4 id="26-类型"><a class="header" href="#26-类型">2.6 类型</a></h4>
+<ol>
+<li>
+<p><strong>必需</strong>。位域只能被定义为一个合适的类型。</p>
+<p>C90：无符号整型和有符号整型。C99：除上述两个以外还有布尔类型。</p>
+</li>
+<li>
+<p><strong>必需</strong>。单比特命名的位域不应是有符号类型。</p>
+</li>
+</ol>
+<h4 id="27-常量"><a class="header" href="#27-常量">2.7 常量</a></h4>
+<ol>
+<li><strong>必需</strong>。不要使用八进制常量和八进制的转义字符串；</li>
+<li><strong>必需</strong>。所有以无符号类型表示的整型常量都应加上u或U后缀。</li>
+<li><strong>必需</strong>。小写字母l不应用于文字后缀。</li>
+<li><strong>必需</strong>。除非对象类型是指向字符常量的指针，否则字符串不应赋给对象。</li>
+</ol>
+<h4 id="28声明与定义"><a class="header" href="#28声明与定义">2.8声明与定义</a></h4>
+<ol>
+<li><strong>必需</strong>。类型应被显式声明。</li>
+<li><strong>必需</strong>。函数应以原型形式命名参数。</li>
+<li><strong>必需</strong>。所有对象和函数的声明需要使用完全相同的名字和参数。</li>
+<li><strong>必需</strong>。当定义有外部链接的对象或函数时，兼容声明是可见的。</li>
+<li><strong>必需</strong>。外部变量或函数应被在仅一个文件内被声明过。</li>
+<li><strong>必需</strong>。有外部链接的标识符应有一个确切的外部定义。</li>
+<li>建议。若函数和对象仅被一个单元引用，最好不定义外部链接。</li>
+<li><strong>必需</strong>。静态存储类说明符应在所有具有内部链接的对象和函数的声明中使用。</li>
+<li>建议。如果一个对象的标识符仅在一个函数内出现，该对象应被定义在一个块域中。</li>
+<li><strong>必需</strong>。内联函数定义时应有静态存储类。</li>
+<li>建议。当有外部链接的数组被定义，它的大小应明确表示。</li>
+<li><strong>必需</strong>。枚举列表内的枚举值应独一无二。</li>
+<li>建议。可能的话指针最好指向一个const类型的变量。</li>
+<li><strong>必需</strong>。restrict限定词不应使用。</li>
+</ol>
+<h4 id="29-初始化"><a class="header" href="#29-初始化">2.9 初始化</a></h4>
+<p>1、<strong>强制</strong>。自动变量在使用前应该被赋值。</p>
+<p>2、<strong>必需</strong>。结构和和联合体的初始化应在大括号内完成。</p>
+<p>3、<strong>必需</strong>。数组不应被部分初始化。</p>
+<p>4、<strong>必需</strong>。一个对象的元素不应被多次初始化。</p>
+<p>5、<strong>必需</strong>。若一个数组对象被指定初始化，那么数组大小应明确表示。</p>
+<h4 id="210-基本数据类型"><a class="header" href="#210-基本数据类型">2.10 基本数据类型</a></h4>
+<ol>
+<li><strong>必需</strong>。操作数不应是不合适的数据类型。</li>
+<li><strong>必需</strong>。表达式字符之间不应使用加减法。</li>
+<li><strong>必需</strong>。不应将表达式的值赋给不同类型或更窄的类型。</li>
+<li><strong>必需</strong>。一个运算符的两个操作数应是相同类型。</li>
+<li>建议。表达式的值不应被转换成一个不合适的类型。</li>
+<li><strong>必需</strong>。复合表达式的值不应赋给一个有更宽类型的对象。</li>
+<li><strong>必需</strong>。若复合表达式参与数学运算，那么另一个操作数不应是更宽的基本类型。</li>
+<li><strong>必需</strong>。复合表达式的值不应被转换为不同的基本类型分类或更宽的基本类型。</li>
+</ol>
+<h4 id="211指针类型转换"><a class="header" href="#211指针类型转换">2.11指针类型转换</a></h4>
+<ol>
+<li><strong>必需</strong>。不应在函数指针和其他类型间进行转换。例外：空指针可被转换为函数指针。函数指针可被转换为void类型。函数可以被隐式转换为该函数类型的指针。</li>
+<li><strong>必需</strong>。指向不完全类型的指针与其他类型间的转换不应出现。</li>
+<li><strong>必需</strong>。不同类型指针间不应转换。</li>
+<li>建议。不应将指针转换为整形变量。</li>
+<li>建议。不应直接将void类型指针转换为指向对象的指针。</li>
+<li><strong>必需</strong>。算数类型和void类型指针不应转换。</li>
+<li><strong>必需</strong>。指向对象的指针和一个非整型算数类型不应转换。</li>
+<li><strong>必需</strong>。指针指向的const和volatile修饰的变量不应被删除。</li>
+</ol>
+<h4 id="212-表达式"><a class="header" href="#212-表达式">2.12 表达式</a></h4>
+<ol>
+<li>建议。表达式中的运算符优先级应明确。</li>
+<li><strong>必需</strong>。移位运算符的右手操作数应该小于左手操作数的基本类型的位宽。</li>
+<li>建议。不应使用逗号运算符。</li>
+<li>建议。常量表达式的计算不应导致无符号整数的回绕。</li>
+</ol>
+<h4 id="213-副作用"><a class="header" href="#213-副作用">2.13 副作用</a></h4>
+<ol>
+<li><strong>必需</strong>。初始化列表不应包含持续副作用。</li>
+<li><strong>必需</strong>。表达式的值和他的持续副作用应在允许的计算顺序下保持相同。</li>
+<li>建议。包含自增或自减的完整表达式应无其他除自增自减外的潜在副作用。</li>
+<li>建议。不应使用赋值运算的结果。</li>
+<li><strong>必需</strong>。逻辑与和逻辑或的右手操作数不应包含持续副作用。</li>
+<li>强制。sizeof运算符的操作数不应包含任何有潜在副作用的表达式。</li>
+</ol>
+<h4 id="214-控制语句表达式"><a class="header" href="#214-控制语句表达式">2.14 控制语句表达式</a></h4>
+<ol>
+<li><strong>必需</strong>。循环计数器不应有浮点型数据。</li>
+<li><strong>必需</strong>。for循环应完整。</li>
+<li><strong>必需</strong>。控制语句不应一成不变。</li>
+<li><strong>必需</strong>。if语句和迭代表达式应有布尔类型。</li>
+</ol>
+<h4 id="215-控制流"><a class="header" href="#215-控制流">2.15 控制流</a></h4>
+<ol>
+<li>建议。不应该使用goto语句。</li>
+<li><strong>必需</strong>。goto语句应跳跃至同一函数后定义的语句处。</li>
+<li><strong>必需</strong>。被goto语句引用的任何标志都应在同一块内定义或任何包含goto语句的块。</li>
+<li>建议。不应有多个break或goto语句来结束迭代语句。</li>
+<li>建议。一个函数在其结尾应该有单一的退出点，即一个函数最多有一个return语句。</li>
+<li><strong>必需</strong>。迭代语句和选择语句的主体应是复合语句。</li>
+<li><strong>必需</strong>。if elseif语句应由一个else语句结束。</li>
+</ol>
+<h4 id="216-switch语句"><a class="header" href="#216-switch语句">2.16 Switch语句</a></h4>
+<ol>
+<li><strong>必需</strong>。所有switch语句都要是完整的。</li>
+<li><strong>必需</strong>。switch标签应仅用于最紧密封闭的复合语句作为switch语句的主体时。</li>
+<li><strong>必需</strong>。每个switch分支都要有一个break语句。</li>
+<li><strong>必需</strong>。每个switch语句都要有一个default标签。</li>
+<li><strong>必需</strong>。default标签应出现在switch语句的第一个或最后一个标签处。</li>
+<li><strong>必需</strong>。每个switch语句都要至少包含两个分支。</li>
+<li><strong>必需</strong>。switch表达式不应有布尔类型。</li>
+</ol>
+<h4 id="217-函数"><a class="header" href="#217-函数">2.17 函数</a></h4>
+<ol>
+<li><strong>必需</strong>。头文件&lt;stdarg.h&gt;内的功能不可使用。</li>
+<li><strong>必需</strong>。函数不能调用自身，不管是直接或者间接的，即不允许递归调用；</li>
+<li><strong>必需</strong>。函数应被明确定义。</li>
+<li><strong>必需</strong>。所有函数退出位置都应有相应的返回语句，除了返回值为void类型的函数。</li>
+<li>建议。函数参数中若有数组，在调用函数的时候数组大小应与定义时的数组大小相同。</li>
+<li><strong>强制</strong>。定义数组时不应在[]中包含static修饰的变量。</li>
+<li><strong>必需</strong>。非空返回值的函数的返回值应被使用。</li>
+<li>建议。函数参数不应被修改。</li>
+</ol>
+<h4 id="218-指针和数组"><a class="header" href="#218-指针和数组">2.18 指针和数组</a></h4>
+<ol>
+<li><strong>必需</strong>。数组的索引应该是指针数学运算中唯一可允许的方式。</li>
+<li><strong>必需</strong>。只有基类型相同的指针间才可以相减。</li>
+<li><strong>必需</strong>。除非指针指向同一个对象，否则不应使用关系运算符进行比较。</li>
+<li>建议。不要使用+、+=和-=操作符来应用于指针类型表达式。</li>
+<li>建议。不要定义两级以上的指针。</li>
+<li><strong>必需</strong>。具有自动存储功能的对象的地址不得复制到第一个对象停止存在后仍然存在的另一个对象。</li>
+<li><strong>必需</strong>。数组定义时必需指定大小。</li>
+<li><strong>必需</strong>。变长数组不应使用。</li>
+</ol>
+<h4 id="219-重叠存储"><a class="header" href="#219-重叠存储">2.19 重叠存储</a></h4>
+<ol>
+<li><strong>强制</strong>。一个对象不得分配或复制到一个重叠的对象。</li>
+<li><strong>建议</strong>。union关键字不应被使用。</li>
+</ol>
+<h4 id="220-预处理指令"><a class="header" href="#220-预处理指令">2.20 预处理指令</a></h4>
+<ol>
+<li>建议。#include指令前应只存在预处理器指令或注释。</li>
+<li><strong>必需</strong>。头文件名中不应包含‘，’和注释字符。</li>
+<li><strong>必需</strong>。#include后应跟随<filename>或“filename”。</li>
+<li><strong>必需</strong>。宏名不应与关键字冲突。</li>
+<li>建议。不要使用#undef。</li>
+<li><strong>必需</strong>。宏的参数中不应出现类似预处理指令的符号。</li>
+<li><strong>必需</strong>。由宏参数扩展产生的表达式应用括号括起来。</li>
+<li><strong>必需</strong>。#if或#elif预处理指令的控制表达式应赋值为0或1.</li>
+<li><strong>必需</strong>。#if或#elif中控制表达式使用的标识符在赋值前应被#define。</li>
+<li>建议。#和##预处理器操作符不应使用。</li>
+<li><strong>必需</strong>。宏参数在紧随#后后续不得有##紧跟该参数。</li>
+<li><strong>必需</strong>。宏参数用作#或##操作符的操作数，这本身就是收到进一步的宏替换，应仅被用作这些操作符的操作数。</li>
+<li><strong>必需</strong>。以#开头的一行应是有效的预处理指令。</li>
+<li><strong>必需</strong>。所有的#else、#elif和#endif预处理指令应该同与他们相关的#if或者#ifdef指令放在相同的文件中。</li>
+</ol>
+<h4 id="221-标准库"><a class="header" href="#221-标准库">2.21 标准库</a></h4>
+<ol>
+<li><strong>必需</strong>。#define和#undef不得用于保留标识符或保留宏的名字。</li>
+<li><strong>必需</strong>。不应定义保留的标识符或宏名。</li>
+<li><strong>必需</strong>。&lt;stdlib.h&gt;的allocation和deallocation函数不应使用。</li>
+<li><strong>必需</strong>。不应使用标准头文件&lt;setjmp.h&gt;。</li>
+<li><strong>必需</strong>。不应使用标准头文件&lt;signal.h&gt;。</li>
+<li><strong>必需</strong>。标准库中的输入输出函数不应使用。</li>
+<li><strong>必需</strong>。不应使用&lt;stdlib.h&gt;的atof，atoi，atoll函数。</li>
+<li><strong>必需</strong>。不应使用&lt;stdlib.h&gt;的abort，exit，getenv和system函数。</li>
+<li><strong>必需</strong>。不应使用&lt;stdlib.h&gt;的bsearch函数。</li>
+<li><strong>必需</strong>。不应使用标准库中的时间和日期函数。</li>
+<li><strong>必需</strong>。不应使用标准头文件&lt;tgmath.h&gt;。</li>
+<li>建议。不应使用&lt;fenv.h&gt;中的异常处理功能。</li>
+</ol>
+<h4 id="222-资源"><a class="header" href="#222-资源">2.22 资源</a></h4>
+<ol>
+<li><strong>必需</strong>。用标准库函数动态获得的资源应显式释放。</li>
+<li><strong>强制</strong>。仅用标准库函数分配的内存需要被释放。</li>
+<li><strong>必需</strong>。同一文件不应在同一时间在不同流中读写。</li>
+<li><strong>强制</strong>。不应尝试在以只读形式打开的流中写入数据。</li>
+<li><strong>强制</strong>。指向文件对象的指针不应被引用。</li>
+<li><strong>强制</strong>。在相关流关闭后文件指针的值不应使用。</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="continuous-integration"><a class="header" href="#continuous-integration">Continuous Integration</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><p>下面所有的缩写词汇均来自autosar官方资料，主要来源于AUTOSAR_TR_GLOSSARY.pdf，还有一些其他文档中的术语添加，方便后续查找.	</p>
+<table><thead><tr><th align="center">Abbreviation/缩写</th><th>Description/说明</th><th>翻译</th></tr></thead><tbody>
+<tr><td align="center">AA</td><td>Adaptive Application</td><td>自适应应用程序</td></tr>
+<tr><td align="center">ABC</td><td>Abstract Base Class</td><td></td></tr>
+<tr><td align="center">ABI</td><td>Application Binary Interface</td><td>应用程序接口</td></tr>
+<tr><td align="center">ADC</td><td>Analog Digital Converter</td><td>模数转换器</td></tr>
+<tr><td align="center">AES</td><td>Advanced Encryption Standard</td><td></td></tr>
+<tr><td align="center">AMM</td><td>Application Mode Management</td><td></td></tr>
+<tr><td align="center">AP</td><td>AUTOSAR Adaptive Platform</td><td>AUTOSAR自适应平台</td></tr>
+<tr><td align="center">API</td><td>Application Programming Interface</td><td>应用程序接口</td></tr>
+<tr><td align="center">ARA</td><td>AUTOSAR Runtime for Adaptive Applications</td><td>自适应应用程序运行时</td></tr>
+<tr><td align="center">ARP</td><td>Address Resolution Protocol</td><td>地址解析协议</td></tr>
+<tr><td align="center">ARTI</td><td>AUTOSAR Run-Time Interface</td><td>AUTOSAR运行时接口</td></tr>
+<tr><td align="center">ARXML</td><td>AUTOSARXML</td><td></td></tr>
+<tr><td align="center">ASAM</td><td>Association for Standardization of Automation and Measuring systems</td><td>自动化及测量系统标准协会</td></tr>
+<tr><td align="center">ASD</td><td>Abstract System Description</td><td></td></tr>
+<tr><td align="center">ASIL</td><td>Automotive Safety Integrity Levels</td><td>汽车安全完整性等级</td></tr>
+<tr><td align="center">ASW</td><td>Application SoftWare</td><td>应用软件</td></tr>
+<tr><td align="center">ATP</td><td>AUTOSAR Template Profile</td><td></td></tr>
+<tr><td align="center">ATS</td><td>Acceptance Test Suite</td><td></td></tr>
+<tr><td align="center">AUTOSAR</td><td>AUTomotive Open System Architecture</td><td>汽车开放系统架构</td></tr>
+<tr><td align="center">BFx</td><td>Bitfield functions for fixed point</td><td></td></tr>
+<tr><td align="center">BSW</td><td>Basic Software</td><td>基础软件</td></tr>
+<tr><td align="center">BSWM</td><td>Basic SoftWare Mode manager</td><td>基础软件模式管理器</td></tr>
+<tr><td align="center">BSWMD</td><td>Basic SoftWare Module Description</td><td>基础软件模块说明</td></tr>
+<tr><td align="center">CAN</td><td>Controller Area Network</td><td>控制器域网</td></tr>
+<tr><td align="center">CCF</td><td>Common Cause Failure</td><td></td></tr>
+<tr><td align="center">CDD</td><td>Complex Driver</td><td>复杂驱动</td></tr>
+<tr><td align="center">CP</td><td>AUTOSAR Classic Platform</td><td>AUTOSAR经典平台</td></tr>
+<tr><td align="center">COM</td><td>COmmunication Management</td><td>通信管理</td></tr>
+<tr><td align="center">CPU</td><td>Central Processing Unit</td><td>中央处理器</td></tr>
+<tr><td align="center">CRC</td><td>Cyclic Redundancy Check</td><td>循环冗余校验码</td></tr>
+<tr><td align="center">DAC</td><td>Digital to Analog Converter</td><td>数模转换器</td></tr>
+<tr><td align="center">DCM</td><td>Diagnostic Communication Management</td><td>诊断通信管理</td></tr>
+<tr><td align="center">DDS</td><td>Data Distribution Service</td><td>数据分发服务</td></tr>
+<tr><td align="center">DEM</td><td>Diagnostic Event Manager</td><td>诊断事件管理</td></tr>
+<tr><td align="center">DES</td><td>Data Encryption Standard</td><td>数据加密标准</td></tr>
+<tr><td align="center">DET</td><td>Development(Default) Error Tracer</td><td>默认或开发错误追踪器</td></tr>
+<tr><td align="center">DEXT</td><td>Diagnostic EXTract</td><td>诊断提取模板</td></tr>
+<tr><td align="center">DHCP</td><td>Dynamic Host Configuration Protocol</td><td></td></tr>
+<tr><td align="center">DIO</td><td>Digital Input/Output</td><td></td></tr>
+<tr><td align="center">DLC</td><td>Data Length Code</td><td></td></tr>
+<tr><td align="center">DM</td><td>Diagnostic Manager</td><td>诊断管理</td></tr>
+<tr><td align="center">DoIP</td><td>Diagnostics over Internet Protocol</td><td></td></tr>
+<tr><td align="center">DTC</td><td>Diagnostic Trouble Code</td><td></td></tr>
+<tr><td align="center">DTD</td><td>Document Type Definition</td><td></td></tr>
+<tr><td align="center">E2E</td><td>End to End</td><td>端到端</td></tr>
+<tr><td align="center">ECU</td><td>Electronic Control Unit</td><td>电子控制单元</td></tr>
+<tr><td align="center">ECB</td><td>Electronic Code Book</td><td></td></tr>
+<tr><td align="center">ECC</td><td>Elliptic Curve Cryptography</td><td></td></tr>
+<tr><td align="center">ECDSA</td><td>Elliptic Curve Digital Signature Algorithm</td><td></td></tr>
+<tr><td align="center">ECIES</td><td>Elliptic Curve Integrated Encryption Scheme</td><td></td></tr>
+<tr><td align="center">EDDSA</td><td>Edwards-Curve Digital Signature Algorithm</td><td></td></tr>
+<tr><td align="center">EEC</td><td>Executable Entity Cluster</td><td></td></tr>
+<tr><td align="center">EEPROM</td><td>Electrically Erasable Programmable Read-Only Memory</td><td>电可擦可编程序只读存储器</td></tr>
+<tr><td align="center">EOC</td><td>Execution Order Constraint</td><td></td></tr>
+<tr><td align="center">EOCEERG</td><td>Execution Order Constraint Executable Entity Reference Group</td><td></td></tr>
+<tr><td align="center">FC</td><td>Functional Cluster</td><td></td></tr>
+<tr><td align="center">FID</td><td>Function Identifier</td><td>功能标识符</td></tr>
+<tr><td align="center">FIM</td><td>Function Inhibition Manager</td><td>功能禁止管理器</td></tr>
+<tr><td align="center">FIFO</td><td>First In First Out</td><td>先进先出</td></tr>
+<tr><td align="center">FIBEX</td><td>Field Bus Exchange Format</td><td></td></tr>
+<tr><td align="center">FO</td><td>(AUTOSAR) FOundation</td><td>基础（CP和AP通用部分）</td></tr>
+<tr><td align="center">FOTA</td><td>Firmware Over The Air</td><td>固件空中下载</td></tr>
+<tr><td align="center">FPU</td><td>Floating Point Unit</td><td></td></tr>
+<tr><td align="center">FQDN</td><td>Fully-Qualified Domain Name</td><td></td></tr>
+<tr><td align="center">FW</td><td>Fire Wire</td><td>火线</td></tr>
+<tr><td align="center">GCM</td><td>Galios/Counter Mode</td><td></td></tr>
+<tr><td align="center">GENIVI</td><td>GENeva In-Vehicle Infotainment</td><td></td></tr>
+<tr><td align="center">GPT</td><td>General Purpose Timer</td><td>通用定时器</td></tr>
+<tr><td align="center">GSM</td><td>Global System for Mobile Communication</td><td></td></tr>
+<tr><td align="center">HMAC</td><td>Hash-based Message Authentication Code</td><td>基于散列的消息认证码</td></tr>
+<tr><td align="center">HTTP</td><td>Hypertext Transport Protocol</td><td>超文本传输协议</td></tr>
+<tr><td align="center">HW</td><td>Hardware</td><td>硬件</td></tr>
+<tr><td align="center">I-PDU</td><td>Interaction Layer Protocol Data Unit</td><td></td></tr>
+<tr><td align="center">ICC</td><td>Implementation Conformance Class</td><td></td></tr>
+<tr><td align="center">ICMP</td><td>Internet Control Message Protocol</td><td></td></tr>
+<tr><td align="center">ICOM</td><td>Intelligent COMmunication controller</td><td></td></tr>
+<tr><td align="center">ICU</td><td>Input Capture Unit</td><td></td></tr>
+<tr><td align="center">ID</td><td>IDentifier</td><td></td></tr>
+<tr><td align="center">IDL</td><td>Interface Description Language</td><td></td></tr>
+<tr><td align="center">IEC</td><td>International Electrotechnical Commission</td><td></td></tr>
+<tr><td align="center">IFI</td><td>Interpolation Floating point</td><td></td></tr>
+<tr><td align="center">IFx</td><td>Interpolation Fixed point</td><td></td></tr>
+<tr><td align="center">IO</td><td>Input/ Output</td><td></td></tr>
+<tr><td align="center">IP</td><td>Internet Protocol</td><td></td></tr>
+<tr><td align="center">ISO</td><td>International Standardization Organization</td><td></td></tr>
+<tr><td align="center">ISR</td><td>Interrupt Service Routine</td><td></td></tr>
+<tr><td align="center">JSON</td><td>JavaScript Object Notation</td><td></td></tr>
+<tr><td align="center">LAN</td><td>Local Area Network</td><td></td></tr>
+<tr><td align="center">L-PDU</td><td>Protocol Data Unit of the data Link layer</td><td></td></tr>
+<tr><td align="center">L-SDU</td><td>SDU of the data Link layer</td><td></td></tr>
+<tr><td align="center">LET</td><td>Logical Execution Time</td><td>逻辑执行时间</td></tr>
+<tr><td align="center">LIFO</td><td>Last In First Out</td><td>后进先出</td></tr>
+<tr><td align="center">LIN</td><td>Local Interconnected Network</td><td></td></tr>
+<tr><td align="center">LT</td><td>Log and Trace</td><td></td></tr>
+<tr><td align="center">LSB</td><td>Least Significant Bit</td><td>最低有效位</td></tr>
+<tr><td align="center">MAC</td><td>Media Access Control</td><td></td></tr>
+<tr><td align="center">MAC</td><td>Message Authentication Code</td><td></td></tr>
+<tr><td align="center">mC（ <em>μC</em>）</td><td>MicroController</td><td>微控制器</td></tr>
+<tr><td align="center">MCAL</td><td>Microcontroller Abstraction Layer</td><td>微控制器抽象层</td></tr>
+<tr><td align="center">MCU</td><td>Micro Controller Unit</td><td></td></tr>
+<tr><td align="center">MD</td><td>Message Digest</td><td></td></tr>
+<tr><td align="center">ME</td><td>Mappable Element</td><td></td></tr>
+<tr><td align="center">MFI</td><td>Mathematical Floating point</td><td></td></tr>
+<tr><td align="center">MFx</td><td>Math - Fixed Point</td><td></td></tr>
+<tr><td align="center">MIPS</td><td>Million Instructions Per Second</td><td>每秒百万条指令</td></tr>
+<tr><td align="center">MMU</td><td>Memory Management Unit</td><td>内存管理单元</td></tr>
+<tr><td align="center">MMI</td><td>Man Machine Interface</td><td>人机接口</td></tr>
+<tr><td align="center">MOST</td><td>Media Oriented Systems Transport</td><td>MOST总线</td></tr>
+<tr><td align="center">mP</td><td>MicroProcessor</td><td></td></tr>
+<tr><td align="center">MPU</td><td>Memory Protection Unit</td><td></td></tr>
+<tr><td align="center">MSB</td><td>Most Significant Bit</td><td>最高有效位</td></tr>
+<tr><td align="center">MTU</td><td>Maximum Transmission Unit</td><td>最大传输单元</td></tr>
+<tr><td align="center">NM</td><td>Network Management</td><td>网络管理</td></tr>
+<tr><td align="center">N-PDU</td><td>Protocol Data Unit of the Network layer (transport protocols)</td><td></td></tr>
+<tr><td align="center">N-SDU</td><td>SDU of the Network layer (transport protocols)</td><td></td></tr>
+<tr><td align="center">NVRAM</td><td>Non-Volatile Random Access Memory</td><td>非易失性存储器</td></tr>
+<tr><td align="center">OBD</td><td>On-Board Diagnostic</td><td>车载诊断系统</td></tr>
+<tr><td align="center">OEM</td><td>Original Equipment Manufacturer</td><td>原始设备制造商</td></tr>
+<tr><td align="center">OIL</td><td>ISO 17356-6 (OSEK/VDX Implementation Language)</td><td>vehicle distributed executive汽车分布式执行标准，OSEK实现语言</td></tr>
+<tr><td align="center">ODX</td><td>Open Diagnostic Data Exchange</td><td>开放标准诊断格式数据</td></tr>
+<tr><td align="center">OS</td><td>Operating System</td><td>操作系统</td></tr>
+<tr><td align="center">OSEK</td><td>Open Systems and the Corresponding Interfaces for Automotive Electronics</td><td>汽车电子的开放式系统及接口</td></tr>
+<tr><td align="center">PCI</td><td>Protocol Control Information</td><td>协议控制信息</td></tr>
+<tr><td align="center">PDEP</td><td>Profile of Data Exchange Point</td><td></td></tr>
+<tr><td align="center">PDU</td><td>Protocol Data Unit</td><td>协议数据单元</td></tr>
+<tr><td align="center">PHM</td><td>Platform Health Management</td><td>平台健康管理</td></tr>
+<tr><td align="center">PKCS</td><td>Public Key Cryptography Standards</td><td>公钥加密标准</td></tr>
+<tr><td align="center">POSIX</td><td>Portable Operating System Interface</td><td>可移植操作系统接口</td></tr>
+<tr><td align="center">PS</td><td>Product Supplier</td><td></td></tr>
+<tr><td align="center">PSK</td><td>Pre-Shared Key</td><td>预共享秘钥</td></tr>
+<tr><td align="center">PWM</td><td>Pulse Width Modulation</td><td></td></tr>
+<tr><td align="center">RAM</td><td>Random Access Memory</td><td>随机存储器</td></tr>
+<tr><td align="center">RDG</td><td>Runnable Dependency Graph</td><td></td></tr>
+<tr><td align="center">REST</td><td>Representational State Transfer</td><td></td></tr>
+<tr><td align="center">RfC</td><td>Request for Change</td><td></td></tr>
+<tr><td align="center">ROM</td><td>Read-Only Memory</td><td>只读存储器</td></tr>
+<tr><td align="center">RP</td><td>Rapid Prototyping</td><td></td></tr>
+<tr><td align="center">RPC</td><td>Remote Procedure Call</td><td></td></tr>
+<tr><td align="center">RSA</td><td>Cryptographic approach according to Rivest, Shamir, and Adleman</td><td></td></tr>
+<tr><td align="center">RTE</td><td>Runtime Environment</td><td>运行环境</td></tr>
+<tr><td align="center">SAE</td><td>Society of Automotive Engineers</td><td></td></tr>
+<tr><td align="center">SD</td><td>Service Discovery</td><td></td></tr>
+<tr><td align="center">SDG</td><td>Special Data Group</td><td></td></tr>
+<tr><td align="center">SDU</td><td>Service Data Unit</td><td></td></tr>
+<tr><td align="center">SHA</td><td>Secure Hash Algorithm</td><td></td></tr>
+<tr><td align="center">SHM</td><td>System Health Monitoring</td><td></td></tr>
+<tr><td align="center">SIL</td><td>Safety Integrity Level</td><td></td></tr>
+<tr><td align="center">SOA</td><td>Service Oriented Architecture</td><td></td></tr>
+<tr><td align="center">SOME/IP</td><td>Scalable service-Oriented MiddlewarE over IP</td><td></td></tr>
+<tr><td align="center">SP</td><td>Synchronization Point</td><td></td></tr>
+<tr><td align="center">SPEM</td><td>Software &amp; Systems Process Engineering Meta-model</td><td></td></tr>
+<tr><td align="center">SPI</td><td>Serial Peripheral Interface</td><td>串行外设接口</td></tr>
+<tr><td align="center">SST</td><td>Signal-Service Translation</td><td></td></tr>
+<tr><td align="center">SW</td><td>Software</td><td>软件</td></tr>
+<tr><td align="center">SW-C</td><td>Software Component</td><td>软件组件</td></tr>
+<tr><td align="center">SWCT/SWC-T</td><td>Software Component Template</td><td></td></tr>
+<tr><td align="center">SWS</td><td>Software Specification</td><td>软件规范</td></tr>
+<tr><td align="center">SYST/SYS-T</td><td>System Template</td><td></td></tr>
+<tr><td align="center">TC</td><td>Timed Communication</td><td></td></tr>
+<tr><td align="center">TC</td><td>Test Case</td><td></td></tr>
+<tr><td align="center">TCP</td><td>Transmission Control Protocol</td><td></td></tr>
+<tr><td align="center">TIMEX</td><td>TIMing EXTensions</td><td></td></tr>
+<tr><td align="center">TLS</td><td>Transport Layer Security</td><td></td></tr>
+<tr><td align="center">TLV</td><td>Tag Length Value</td><td></td></tr>
+<tr><td align="center">TP</td><td>Transport Protocol</td><td>传输协议</td></tr>
+<tr><td align="center">TTCAN</td><td>Time Triggered CAN</td><td></td></tr>
+<tr><td align="center">TTL</td><td>Time To Live</td><td></td></tr>
+<tr><td align="center">TTP</td><td>Time Triggered Protocol</td><td></td></tr>
+<tr><td align="center">UDP</td><td>User (Universal) Datagram Protocol</td><td></td></tr>
+<tr><td align="center">UDS</td><td>Unified Diagnostic Services</td><td>统一诊断服务</td></tr>
+<tr><td align="center">UDPNM</td><td>UDP Network Management</td><td></td></tr>
+<tr><td align="center">UML</td><td>Unified Modeling Language</td><td></td></tr>
+<tr><td align="center">URI</td><td>Uniform Resource Identifier</td><td></td></tr>
+<tr><td align="center">URL</td><td>Uniform Resource Locator</td><td></td></tr>
+<tr><td align="center">USB</td><td>Universal Serial Bus</td><td>通用串行总线</td></tr>
+<tr><td align="center">UTF</td><td>Universal coded character set Transformation Format</td><td></td></tr>
+<tr><td align="center">UUID</td><td>Universally Unique Identifier</td><td></td></tr>
+<tr><td align="center">VFB</td><td>Virtual Functional Bus</td><td>虚拟功能总线</td></tr>
+<tr><td align="center">V2X</td><td>Vehicle-To-Everything</td><td></td></tr>
+<tr><td align="center">VLAN</td><td>Virtual Local Area Network</td><td></td></tr>
+<tr><td align="center">VSA</td><td>Variable Size Array</td><td></td></tr>
+<tr><td align="center">VSM</td><td>Vehicle State Manager</td><td></td></tr>
+<tr><td align="center">VISS</td><td>Vehicle Information Service Specification</td><td></td></tr>
+<tr><td align="center">VMM</td><td>Vehicle Mode Management</td><td></td></tr>
+<tr><td align="center">WCET</td><td>Worst Case Execution Time</td><td></td></tr>
+<tr><td align="center">WCRT</td><td>Worst Case Response time</td><td></td></tr>
+<tr><td align="center">WP</td><td>Autosar Work Package</td><td>Autosar工作包</td></tr>
+<tr><td align="center">W3C</td><td>World Wide Web Consortium</td><td></td></tr>
+<tr><td align="center">XCP</td><td>Universal Calibration Protocol</td><td>通用标定服务</td></tr>
+<tr><td align="center">XML</td><td>Extensible Markup Language</td><td></td></tr>
+<tr><td align="center">XP</td><td>Abstract Platform</td><td></td></tr>
+<tr><td align="center">XSD</td><td>XML Schema Definition</td><td></td></tr>
+<tr><td align="center">..To be updated</td><td></td><td></td></tr>
+</tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><table><thead><tr><th>英文缩写</th><th>英文全称</th><th>中文含义</th></tr></thead><tbody>
+<tr><td>100%  Cal</td><td>100% Calibration</td><td>100%标定</td></tr>
+<tr><td>100%  IVER</td><td>100% Integration Vehicle  Engineering Release</td><td>100%集成车工程发布</td></tr>
+<tr><td>100%  PPAP</td><td>All parts at full PPAP for  Vehicle program</td><td>为了整车项目，所有零件须完全通过PPAP</td></tr>
+<tr><td>100%  SVER</td><td>100% Structure Vehicle  Engineering Release</td><td>100%结构车工程发布</td></tr>
+<tr><td>65% Cal</td><td>65% Calibration</td><td>65%的动力总成标定</td></tr>
+<tr><td>80% Cal</td><td>80% Calibration</td><td>80%的动力总成标定</td></tr>
+<tr><td>8D</td><td>8 Disciplines</td><td>问题解决8步法</td></tr>
+<tr><td>A</td><td>Alpha</td><td>Alpha阶段（动力总成产品开发的一个阶段）</td></tr>
+<tr><td>A MRD</td><td>Alpha Material Required Date</td><td>Alpha样件需求日期</td></tr>
+<tr><td>A/T</td><td>Automatic Transmission</td><td>自动变速器</td></tr>
+<tr><td>A/T</td><td>Automatic Transmission</td><td>自动变速器</td></tr>
+<tr><td>AA</td><td>Architecture Approval</td><td>架构批准</td></tr>
+<tr><td>AAM</td><td>Alliance of Automobile  Manufactures</td><td>汽车制造商联盟</td></tr>
+<tr><td>ABS</td><td>Anti-lock Brake System or  Anti-Block Steering</td><td>防抱死制动系统</td></tr>
+<tr><td>AC</td><td>Architecture Confirmation</td><td>架构确认</td></tr>
+<tr><td>ACE</td><td>Assistant Chief Engineer</td><td>总工助理</td></tr>
+<tr><td>ACT</td><td>Activity</td><td>工艺路线</td></tr>
+<tr><td>ACT BOM</td><td>Assembly Component Tree BOM</td><td>总成件树形BOM</td></tr>
+<tr><td>AD</td><td>Alternatives Development</td><td>主题开发</td></tr>
+<tr><td>ADV</td><td>Analysis / Development /  Validation</td><td>分析/开发/验证</td></tr>
+<tr><td>ADV</td><td>Analysis, Development and  Validation</td><td>分析，开发和认证</td></tr>
+<tr><td>AE</td><td>Application Engineer</td><td>应用工程师</td></tr>
+<tr><td>AE</td><td>Application Engineer</td><td>应用工程师</td></tr>
+<tr><td>AEM</td><td>Assimilability evaluation method</td><td>可装配性评估方法</td></tr>
+<tr><td>AFI</td><td>Architecture Framing Initiation</td><td>架构框架启动</td></tr>
+<tr><td>AIAC</td><td>Automotive Industry Action Group</td><td>美国汽车工业行动集团</td></tr>
+<tr><td>ALY</td><td>Alloy</td><td>铝合金</td></tr>
+<tr><td>AMT</td><td>Automatic Machincal Transmission</td><td>机械式自动变速器</td></tr>
+<tr><td>ANSI</td><td>American National Standards  Institute</td><td>美国国家标准协会</td></tr>
+<tr><td>AP</td><td>Advanced Purchasing</td><td>提前采购</td></tr>
+<tr><td>AP</td><td>Assembly Plant</td><td>总装厂</td></tr>
+<tr><td>APB</td><td>Automotive Product Board</td><td>汽车产品委员会</td></tr>
+<tr><td>APD</td><td>Approved Product Description</td><td>批准的产品描述</td></tr>
+<tr><td>APE</td><td>Annual Program Execution</td><td>年度项目执行</td></tr>
+<tr><td>APEC</td><td>Asia Pacific Economic  Cooperation</td><td>亚太经济联盟</td></tr>
+<tr><td>APQP/CP</td><td>Advanced Product Quality  Planning and Control Plan</td><td>先期产品质量规划和控制计划</td></tr>
+<tr><td>APSB</td><td>Asia Pacific Strategy Board</td><td>亚太战略委员会（通用汽车的高层管理组织）</td></tr>
+<tr><td>AR</td><td>Appropriation Request</td><td>项目预算</td></tr>
+<tr><td>ARC</td><td>Architecture Refinement Complete</td><td>架构优化完成</td></tr>
+<tr><td>ASB</td><td>Automotive Strategy Board</td><td>汽车战略委员会（通用汽车的高层管理组织）</td></tr>
+<tr><td>ASC</td><td></td><td>经销商售后管理系统</td></tr>
+<tr><td>ASE</td><td>Automotive Safety Engineering</td><td>汽车安全工程</td></tr>
+<tr><td>ASE</td><td>Aftersales Engineering</td><td>售后工程</td></tr>
+<tr><td>ASN</td><td>Advanced shipping notice</td><td>发货通知单</td></tr>
+<tr><td>ASSI</td><td>Architecture Statement of  Strategic Intent</td><td>战略意向的架构陈述</td></tr>
+<tr><td>Assy  Check-in</td><td>Assembly Line Check-in</td><td>装配线进场</td></tr>
+<tr><td></td><td></td><td>启动现场安调</td></tr>
+<tr><td>Assy  PPAP</td><td>Assembly Line PPAP</td><td>装配线</td></tr>
+<tr><td></td><td></td><td>通过PPAP</td></tr>
+<tr><td>Assy  PPAP</td><td>Assembly Line PPAP</td><td>装配线通过PPAP</td></tr>
+<tr><td>Assy  PPV</td><td>Assembly Line Products and  Process Validation</td><td>装配线交付后的产品工艺验证</td></tr>
+<tr><td>Assy  PPV</td><td>Assembly Line Production and  Process Validation</td><td>装配线交付后产品工艺验证</td></tr>
+<tr><td>Assy  Run-Off</td><td>Assembly Line Run-Off</td><td>装配线试装</td></tr>
+<tr><td></td><td></td><td>交样日期</td></tr>
+<tr><td>Assy  Run-off</td><td>Assembly Line RUN-Off</td><td>装配线整线打通，启动试装，允许手工装配</td></tr>
+<tr><td>Assy  Run-off MRD</td><td>Assembly Line RUN-Off Material  Requied Date</td><td>装配线</td></tr>
+<tr><td>ATC</td><td>Auto Temperature Controller</td><td>自动空调控制器</td></tr>
+<tr><td>ATF</td><td>Automatic Transmission Fluid</td><td>自动变速箱油</td></tr>
+<tr><td>ATT</td><td>Attachment</td><td>附件</td></tr>
+<tr><td>ATT</td><td>Actual takt time</td><td>实际单件工时</td></tr>
+<tr><td>AVD</td><td>Advanced Vehicle Development</td><td>先期车辆开发</td></tr>
+<tr><td>AVDC</td><td>Advance Vehicle Development  Center</td><td>先期车辆开发中心</td></tr>
+<tr><td>AVD-LT</td><td>Advanced Vehicle  Development-Leadership Team</td><td>前期整车开发-领导小组</td></tr>
+<tr><td>AVDP</td><td>Advanced Vehicle Development  Process (Time between DSI and VPI)</td><td>先期车辆开发流程（在DSI与VPI之间）</td></tr>
+<tr><td>AVPM</td><td>Advanced Vehicle Planning  Manager</td><td>先期车辆计划经理</td></tr>
+<tr><td>B</td><td>Beta</td><td>Beta阶段（动力总成产品开发的一个阶段）</td></tr>
+<tr><td>B</td><td>Build</td><td>制造</td></tr>
+<tr><td>B MRD</td><td>Beta Material Required Date</td><td>Beta样件需求日期</td></tr>
+<tr><td>B+U</td><td>Building and Utility</td><td>土建公用</td></tr>
+<tr><td>BAD</td><td>Build Authorization Document</td><td>试制授权文档</td></tr>
+<tr><td>BC</td><td>Business Case</td><td>业务计划</td></tr>
+<tr><td>BCM</td><td>Body Control Module</td><td>车身控制器</td></tr>
+<tr><td>BDC</td><td>Body Distributon Central</td><td>车辆调配中心</td></tr>
+<tr><td>BESC</td><td>Base Engine Steering Committee</td><td>发动机总成战略转向委员会</td></tr>
+<tr><td>BIQ</td><td>Building in Quality</td><td>制造质量</td></tr>
+<tr><td>BIR</td><td>Prototype Build Issue Report</td><td>试制问题报告</td></tr>
+<tr><td>BIR</td><td>Build Issues Resolution</td><td>试制问题</td></tr>
+<tr><td>BIR</td><td>Build Incident Report</td><td>装车问题报告</td></tr>
+<tr><td>BIR</td><td>Bulding issue report</td><td>造车问题报告</td></tr>
+<tr><td>BIW</td><td>Body-In-White</td><td>白车身</td></tr>
+<tr><td>BIW</td><td>Body in White</td><td>白车身</td></tr>
+<tr><td>BOD</td><td>Bill of Design</td><td>设计清单</td></tr>
+<tr><td>BOE</td><td>Bill of Equipment</td><td>设备清单</td></tr>
+<tr><td>BOM</td><td>Bill of Material</td><td>物料清单</td></tr>
+<tr><td>BOM</td><td>Bill of Material</td><td>物料清单</td></tr>
+<tr><td>BOM</td><td>Bill of Material</td><td>物料清单</td></tr>
+<tr><td>BOM</td><td>Bill Of Material</td><td>物料清单</td></tr>
+<tr><td>BOM</td><td>Bill Of Material</td><td>物料清单</td></tr>
+<tr><td>BOM</td><td>Bill of Material</td><td>物料清单</td></tr>
+<tr><td>BOP</td><td>Bill of Process</td><td>工艺清单</td></tr>
+<tr><td>BOP</td><td>Bill Of Process</td><td>工艺清单</td></tr>
+<tr><td>BP</td><td>Break Point</td><td>断点</td></tr>
+<tr><td>BPD</td><td>Business Plant Deployment</td><td>业务计划实施</td></tr>
+<tr><td>BPP</td><td>Best people practices</td><td>最佳人员准则</td></tr>
+<tr><td>BPR</td><td>Business plan recompose</td><td>业务流程重组</td></tr>
+<tr><td>BS</td><td>Body Shop</td><td>车身车间</td></tr>
+<tr><td>BSD</td><td>Build Site Direction</td><td>试制现场指导书</td></tr>
+<tr><td>BUFFER</td><td>Buffer</td><td>线边缓存区</td></tr>
+<tr><td>C/CAP</td><td>Construction/Conversion and  Acceleration Plan</td><td>土建/改造和生产提速计划</td></tr>
+<tr><td>CAB</td><td>Change Approval Board</td><td>更改审批会</td></tr>
+<tr><td>CAC</td><td></td><td>服务热线专员</td></tr>
+<tr><td>CAFE</td><td>Corporate Average Fuel Economy</td><td>公司平均油耗</td></tr>
+<tr><td>Cal</td><td>Calibration</td><td>动力总成标定</td></tr>
+<tr><td>CARE</td><td>Customer acceptance review  evaluation</td><td>整车报交检查</td></tr>
+<tr><td>CARE</td><td>Customer Acceptance &amp; Review  Evaluation</td><td>用户接受度和审查评估</td></tr>
+<tr><td>CC</td><td>Concept Confirmation</td><td>验证概念</td></tr>
+<tr><td>CC</td><td>Consolidation Center</td><td>集散中心</td></tr>
+<tr><td>CC</td><td>Confirmation Clinic</td><td>确认临床</td></tr>
+<tr><td>Cert  LSO</td><td>Certification Lift Stop Order</td><td>通过排放认证通知</td></tr>
+<tr><td>CET</td><td>Cold Environment Test</td><td>寒区试验</td></tr>
+<tr><td>CH</td><td>Chassis Department</td><td>底盘部</td></tr>
+<tr><td>CI</td><td>Concept Initiation</td><td>提出项目概念</td></tr>
+<tr><td>CIM</td><td>Customer Interface Manager</td><td>客户服务经理</td></tr>
+<tr><td>CIP</td><td>Continue Improve Process</td><td>持续改进</td></tr>
+<tr><td>CIP</td><td>Continue Improve Process</td><td>持续改进</td></tr>
+<tr><td>CIT</td><td>Continuous Improvement Team</td><td>不断改进小组</td></tr>
+<tr><td>CIT</td><td>Compartment Integration Team</td><td>车厢集成小组</td></tr>
+<tr><td>CMC</td><td>Container Management Center</td><td>空箱管理中心</td></tr>
+<tr><td>CME</td><td>Change Management Engineer</td><td>更改管理工程师</td></tr>
+<tr><td>Cmk</td><td>N/A</td><td>临界机器能力指数</td></tr>
+<tr><td>Cmk</td><td>Capability Machine Index</td><td>机器设备能力</td></tr>
+<tr><td>CMM</td><td></td><td>三坐标测量</td></tr>
+<tr><td>C-NCAP</td><td>China New CAR Assessment Process</td><td>中国标准新车评估体系</td></tr>
+<tr><td>COC</td><td>Centre of Competence</td><td>能力中心</td></tr>
+<tr><td>COE</td><td>Center of Expertise</td><td>经验总结中心</td></tr>
+<tr><td>CP</td><td>Control Plan</td><td>控制计划</td></tr>
+<tr><td>CPIT</td><td>Current Product Improvement Team</td><td>现有产品改进小组</td></tr>
+<tr><td>Cpk</td><td>Complex Process Capability</td><td>过程能力指数</td></tr>
+<tr><td>Cpk</td><td>Process Capability Index</td><td>稳定过程的能力指数</td></tr>
+<tr><td>CPQE</td><td>Current Product Quality Engineer</td><td>现有产品质量工程师</td></tr>
+<tr><td>CPV</td><td>Cost per Vehicle</td><td>单车成本</td></tr>
+<tr><td>CR/DN</td><td>Change Request / Decision Notice</td><td>更改决议</td></tr>
+<tr><td>CR/DN</td><td>Change Request/Decision Notice</td><td>变更申请/决议通知</td></tr>
+<tr><td>CRB</td><td>Change Review Board</td><td>更改评审小组</td></tr>
+<tr><td>CS</td><td>Contract Signing</td><td>动力总成签署项目合同</td></tr>
+<tr><td>CS</td><td>Contract Signing</td><td>合同签订</td></tr>
+<tr><td>CS1</td><td>Controled Shipping 1</td><td>一级受控发运</td></tr>
+<tr><td>CS2</td><td>Controled Shipping 2</td><td>二级受控发运</td></tr>
+<tr><td>CSC</td><td>Controls Steering Committee</td><td>控制模块战略转向委员会</td></tr>
+<tr><td>CSI</td><td>Customer Satisfaction Index</td><td>用户满意度指标</td></tr>
+<tr><td>CSI</td><td>Customer Satisfaction Index</td><td>售后满意度</td></tr>
+<tr><td>CSN</td><td>Current Sequence Number</td><td>流水号</td></tr>
+<tr><td>CSO</td><td>Contract Sign-Off</td><td>合同签署</td></tr>
+<tr><td>CSO</td><td>Contract Sign-Off (VDP)</td><td>整车签署项目合同（VDP术语）</td></tr>
+<tr><td>CSO HC</td><td>Contract Sign-Off Health Check</td><td>合同签署健康检查</td></tr>
+<tr><td>CSO HC</td><td>Contract Sign-Off Health Check</td><td>合同签署健康检查</td></tr>
+<tr><td>CT</td><td>Cycle Time</td><td>制程周期</td></tr>
+<tr><td>CT</td><td>Cycle time</td><td>周期时间</td></tr>
+<tr><td>CT</td><td>Creativity Teams</td><td>创造性工作小组</td></tr>
+<tr><td>CT</td><td>Critical Test</td><td>关键试验</td></tr>
+<tr><td>CTS</td><td>Component Technical  Specification</td><td>零部件技术标准</td></tr>
+<tr><td>CTT</td><td>Common Timing Template</td><td>标准2级进度模板</td></tr>
+<tr><td>CVER</td><td>Concept Vehicle Engineering  Release</td><td>概念车工程发布</td></tr>
+<tr><td>CVER LL</td><td>Concept Vehicle Engineering  Release Long Lead</td><td>概念车工程发布－－长周期</td></tr>
+<tr><td>CVIS</td><td>Completed Vehicle Inspection  Standards</td><td>整车检验标准</td></tr>
+<tr><td>CVQC</td><td>Completed vehicle quality ceter</td><td>整车质量中心</td></tr>
+<tr><td>CVQCB</td><td>Completed vehicle quality ceter  board</td><td>整车质量目视板</td></tr>
+<tr><td>CVT</td><td>Continuously Variable  Transmission</td><td>无级变速器</td></tr>
+<tr><td>D.Q.R</td><td></td><td>合格率概况</td></tr>
+<tr><td>DAS</td><td>Design &amp; Analysis Section</td><td>设计分析科</td></tr>
+<tr><td>DC</td><td>Deliver Charter</td><td>递交项目章程</td></tr>
+<tr><td>DCN</td><td>Design Change Notice</td><td>设计更改通知</td></tr>
+<tr><td>DCN</td><td>Design Change Notice</td><td>设计更改通知</td></tr>
+<tr><td>DCP</td><td>Dimension Control Plan</td><td>尺寸控制计划</td></tr>
+<tr><td>DCS</td><td>Design Concept Sheet</td><td>概念设计表</td></tr>
+<tr><td>DCT</td><td>Double Clutch Transmission</td><td>双离合器变速箱</td></tr>
+<tr><td>DD</td><td>Direct Delivery</td><td>直接投线</td></tr>
+<tr><td>DDSP</td><td>Driver Door Switch Pack</td><td>驾驶席门控开关</td></tr>
+<tr><td>DEI</td><td>Die Engineering Integration</td><td>模具工程集成</td></tr>
+<tr><td>DFA</td><td>Design for Assembly</td><td>装配工艺性设计</td></tr>
+<tr><td>DFM</td><td>Design for Manufacturability</td><td>制造工艺性设计</td></tr>
+<tr><td>DFMEA</td><td>Design failure mode and effects  analysis</td><td>设计失效模式和效果分析</td></tr>
+<tr><td>DFMEA</td><td>Design FMEA</td><td>设计失效模式分析</td></tr>
+<tr><td>DIFF</td><td>Differential</td><td>差速器</td></tr>
+<tr><td>DL 3b</td><td>Design Level 3b</td><td>设计阶段3b</td></tr>
+<tr><td>DMS</td><td>Dealer Manage System</td><td>经销商管理系统</td></tr>
+<tr><td>DOL</td><td>Dealer On Line</td><td>经销商在线系统</td></tr>
+<tr><td>DP</td><td>Demand Plan</td><td>需求计划</td></tr>
+<tr><td>DPV</td><td>Defects per vehicle</td><td>单车缺陷数</td></tr>
+<tr><td>DPV</td><td>Defect per Vehicle</td><td>单车缺陷数</td></tr>
+<tr><td>DQ&amp;V</td><td>Design Quality &amp; Validation</td><td>设计质量和验证</td></tr>
+<tr><td>DR</td><td>Direct run</td><td>直接通过率</td></tr>
+<tr><td>DRC</td><td>Design Review Committee</td><td>设计评审委员会</td></tr>
+<tr><td>DRE</td><td>Design Responsible Engineer</td><td>设计和发布工程师</td></tr>
+<tr><td>DRE</td><td>Design Release Engineer</td><td>设计发布工程师</td></tr>
+<tr><td>DRE</td><td>Design release engineer</td><td>设计发布工程师</td></tr>
+<tr><td>DRL</td><td>Direct run loss</td><td>直接通过损失率</td></tr>
+<tr><td>Drop  Off</td><td>Drop Off</td><td>停产</td></tr>
+<tr><td>DS44</td><td>HIGH SPEED DURABILITY TEST</td><td>高速耐久试验（MGRES 标准）</td></tr>
+<tr><td>DSG</td><td>Direct shift gearbox</td><td>双离合器变速箱</td></tr>
+<tr><td>DSI</td><td>Document of Strategic Intent</td><td>战略意向书</td></tr>
+<tr><td>DSM</td><td>Driver Seat Module</td><td>驾驶席座椅控制模块</td></tr>
+<tr><td>DSO</td><td>Design Sign Off</td><td>设计签署</td></tr>
+<tr><td>DTA</td><td>Design Theme Alternatives</td><td>设计主题选项</td></tr>
+<tr><td>DTC</td><td>Diagnostic Trouble Code</td><td>诊断故障码</td></tr>
+<tr><td>DV</td><td>Design Validation</td><td>设计验证</td></tr>
+<tr><td>DV</td><td>Design Validation</td><td>产品设计验证</td></tr>
+<tr><td>DVP</td><td>Design Validation Plan</td><td>设计验证计划</td></tr>
+<tr><td>DVT</td><td>Dynamic vehicle test</td><td>整车综合动态测试</td></tr>
+<tr><td>E/T/C</td><td>Engine/Transmission/Controller</td><td>发动机/变速器/控制模块</td></tr>
+<tr><td>EBA</td><td>Emergency Brake Assistant</td><td>紧急制动辅助系统</td></tr>
+<tr><td>EBD</td><td>Electronical Brake Distribute</td><td>电子制动力分配系统</td></tr>
+<tr><td>EBOM</td><td>Engineering BOM</td><td>工程BOM</td></tr>
+<tr><td>EC</td><td>Embedded Controller</td><td>控制模块</td></tr>
+<tr><td>ECC</td><td>ERP Central Component</td><td>ERP核心组建</td></tr>
+<tr><td>ECR</td><td>Engineering Change Request</td><td>工程更改请求</td></tr>
+<tr><td>ECR</td><td>Engineering Change Request</td><td>工程更改请求</td></tr>
+<tr><td>ECR</td><td>Engineering Change Request</td><td>工程更改申请</td></tr>
+<tr><td>ECR</td><td>Engineering Change Request</td><td>工程项目变更申请</td></tr>
+<tr><td>ECS</td><td>Engineering Change Summary</td><td>工程变更摘要</td></tr>
+<tr><td>ECT</td><td>Emission Control System</td><td>电子控制自动变速器</td></tr>
+<tr><td>EDS</td><td>Electronic Data Systems</td><td>电子数据系统</td></tr>
+<tr><td>EEVC</td><td>European Enhanced Vehicle-Safety  Committee</td><td>欧洲提高车辆安全性委员会</td></tr>
+<tr><td>EFEO</td><td>Emissions &amp; Fuel Economy</td><td>排放和燃料经济</td></tr>
+<tr><td>EGM</td><td>Engineering Group Manager</td><td>产品工程小组经理</td></tr>
+<tr><td>EI&amp;S</td><td>Electronics Integration &amp;  Software</td><td>电器零件集成和软件</td></tr>
+<tr><td>ELV</td><td>End of life vehicle</td><td>整车寿命结束</td></tr>
+<tr><td>EMlS</td><td>Emission</td><td>排放</td></tr>
+<tr><td>EMS</td><td>Engine Management System</td><td>发动机管理系统</td></tr>
+<tr><td>ENB</td><td>Build-Test Section</td><td>试制试验科</td></tr>
+<tr><td>E-NCAP</td><td>Euro New Car Assessment Process</td><td>欧洲标准新车评估体系</td></tr>
+<tr><td>ENG</td><td>Engineer</td><td>工程师</td></tr>
+<tr><td>EOA</td><td>End of Acceleration</td><td>生产提速的完成</td></tr>
+<tr><td>EOLT</td><td>End of Line Test</td><td>生产线试验结束</td></tr>
+<tr><td>EP</td><td>Engineering Prototype</td><td>工程样车（件）</td></tr>
+<tr><td>EPA</td><td>Environmental Protection Agency</td><td>环境保护厅</td></tr>
+<tr><td>EPC</td><td>Engineering Program Committee</td><td>工程项目委员会</td></tr>
+<tr><td>EPN</td><td>Engineering Project Number</td><td>工程项目数目</td></tr>
+<tr><td>ERD</td><td>Early Requirement Document</td><td>早期的要求文件</td></tr>
+<tr><td>ESB</td><td>European Strategy Board</td><td>欧洲战略委员会（通用汽车的高层管理组织）</td></tr>
+<tr><td>ESO</td><td>Engineering Sign Off</td><td>发动机整机</td></tr>
+<tr><td>工程签署</td><td></td><td></td></tr>
+<tr><td>ESO</td><td>Engineering Sign Off</td><td>工程签署</td></tr>
+<tr><td>ESO</td><td>Engineering Sign-off</td><td>工程签署</td></tr>
+<tr><td>ET</td><td>Engineering Technology</td><td>工程技术</td></tr>
+<tr><td>EV</td><td>Engineering Vehicle</td><td>工程样车</td></tr>
+<tr><td>EWO</td><td>Engineering Work Order</td><td>工程工作指令</td></tr>
+<tr><td>EWO</td><td>Engineering Work Order</td><td>工程更改号</td></tr>
+<tr><td>EWO</td><td>Engineering workorder</td><td>工程更改流程</td></tr>
+<tr><td>Exp Cal</td><td>Experimental Calibration</td><td>尝试性标定</td></tr>
+<tr><td>FA</td><td>Final Approval</td><td>批准正式生产</td></tr>
+<tr><td>FAC</td><td></td><td>集团销售经理</td></tr>
+<tr><td>FATG</td><td>Final Approval to Grain</td><td>生产最终批准</td></tr>
+<tr><td>FBIW</td><td>First Body in White Complete</td><td>第一轮白车身完成</td></tr>
+<tr><td>FE</td><td>Functional Evaluation</td><td>功能评估</td></tr>
+<tr><td>FE LSO</td><td>Fuel Economy Label Lift Stop  Order</td><td>通过油耗认证的通知</td></tr>
+<tr><td>FIVC</td><td>First Integration Vehicle  Complete</td><td>第1辆集成车制造完毕</td></tr>
+<tr><td>FIVC</td><td>First Integration Vehicle  Complete</td><td>第一轮集成车完成</td></tr>
+<tr><td>FLO</td><td>Factory Layout</td><td>工厂布局</td></tr>
+<tr><td>FM</td><td></td><td>功能尺寸</td></tr>
+<tr><td>FM</td><td>Finance Manager</td><td>财务经理</td></tr>
+<tr><td>FMC</td><td>First Mule Complete</td><td>第一轮骡子车完成</td></tr>
+<tr><td>FMC</td><td></td><td>区域售后支持</td></tr>
+<tr><td>FMEA</td><td>Failure model effectiveness  analysis</td><td>失效模式分析</td></tr>
+<tr><td>FMEA</td><td>Failure model effectiveness  analysis</td><td>失效模式分析</td></tr>
+<tr><td>FMEA</td><td>Failure Mode and Effects  Analysis</td><td>潜在失效模式及后果分析</td></tr>
+<tr><td>FMEA</td><td>Failure mode and effects  analysis</td><td>失效模式和后果分析</td></tr>
+<tr><td>FMEA</td><td>Failure Mode and Effect Analysis</td><td>失效模式和影响分析</td></tr>
+<tr><td>FMS</td><td>Flexible manufacturing systems</td><td>柔性制造系统</td></tr>
+<tr><td>FMVSS</td><td>Federal Motor Vehicle Safety  Standards</td><td>联邦汽车安全标准</td></tr>
+<tr><td>FPPV  BIW</td><td>First Product/Process Body in  White Complete</td><td>第一轮产品/工艺白车身完成</td></tr>
+<tr><td>FPPVC</td><td>First Product/Process Validation  Vehicle Complete</td><td>第一轮产品/工艺验证车辆完成</td></tr>
+<tr><td>FPS</td><td>Fixed Point Stop</td><td>固定停止位置</td></tr>
+<tr><td>FTC</td><td>First Time Capability</td><td>首次能力</td></tr>
+<tr><td>FTP/FTQ</td><td>First time pass/quality</td><td>一次通过合格率</td></tr>
+<tr><td>FTQ</td><td>First time quality</td><td>下线合格率</td></tr>
+<tr><td>FWD</td><td>Four Wheel Drive</td><td>四轮驱动</td></tr>
+<tr><td>G</td><td>Gamma</td><td>Gamma阶段（动力总成产品开发的一个阶段）</td></tr>
+<tr><td>G MRD</td><td>Gamma Material Required Date</td><td>Gamma样件需求日期</td></tr>
+<tr><td>G/L</td><td>Group leader</td><td>工段长</td></tr>
+<tr><td>GA</td><td>General Assembly</td><td>总装</td></tr>
+<tr><td>GA</td><td>General Assembly</td><td>总装</td></tr>
+<tr><td>GADT</td><td>Global Architecture Development  Team</td><td>全球架构开发小组</td></tr>
+<tr><td>GBOM</td><td>Global Bill of Material</td><td>全球物料清单</td></tr>
+<tr><td>GMNA</td><td>General Motors North America</td><td>通用汽车北美分部</td></tr>
+<tr><td>GMPT</td><td>General Motors Powertrain</td><td>通用汽车动力总成分部</td></tr>
+<tr><td>GPDC</td><td>Global Product Development  Council</td><td>全球产品开发理事会</td></tr>
+<tr><td>GPDP</td><td>Global Powertrain Development  Process</td><td>全球动力总成开发流程</td></tr>
+<tr><td>GPDS</td><td>Global Product Description  System</td><td>全球产品管理系统</td></tr>
+<tr><td>GSD</td><td>Global Segment Director</td><td>全球细分主管</td></tr>
+<tr><td>GSS</td><td>Global Sales and Service</td><td>全球销售和服务</td></tr>
+<tr><td>GVDP</td><td>Global Vehicle Development  Process</td><td>全球整车开发流程</td></tr>
+<tr><td>GVDP</td><td>Global Vehicle Development  Process</td><td>整车开发流程</td></tr>
+<tr><td>GVDP</td><td>Global Vehicle Development  Process</td><td>整车开发流程</td></tr>
+<tr><td>GVDP</td><td>Global Vehicle Development  Process</td><td>全球汽车开发流程</td></tr>
+<tr><td>GVDP</td><td>Global Vehicle Development  Process</td><td>全球整车开发流程</td></tr>
+<tr><td>GVDP</td><td>Global Vehicle Development  Process</td><td>整车开发流程</td></tr>
+<tr><td>GVLE</td><td>Global Vehicle Line Executive</td><td>整车平台执行</td></tr>
+<tr><td>GVW</td><td>Gross Vehicle Weight</td><td>车辆总重</td></tr>
+<tr><td>GW</td><td>Gateway</td><td>网关</td></tr>
+<tr><td>HET</td><td>Hot Environment Test</td><td>热带试验</td></tr>
+<tr><td>HRC</td><td>Hardware Release Center</td><td>硬件发布中心</td></tr>
+<tr><td>ICD</td><td>Interface Control Document</td><td>接口控制文件</td></tr>
+<tr><td>IDR</td><td>Initial Data Release</td><td>初始数据发布</td></tr>
+<tr><td>IDSR</td><td>Integration Driven Subsystem  Requirement</td><td>集成驱动子系统要求</td></tr>
+<tr><td>ILP</td><td>Inbound Logistic Planning</td><td>入厂物流规划</td></tr>
+<tr><td>IMES</td><td>Integration Manufacturing  Executive System</td><td>生产执行系统</td></tr>
+<tr><td>Initial  Cal</td><td>Initial Calibration</td><td>初始标定</td></tr>
+<tr><td>IOM</td><td>Inspection operator method</td><td>检验操作方法</td></tr>
+<tr><td>IOS</td><td>Inspection operator summary</td><td>检验操作概要</td></tr>
+<tr><td>IPPE</td><td>integrated Product and Process  Engineering</td><td>集成产品与工艺工程</td></tr>
+<tr><td>IPTV</td><td>Incident per Thousand Vehicles</td><td>每千辆车的故障率</td></tr>
+<tr><td>IPTV</td><td>Incidents Per Thousand Vehicles</td><td>每一千台车事故率</td></tr>
+<tr><td>IPTV</td><td>Incidents Per Thousand Vehicles</td><td>每千辆车的故障率</td></tr>
+<tr><td>IPTV</td><td>Incidents Per Thousand Vehicles</td><td>千辆车故障率</td></tr>
+<tr><td>IR</td><td>Incident Report</td><td>事故报告</td></tr>
+<tr><td>IRP</td><td>Issue Resolution Process</td><td>问题解决流程</td></tr>
+<tr><td>IRR</td><td>Internal Rate of Return</td><td>内含报酬率</td></tr>
+<tr><td>ISO</td><td>International Standard  Organization</td><td>国际标准化组织</td></tr>
+<tr><td>IV</td><td>Integration Vehicle</td><td>集成车</td></tr>
+<tr><td>IV MRD</td><td>Integration Vehicle Material  Required Date</td><td>集成车的物料需求日期</td></tr>
+<tr><td>IVBR</td><td>Integration Vehicle Build  Readiness Review</td><td>集成车制造准备评审</td></tr>
+<tr><td>IVER</td><td>Integration Vehicle Engineering  Release</td><td>集成车工程发布</td></tr>
+<tr><td>JIS</td><td>Just In Sequence</td><td>排序供货</td></tr>
+<tr><td>JIS</td><td>Just In Sort</td><td>供应商排序供货方式</td></tr>
+<tr><td>JIS</td><td>Job Instruction Sheet</td><td>岗位指导书</td></tr>
+<tr><td>JIT</td><td>Just In Time</td><td>及时供货</td></tr>
+<tr><td>JIT</td><td>Just In Time</td><td>供应商及时供货方式</td></tr>
+<tr><td>JPH</td><td>Job per Hour</td><td>生产节拍</td></tr>
+<tr><td>JRS</td><td>Joint Ride Session</td><td>联合评审</td></tr>
+<tr><td>JSC</td><td></td><td>生产采购委员会</td></tr>
+<tr><td>JSC-GP</td><td>Joint Sourcing Committee -  General purchase</td><td>联合采购委员会-一般采购</td></tr>
+<tr><td>Kcc</td><td>Key Control Characteristic</td><td>关键过程控制特性</td></tr>
+<tr><td>KCC</td><td>Key Control Character</td><td>关键控制特性</td></tr>
+<tr><td>KCDS</td><td>Key Characteristic Designation  System</td><td>产品关键特性定义系统</td></tr>
+<tr><td>KO</td><td>Kick-Off</td><td>启动</td></tr>
+<tr><td>Kpc</td><td>Key Product Characteristic</td><td>关键产品特性</td></tr>
+<tr><td>KPC</td><td>Key Product Characteristic</td><td>关键产品特性</td></tr>
+<tr><td>KPC</td><td>Key product characteristic</td><td>主要产品特性</td></tr>
+<tr><td>KPC</td><td>Key product characteristic</td><td>主要产品特性</td></tr>
+<tr><td>KPC</td><td>Key process control</td><td>关键过程控制</td></tr>
+<tr><td>KPC</td><td>Key process control</td><td>关键过程控制</td></tr>
+<tr><td>LAAMSB</td><td>Latin America, Africa, Middle  East Strategy Board</td><td>通用的拉美，非洲，中东战略委员会</td></tr>
+<tr><td>LCL</td><td>Lower Control Limit</td><td>管制下限</td></tr>
+<tr><td>LCS</td><td>Logistic Confirmation Sheet</td><td>物流确认单</td></tr>
+<tr><td>LL</td><td>Learning Loop</td><td>学习周期</td></tr>
+<tr><td>LL</td><td>Long Lead</td><td>长周期</td></tr>
+<tr><td>LLPR</td><td>Long Lead Production Release</td><td>长周期的产品发布</td></tr>
+<tr><td>LM</td><td>Launch Manager</td><td>启动经理</td></tr>
+<tr><td>LOU</td><td>Line of Usage BOM</td><td>整车BOM行</td></tr>
+<tr><td>LSL</td><td>Lower Specification Limit</td><td>规格下限</td></tr>
+<tr><td>LSP</td><td>Lean sales and marketing  prograne</td><td>精宜营销</td></tr>
+<tr><td>LTR</td><td>Launch Team Release</td><td>启动小组释放</td></tr>
+<tr><td>LWO</td><td>Logistic Work Order</td><td>物流属性更改号</td></tr>
+<tr><td>M+E</td><td>Machine &amp; Equipment</td><td>机器设备</td></tr>
+<tr><td>MAC</td><td></td><td>区域经理</td></tr>
+<tr><td>MBOM</td><td>Manufacturing BOM</td><td>制造BOM</td></tr>
+<tr><td>MDS</td><td>Materiel Data Sheet</td><td>物料数据单</td></tr>
+<tr><td>ME</td><td>Manufacture Engineer</td><td>样车试制工程师或生产线制造工程师</td></tr>
+<tr><td>ME</td><td>Machine and Electronic</td><td>电器设备</td></tr>
+<tr><td>ME</td><td>Manufacturing Engineering</td><td>制造工程</td></tr>
+<tr><td>ME</td><td>Manufacturing Engineering</td><td>制造工程</td></tr>
+<tr><td>MEC</td><td></td><td>区域市场支持</td></tr>
+<tr><td>MEIS</td><td>Manufacturing Engineering Info  System</td><td>制造工程信息系统</td></tr>
+<tr><td>MES</td><td>Manufacturing Execution System</td><td>制造执行系统</td></tr>
+<tr><td>MES</td><td>Manufacturing Execution System</td><td>制造执行系统</td></tr>
+<tr><td>MFG  Site Dec</td><td>Manufacturing Site Decision</td><td>确定生产厂址</td></tr>
+<tr><td>MIC</td><td>Marketing Information Center</td><td>市场信息中心</td></tr>
+<tr><td>MILKRUN</td><td>Milkrun</td><td>循环取货</td></tr>
+<tr><td>MKT</td><td>Marketing</td><td>营销</td></tr>
+<tr><td>MMR</td><td>Manufacturable Math Release</td><td>制造数模发布</td></tr>
+<tr><td>MO</td><td>Manufacturing Operations</td><td>生产管理部门</td></tr>
+<tr><td>MP OTS  100%</td><td>100% Made Parts in OTS</td><td>100%自制件达到OTS状态</td></tr>
+<tr><td>MP OTS  100％</td><td>100％ Made Parts in OTS</td><td>100%自制件达到OTS状态</td></tr>
+<tr><td>MP  PPAP</td><td>Made Parts PPAP</td><td>自制件</td></tr>
+<tr><td>通过PPAP</td><td></td><td></td></tr>
+<tr><td>MP PPAP</td><td>Made Parts PPAP</td><td>自制件通过PPAP</td></tr>
+<tr><td>MP PPV</td><td>Made Parts Production and  Process Validation</td><td>自制件生产线交付后的产品工艺验证</td></tr>
+<tr><td>MP PPV</td><td>Made Parts Production and  Process Validation</td><td>自制件生产线交付后的产品工艺验证</td></tr>
+<tr><td>MPS</td><td>Master Planning System</td><td>主计划系统</td></tr>
+<tr><td>MPV</td><td>Multi-Purpose Vehicle</td><td>多用途轿车</td></tr>
+<tr><td>MR</td><td>Manufacturing Requirements</td><td>制造要求</td></tr>
+<tr><td>MRD</td><td>Material Required Date</td><td>交样日期</td></tr>
+<tr><td>MRD</td><td>Material Requirement Date</td><td>物料需求日期</td></tr>
+<tr><td>MRD</td><td>Material Required Date (for  physical builds)</td><td>物料需求日期（用于制造样机）</td></tr>
+<tr><td>MRD</td><td>Math Required Date (for virtual  builds)</td><td>数模需求日期（用于虚拟制造）</td></tr>
+<tr><td>MRE</td><td>Manufacturing Responsible  Engineer</td><td>制造工程师</td></tr>
+<tr><td>MS</td><td>Manufacturing Studies</td><td>制造车间</td></tr>
+<tr><td>MSA</td><td>Measurement System Analysis</td><td>测量系统分析手册</td></tr>
+<tr><td>MSA</td><td>Measurement System Analysis</td><td>测量系统分析</td></tr>
+<tr><td>MSA</td><td>Measure System Analyse</td><td>测量系统分析</td></tr>
+<tr><td>MSA</td><td>Measurement system analysis</td><td>测量系统分析</td></tr>
+<tr><td>MSS</td><td>Market Segment Specification</td><td>市场细分规范</td></tr>
+<tr><td>MSS</td><td></td><td>区域销售支持</td></tr>
+<tr><td>MSS</td><td>Market Segment Specification</td><td>市场分割规范</td></tr>
+<tr><td>MT</td><td>Manual Transmission</td><td>手动变速箱</td></tr>
+<tr><td>MT&amp;E</td><td>Machines, Tools and Equipment</td><td>机床，工装和设备</td></tr>
+<tr><td>MTS</td><td>Manufacturing Technical  Specification</td><td>制造技术标准</td></tr>
+<tr><td>MVB</td><td>Manufacturing Validation Build</td><td>用于认证制造工艺的整车制造</td></tr>
+<tr><td>MVB</td><td>Manufacturing Validation Build</td><td>制造验证造车</td></tr>
+<tr><td>MVB (ns)</td><td>Manufacturing Validation Build  (non saleable)</td><td>用于认证制造工艺的整车制造（不可销售的）</td></tr>
+<tr><td>MVB (s)</td><td>Manufacturing Validation Build  (saleable)</td><td>用于认证制造工艺的整车制造（可销售的）</td></tr>
+<tr><td>MVBns</td><td>Manufacturing Validation Build  Non-Salable</td><td>非销售制造验证造车</td></tr>
+<tr><td>MVBs</td><td>Manufacturing Validation Build  Salable</td><td>销售制造验证造车</td></tr>
+<tr><td>MVSS</td><td>Motor Vehicle Safety Standards</td><td>汽车安全标准</td></tr>
+<tr><td>MWO</td><td>Manufacture Work Order</td><td>制造属性更改号</td></tr>
+<tr><td>MY</td><td>Model Year</td><td>年度款</td></tr>
+<tr><td>MYM</td><td>Model Year Manager</td><td>车型年经理</td></tr>
+<tr><td>NAO</td><td>North American Operations</td><td>通用的北美分部</td></tr>
+<tr><td>NEO</td><td>New Employee Orientation</td><td>新员工培训</td></tr>
+<tr><td>NOA</td><td>Notice of Authorization</td><td>授权书</td></tr>
+<tr><td>NOD</td><td>Notice of Decision</td><td>决议</td></tr>
+<tr><td>NOD</td><td>Notice of Decision</td><td>决议通知</td></tr>
+<tr><td>NPV</td><td>Net Present Value</td><td>净现值</td></tr>
+<tr><td>NRD</td><td>Normal Road</td><td>一般公路</td></tr>
+<tr><td>NSB</td><td>North American Strategy Board</td><td>通用的北美传略委员会（通用的高层管理组织）</td></tr>
+<tr><td>OBD</td><td>On Board Diagnostics</td><td>车载诊断系统</td></tr>
+<tr><td>OEM</td><td>Original Equipment manufacturers</td><td>原始设备制造商（主机厂）</td></tr>
+<tr><td>OEM  Run-Off</td><td>Original Equipment  Manufacturer Run-Off</td><td>零件供应商</td></tr>
+<tr><td>工装设备具备试生产条件</td><td></td><td></td></tr>
+<tr><td>OEM  Run-off</td><td>Original Equipment Manufacturer  Run-off</td><td>零件供应商工装设备具备试生产条件</td></tr>
+<tr><td>OJT</td><td>On Job Training</td><td>在岗培训</td></tr>
+<tr><td>OPO</td><td>Office of Product Operations</td><td>产品高层管理组织</td></tr>
+<tr><td>ORS</td><td>Occupant Restraint System</td><td>乘员约束系统</td></tr>
+<tr><td>OT</td><td>Overtime</td><td>加班</td></tr>
+<tr><td>OTD</td><td>Order to Delivery</td><td>订单到货时间</td></tr>
+<tr><td>OTP</td><td>On Time Performance</td><td>及时性能</td></tr>
+<tr><td>OTS</td><td></td><td>装车评审</td></tr>
+<tr><td>OTS</td><td>Off-tool Sample</td><td>工装样件</td></tr>
+<tr><td>OTS</td><td>Off-tool Sample</td><td>工装样件</td></tr>
+<tr><td>OTS</td><td>Off-tool Sample</td><td>工装样件</td></tr>
+<tr><td>OTS</td><td>OFF-TOOL-SAMPLE</td><td>工装样件</td></tr>
+<tr><td>OTS  QV</td><td>OTS Quality Valve</td><td>OTS质量阀</td></tr>
+<tr><td>OTS交付状态满足质保的开阀要求</td><td></td><td></td></tr>
+<tr><td>OTS QV</td><td>OTS Quality Valve</td><td>OTS质量阀，OTS交付状态满足质保的开阀要求</td></tr>
+<tr><td>OTS TG2</td><td>Off Tooling Samples Tooling Go  Level 2</td><td>OTS设计达到TG2阶段，发布图纸用于供应商启动工装和设备投入</td></tr>
+<tr><td>OTS  TGL2</td><td>Off Tooling Samples Tooling Go  Level 2</td><td>OTS设计达到TG2阶段</td></tr>
+<tr><td>P</td><td>Pilot</td><td>批量试生产</td></tr>
+<tr><td>P</td><td>Pilot</td><td>小批量生产</td></tr>
+<tr><td>PA</td><td>Production Approval</td><td>批准正式生产</td></tr>
+<tr><td>PA</td><td>Program Administrator</td><td>项目管理专员</td></tr>
+<tr><td>PaC</td><td>Physical Alpha for Customer</td><td>提交客户的Alpha样机</td></tr>
+<tr><td>PACK</td><td>Packaging</td><td>包装规划</td></tr>
+<tr><td>PAD</td><td>Product Assembly Documentation</td><td>产品装配文件</td></tr>
+<tr><td>PAM</td><td>Product Assemble Manual</td><td>样车装配指南</td></tr>
+<tr><td>PAM</td><td>Product Assemble Manual</td><td>产品装配手册</td></tr>
+<tr><td>PAPIR</td><td>Product and Process Integration  Review</td><td>产品和工艺集成会议</td></tr>
+<tr><td>PAS</td><td>Packaging Approval Sheet</td><td>包装确认单</td></tr>
+<tr><td>PAS</td><td>Parking Aid System</td><td>泊车辅助系统</td></tr>
+<tr><td>PAS</td><td>Parking Aid System</td><td>泊车辅助系统</td></tr>
+<tr><td>PbC</td><td>Physical Beta for Customer</td><td>提交客户的Beta样机</td></tr>
+<tr><td>PBS</td><td>Painted Body Store</td><td>油漆车身存储区</td></tr>
+<tr><td>PC</td><td>Deliver Pilot to Customer</td><td>向客户提交Pilot产品</td></tr>
+<tr><td>PC</td><td>Pullcord</td><td>拉环</td></tr>
+<tr><td>PC</td><td>Problem Communication</td><td>问题信息</td></tr>
+<tr><td>PC&amp;L</td><td>Production Control and Logistics</td><td>PC&amp;L部门（GM的一个部门）</td></tr>
+<tr><td>PCL</td><td>Production Control Manager</td><td>生产控制与支持</td></tr>
+<tr><td>PCM</td><td>Powertrain Control Module</td><td>动力总成控制模块</td></tr>
+<tr><td>PCM</td><td>Process Control Manager</td><td>工艺控制负责人</td></tr>
+<tr><td>PCN</td><td>Project Cost Change Notice</td><td>项目更改通知单</td></tr>
+<tr><td>PCN</td><td>Project Costbook Change Notice</td><td>项目Costbook更改通知单</td></tr>
+<tr><td>PCR</td><td>Problem communication report</td><td>问题交流报告</td></tr>
+<tr><td>PCR</td><td>Problem communication report</td><td>问题交流报告</td></tr>
+<tr><td>PCR</td><td>Problem Communication Report</td><td>问题交流报告</td></tr>
+<tr><td>PCR</td><td>Problem Communication Report</td><td>问题交流报告</td></tr>
+<tr><td>PDC</td><td>Parking Distance Control</td><td>泊车距离控制</td></tr>
+<tr><td>PDC</td><td>Parking Distance Control</td><td>泊车距离控制</td></tr>
+<tr><td>PDCA</td><td>Plan、Do、Check、Action</td><td>计划、实施、检查、行动</td></tr>
+<tr><td>PDCA</td><td>Plan-Do-Check-Action</td><td>计划,实施,检查,行动</td></tr>
+<tr><td>PDI</td><td>Product delivery inspection</td><td>产品交付检查</td></tr>
+<tr><td>PDI</td><td>Preliminary Data Indicator</td><td>初步数据指示器</td></tr>
+<tr><td>PDI</td><td>Pre-delivery Inspection</td><td>车辆行运“零公里”检查报告</td></tr>
+<tr><td>PDS</td><td>Product Data Structure</td><td>产品数据结构，在SCM中用到的数据对象，集成了BOM、工艺和工厂布局信息</td></tr>
+<tr><td>PDT</td><td>Product Development Team</td><td>产品开发组</td></tr>
+<tr><td>PDT</td><td>Product Development Team</td><td>产品开发小组</td></tr>
+<tr><td>PDT</td><td>Product Development Team</td><td>产品开发小组</td></tr>
+<tr><td>PDT</td><td>Product Development Team</td><td>产品开发小组</td></tr>
+<tr><td>PDT</td><td>Product Development Team</td><td>产品开发小组</td></tr>
+<tr><td>PE</td><td>Product Engineering</td><td>产品工程</td></tr>
+<tr><td>PET</td><td>Program Executive Team</td><td>项目执行小组</td></tr>
+<tr><td>PET</td><td>Program Execution Team</td><td>项目组</td></tr>
+<tr><td>PET</td><td>Program Execution Team</td><td>项目执行小组</td></tr>
+<tr><td>PFI</td><td>Program Framing Initiated</td><td>项目框架启动</td></tr>
+<tr><td>PFMEA</td><td>Process failure mode and  effectsanalysis</td><td>过程失效模式和后果分析</td></tr>
+<tr><td>PFMEA</td><td>Process FMEA</td><td>工艺失效模式分析</td></tr>
+<tr><td>PFMEA</td><td>Process failure mode &amp;  effects analysis</td><td>过程失效模式分析</td></tr>
+<tr><td>PFSE</td><td>Product Focus Systems Engineer</td><td>产品系统工程师</td></tr>
+<tr><td>PG3</td><td>Powertrain Gateway</td><td>关键里程碑节点</td></tr>
+<tr><td>PgC</td><td>Physical Gamma for Customer</td><td>向客户发运Gamma样机</td></tr>
+<tr><td>PGM</td><td>Program Management / Project  Management</td><td>项目管理</td></tr>
+<tr><td>PGM</td><td>Program Management</td><td>项目管理</td></tr>
+<tr><td>PGM</td><td>Program Management</td><td>项目管理</td></tr>
+<tr><td>Pilot</td><td>Pilot</td><td>试生产</td></tr>
+<tr><td>Pilot</td><td>Pilot</td><td>试生产</td></tr>
+<tr><td>Pilot QV</td><td>Pilot Quality Valve</td><td>试生产质量阀满足启动试生产的开阀要球</td></tr>
+<tr><td>Pilot  MRD</td><td>Pilot Material Requied Date</td><td>Pilot交样日期</td></tr>
+<tr><td>Pilot  MRD</td><td>Pilot Material Required Date</td><td>Pilot的物料需求日期</td></tr>
+<tr><td>Pilot  QV</td><td>Pilot Quality Valve</td><td>试生产质量阀</td></tr>
+<tr><td>满足启动试生产的开阀要求</td><td></td><td></td></tr>
+<tr><td>PIM</td><td>Powertrain Interface Manager</td><td>动力总成接口经理</td></tr>
+<tr><td>PLM</td><td>Production Launch Manager</td><td>生产启动经理</td></tr>
+<tr><td>PLP</td><td></td><td>单车利润表</td></tr>
+<tr><td>PM</td><td>Programme Manager</td><td>项目工程经理</td></tr>
+<tr><td>PM</td><td>Program Manager</td><td>项目经理</td></tr>
+<tr><td>PM</td><td>Program Manager</td><td>项目经理</td></tr>
+<tr><td>PM</td><td>Plan maintain</td><td>计划维护</td></tr>
+<tr><td>PM</td><td>Prevention Maintenance</td><td>预防性维护</td></tr>
+<tr><td>PM</td><td>Program Manager</td><td>项目经理</td></tr>
+<tr><td>PMO</td><td>Program Management Office</td><td>项目管理办公室（通用的一个部门）</td></tr>
+<tr><td>PMP</td><td></td><td>常规尺寸</td></tr>
+<tr><td>PMT</td><td>Product Management Team</td><td>产品管理小组</td></tr>
+<tr><td>PN</td><td>Part NO.</td><td>零件号</td></tr>
+<tr><td>PP</td><td>Pre-pilot</td><td>前期试生产</td></tr>
+<tr><td>PP</td><td>Pre-Pilot</td><td>预试生产</td></tr>
+<tr><td>PP</td><td>Pre-pilot</td><td>试生产</td></tr>
+<tr><td>P-P</td><td>Pre-Pilot</td><td>试生产</td></tr>
+<tr><td>PP PPAP</td><td>Purchased Parts Production Parts  Approval Process</td><td>外购件完成生产件批准程序</td></tr>
+<tr><td>PP  Appr.</td><td>Purchased Parts  Approved</td><td>外购件批准</td></tr>
+<tr><td>SQE开具入库许可单</td><td></td><td></td></tr>
+<tr><td>PP ESO</td><td>Purchased Parts Engineering Sign  Off</td><td>外购件工程签署，完成OTS认可/阶段认可</td></tr>
+<tr><td>PP OTS  100％</td><td>100％ Purchased Parts in OTS</td><td>外购件的OTS交样率达到100％</td></tr>
+<tr><td>PP OTS  80%</td><td>80% Purchased Parts in OTS</td><td>外购件的OTS交样率达到80%</td></tr>
+<tr><td>PP OTS  80％</td><td>80％ Purchased Parts in OTS</td><td>外购件的OTS交样率达到80％</td></tr>
+<tr><td>PP PPAP</td><td>Purchased Parts PPAP</td><td>外购件完成PPAP</td></tr>
+<tr><td>PPA</td><td>Product Planning Approval</td><td>产品规划批准</td></tr>
+<tr><td>PPAP</td><td>Production Parts Approval  Process</td><td>生产件批准程序</td></tr>
+<tr><td>PPAP</td><td>Production Part Approval Process</td><td>生产零部件批准程序</td></tr>
+<tr><td>PPAP</td><td>Production Part Approval Process</td><td>生产件批准程序</td></tr>
+<tr><td>PPAP</td><td>Production Part Approval Process</td><td>生产件批准程序</td></tr>
+<tr><td>PPAP</td><td>Production Parts Approval  Process</td><td>生产件批准程序</td></tr>
+<tr><td>PPAP</td><td>Production Part Approval Process</td><td>生产件批准流程PPAP</td></tr>
+<tr><td>PPAP</td><td>Production Part Approval Process</td><td>产品零部件批准流程</td></tr>
+<tr><td>PPAP</td><td>Production Part Approval Process</td><td>生产零部件批准程序</td></tr>
+<tr><td>PPC</td><td>Deliver Pre-Pilot to Customer</td><td>向客户发运Pre-pilot动力总成</td></tr>
+<tr><td>PPC</td><td>Product Program Content</td><td>项目任务书</td></tr>
+</tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><p>#各位贡献者名单</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="assets/custom.js"></script>
+        <script type="text/javascript" src="assets/bigPicture.js"></script>
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>

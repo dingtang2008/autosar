@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>汽车电子背景知识 - AUTOSAR学习</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style3.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">AUTOSAR学习项目</a></li><li class="chapter-item expanded affix "><li class="part-title">AUTOSAR入门</li><li class="spacer"></li><li class="chapter-item expanded "><a href="../guide/汽车电子入门.html" class="active"><strong aria-hidden="true">1.</strong> 汽车电子背景知识</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR简介.html"><strong aria-hidden="true">2.</strong> AUTOSAR简介</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR发展.html"><strong aria-hidden="true">3.</strong> AUTOSAR发展</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR架构.html"><strong aria-hidden="true">4.</strong> AUTOSAR架构</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../guide/AUTOSAR应用层.html"><strong aria-hidden="true">4.1.</strong> AUTOSAR应用层 (AppL)</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR实时运行环境.html"><strong aria-hidden="true">4.2.</strong> AUTOSAR实时运行环境 (RTE))</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR基础软件层.html"><strong aria-hidden="true">4.3.</strong> AUTOSAR基础软件层 (BSW)</a></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR方法论.html"><strong aria-hidden="true">4.4.</strong> AUTOSAR方法论 (methodology)</a></li></ol></li><li class="chapter-item expanded "><a href="../guide/AUTOSAR文档阅读.html"><strong aria-hidden="true">5.</strong> AUTOSAR文档如何阅读</a></li><li class="chapter-item expanded "><a href="../guide/工具.html"><strong aria-hidden="true">6.</strong> AUTOSAR实践</a></li><li class="chapter-item expanded "><a href="../guide/工具.html"><strong aria-hidden="true">7.</strong> Adaptive AUTOSAR简介</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">AUTOSAR专题</li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.</strong> UDS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../topic/uds_glossary.html"><strong aria-hidden="true">8.1.</strong> UDS术语</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.2.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.3.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.4.</strong> UDS</a></li><li class="chapter-item expanded "><a href="../topic/uds.html"><strong aria-hidden="true">8.5.</strong> UDS</a></li></ol></li><li class="chapter-item expanded "><a href="../mis/misrac.html"><strong aria-hidden="true">9.</strong> MisraC</a></li><li class="chapter-item expanded "><a href="../for_developers/index.html"><strong aria-hidden="true">10.</strong> For Developers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../for_developers/preprocessors.html"><strong aria-hidden="true">10.1.</strong> Preprocessors</a></li><li class="chapter-item expanded "><a href="../for_developers/backends.html"><strong aria-hidden="true">10.2.</strong> Alternative Backends</a></li></ol></li><li class="chapter-item expanded "><a href="../continuous-integration.html"><strong aria-hidden="true">11.</strong> Continuous Integration</a></li><li class="chapter-item expanded "><a href="../misc/术语表.html"><strong aria-hidden="true">12.</strong> AUTOSAR术语表</a></li><li class="chapter-item expanded "><a href="../misc/整车开发术语表.html"><strong aria-hidden="true">13.</strong> 整车开发术语</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../misc/贡献者.html">贡献者</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AUTOSAR学习</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/dingtang2008/dingtang2008.github.io/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/dingtang2008/dingtang2008.github.io/edit/main/src/guide/汽车电子入门.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="前言"><a class="header" href="#前言">前言</a></h1>
+<p>为了顺利的从android消费类电子进入车载领域大门，先介绍一些基础知识方便后面的沟通中能够不蒙圈。</p>
+<blockquote>
+<p>你认识几个车？</p>
+</blockquote>
+<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221454660.png" style="zoom: 33%;" />
+<hr />
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212221455605.png" alt="image-20221222145515541" /></p>
+<h2 id="汽车电子相关知识"><a class="header" href="#汽车电子相关知识">汽车电子相关知识：</a></h2>
+<blockquote>
+<p><strong>1.开发常见黑话</strong></p>
+</blockquote>
+<ul>
+<li><strong>OEM</strong>：<strong>O</strong>riginal <strong>E</strong>quipment <strong>M</strong>anufacturer的缩写，通常指设备厂商/主机厂/整车厂。</li>
+<li><strong>Tier 1</strong>：一级供应商，也就是跟<strong>OEM</strong>签订供应合同的供应商。一级供应商所供应的零部件，并不一定全部来自自身的产线生产制造，比如液晶仪表供应商的液晶屏幕就会采取外购的形式，液晶屏幕供应商，就是二级供应商。</li>
+<li><strong>Tier 2</strong>：二级供应商，是跟一级供应商签订合同的供应商。在一般零部件制造中，一级供应商制造的零件中也会采用购买或外包的形式获取所需的零部件和服务。</li>
+<li><strong>Tier0.5</strong>：源于主机厂全栈自研的诉求，通过与主机厂深度绑定，Tier0.5将从全流程介入主机厂研发、生产、制造，甚至后期的数据管理和运营。</li>
+<li><strong>SOP：</strong>  <strong>S</strong>tart <strong>O</strong>f <strong>P</strong>roduction批量生产启动，不少网站写的是small-outline package，个人认为这个不适用在这里，一般这种指的是一种封装工艺，更多在芯片封装上。</li>
+<li><strong>EOP：</strong>  <strong>E</strong>nd <strong>o</strong>f <strong>P</strong>rodcuction 量产结束</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212152358844.png" alt="image-20221215235759759" /></p>
+<ul>
+<li><strong>A样件</strong>：prototype 零件设计初期，<strong>手工样件，关键尺寸要求</strong>，加工周期短，用于基本性能试验及mule car造车；</li>
+<li><strong>B样件</strong>：soft tooling <strong>手工样件，全尺寸要求</strong>，零件材料与结构都与量产件一致，但模具为软钢模，用于设计验证DV；</li>
+<li><strong>C样件</strong>：hard tooling <strong>批量样件，尺寸以及老化验证</strong>，量产用的模具，用于工艺和生产试验验证 PV。</li>
+</ul>
+<blockquote>
+<p><strong>2.MPU，CPU，MCU，ECU，SOC是什么？</strong></p>
+</blockquote>
+<ul>
+<li>
+<p><strong>CPU</strong>：Central <strong>Processing</strong> Unit。<strong>中央处理器</strong>，CPU由运算器、控制器和寄存器及实现它们之间联系的数据、控制及状态的总线构成。</p>
+</li>
+<li>
+<p><strong>MPU</strong>：Micro <strong>Processor</strong> Unit，叫微<strong>处理器</strong>，有时记作µP（读micro processor unit）,通常代表一个功能强大的CPU(暂且理解为增强版的CPU吧),但不是为任何已有的特定计算目的而设计的芯片。这种芯片往往是个人计算机和高端工作站的核心CPU。Intel X86，ARM的一些<strong>Cortex-A芯片</strong>如飞思卡尔i.MX6、全志A20、TI AM335X等都属于MPU。</p>
+</li>
+<li>
+<p><strong>MCU</strong>：Micro <strong>Control</strong> Unit，叫微<strong>控制</strong>器(不是微控制器)，有时记作µC（读micro Control），是指随着大规模集成电路的出现及其发展，将计算机的CPU、RAM、ROM、定时计数器和多种I/O接口集成在一片芯片上，根据外界的信号，产生一些反应，做一点简单的人机界面，侧重点在于<strong>控制</strong>，而计算比较少。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212191310902.jpeg" alt="img" /></p>
+</li>
+<li>
+<p><strong>ECU</strong>：ECU原指的是<strong>Engine Control Unit</strong>，即发动机控制单元，特指电喷发动机的电子控制系统。后来随着汽车电子的迅速发展，ECU的定义变成了Electronic Control Unit，即电子控制单元，泛指汽车上所有电子控制系统。而原来的发动机ECU有很多的公司称之为EMS： Engine Management System。</p>
+<blockquote>
+<p>NOTE: In the AUTOSAR sense an ECU means one microcontroller plus peripherals and the according software/configuration. The mechanical design is not in the scope of AUTOSAR. This means that if more than one microcontroller in arranged in a housing, then each microcontroller requires its own description of an AUTOSAR-ECU instance.</p>
+<p>注：就AUTOSAR意义上而言，ECU是指一个MCU微控制器加上外围设备软件/配置。机械设计不在AUTOSAR的范围内。这意味着如果超过一个微控制器布置在外壳中，那么每个微控制器都需要对AUTOSAR-ECU实例。</p>
+</blockquote>
+</li>
+</ul>
+<img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212191313663.jpeg" alt="img" style="zoom:50%;" />
+<ul>
+<li>
+<p><strong>SoC：<strong>System-on-a-Chip ，中文的的意思就是“<strong>把系统都做在一个芯片上</strong> ”,SoC上集成了很多关键的部件，比如</strong>CPU</strong> 、<strong>GPU</strong> 、<strong>内存</strong> 、也就说虽然它在主板上的存在是一个芯片，但是它里边可是由很多部件封装组成的。例如MTK6833，天玑9000，高通8155，麒麟970，三星的exynos 4412等
+| <img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212161503438.png" alt="img" /> |
+| :----------------------------------------------------------: |
+|                     <strong>基于ARM架构的SOC</strong>                     |</p>
+</li>
+<li>
+<p><strong>NoC：</strong> (Network on Chip)中文称之为片上网络。随着 SoC 技术的发展，芯片内部的 IP 核越来越多，有可能在一颗芯片中集成了数以百记的处理器内核（包括同构处理器内核和异构处理器内核）、数以千计控制器 IP 核等等，那么这种情况下 IP 核之间的互联就成为 SoC 性能一个重要组成部分。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>3.A 核、R核、M核具体是什么？</strong></p>
+</blockquote>
+<ul>
+<li>ARM公司目前主流处理器以Cortex来命名，下面是ARM的产品图：</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212161501064.png" alt="" /></p>
+<h5 align="center">ARM公司发布的处理器型号</h5>
+<ul>
+<li>
+<p><strong>Cortex-A</strong>系列：Application Processors（应用处理器)，基于虚拟内存的操作系统和用户应用，可以运行Linux，<strong>偏向消费产品</strong>，应用包括智能手机、智能本和上网本、电子阅读器、数字电视、家用网络、家用网关和其他各种产品。这类处理器运行在很高的时钟频率（超过1GHz），支持像Linux，Android， Windows和移动操作系统等完整操作系统</p>
+</li>
+<li>
+<p><strong>Cortex-R</strong>系列：Real-time Processors（实时处理器）–面向实时应用的高性能处理器系列，例如硬盘控制器，汽车传动系统和无线通讯的基带控制。<strong>多数实时处理器不支持MMU</strong>，不过通常具有MPU、Cache和其他针对工业应用设计的存储器功能。实时处理器运行在比较高的时钟频率（例如200MHz 到 &gt;1GHz ），响应延迟非常低。虽然实时处理器不能运行完整版本的Linux和Windows操作系统，但是支持大量的实时操作系统（RTOS）。</p>
+</li>
+<li>
+<p><strong>Cortex-M系列</strong>：Microcontroller Processors（微控制器处理器）–微控制器处理器通常设计成面积很小和能效比很高。通常这些处理器的流水线很短，最高时钟频率很低（虽然市场上有此类的处理器可以运行在200Mhz之上）。 并且，新的Cortex-M处理器家族设计的非常容易使用。因此，ARM 微控制器处理器在单片机和深度嵌入式系统市场非常成功和受欢迎。</p>
+<ul>
+<li>
+<blockquote>
+<p><strong>英飞凌的TC397 ,</strong> 是自研的Tricore架构，不属于arm，也不是任何A，R，M系列</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p><strong>NXP的S32G</strong> 使用ARM Cortex M系列</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>4.车规级芯片和消费电子类芯片的区别</strong></p>
+</blockquote>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212161645502.jpeg" alt="img" /></p>
+<ul>
+<li>汽车行业和其他行业，特别是消费产品行业是有很大区别的，零部件的级别分<strong>军工级、车规级和消费级</strong>。很显然，汽车行业的技术要求比消费级的高。因为它涉及道路安全。</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201359231.jpeg" alt="图片" /></p>
+<ul>
+<li>于是，软件上就有个叫<strong>AUTOSAR</strong>的东西，甚至还有个叫<strong>ASPICE</strong>的过程管理来管控整个产品的开发过程。</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201421757.png" alt="image-20221220142156712" /></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201400753.jpeg" alt="图片" /></p>
+<blockquote>
+<p>AutoSar是我们进入车圈避不开的一个东西，相关的从业人员不多，技术比较封锁（主要体现在和android差距比较大，不开源，找啥都没有，找啥都收费~！~），这东西也不似我们学习的C、Java语言一样，一书一电脑一个IDE足矣，基本上学习的头一个月是懵的，这也是接下来讲述的重点，可能要分好几部分</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>ASPICE：</strong> <strong>A</strong>utomotive <strong>S</strong>oftware <strong>P</strong>rocess Improvement and <strong>C</strong>apability d<strong>E</strong>termination汽车产业的软件流程改进和能力测定标准</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201429842.jpeg" alt="img" /></p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201414886.png" alt="image.png" /></p>
+</li>
+<li>
+<p><strong>CAN、LIN、FLEXRAY、ETH、MOST</strong> 汽车上使用的各类总线，CAN、ETH为主</p>
+</li>
+<li>
+<p><strong>ASIL：</strong> <strong>A</strong>utomotive <strong>S</strong>afety <strong>I</strong>ntegrity <strong>L</strong>evel 汽车安全完整等级</p>
+<ul>
+<li>
+<p><strong>ISO：</strong> <strong>I</strong>nternational <strong>S</strong>tandardization <strong>O</strong>rganization，ISO26262 道路车辆功能安全</p>
+</li>
+<li>
+<p><strong>MISRA:</strong> The Motor Industry Software Reliability Association,汽车工业软件可靠性联合会，以<strong>MISRA-C</strong>而闻名，同样为了安全。</p>
+</li>
+<li>
+<p><strong>CPU lockstep</strong> 为了满足汽车功能安全（如ISO26262），有许多有用的措施来规避E/E系统异常崩溃造成的不必要伤害，CPU-LockStep是实现高诊断覆盖度（检测错误发生的能力）的一种常见手段，大致方法：两个核运行同样的程序，将结果输入一个逻辑比较器中，周期性（一般会存在周期delay）比较两个核的输出结果是否相同。如果相同，则继续运行；否则，则需要采取一定的措施（例如中断上报）。如果一段时间后错误还是存在，可能重启或者重新检查。</p>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212191815402.webp" alt="img" /><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212191815782.png" alt="img" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="汽车电子电气架构eea"><a class="header" href="#汽车电子电气架构eea">汽车电子电气架构EEA</a></h2>
+<p>EEA（Electrical/Electronic Architecture）把汽车中的各类传感器、ECU（电子控制单元）、线束拓扑和电子电气分配系统整合在一起完成运算、动力和能量的分配，进而实现整车的各项功能。 </p>
+<p><strong>汽车电气</strong>：涵盖<em><strong>汽车电器、汽车电子、汽车线束</strong></em>以及他们的连接关系；</p>
+<ul>
+<li><strong>汽车电器</strong>只是汽车上安装或使用的一个用电设施（或叫设备），包括蓄电池、发电机、起动机灯具、暖风机、汽车电子设备（如收放机、导航仪等）等等，也可以把汽车线束看成是汽车电器的一种（一个成员）；</li>
+<li><strong>汽车线束</strong>是将汽车上蓄电池、发电机及所有用电设备，按照一定规则连接起来的导线的集合体，这些导线往往是捆扎成束，按需求分叉，分叉也捆扎成束。 </li>
+<li><strong>汽车电子</strong>是指电子技术在汽车上的应用。包括：汽车上的电子设备（如收放机导航仪、电子点火器、电喷电控发动机用的ECU、ABS系统、安全气囊等等）、汽车上的网络通讯系统（比如CAN总线）、汽车防盗系统、定位系统等等</li>
+</ul>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212150001603.jpg" alt="汽车电气电子结构" /></p>
+<h5 align="center">汽车电气电子结构</h5>
+<p><img src="https://imgs-1251682926.cos.ap-shanghai.myqcloud.com/autosar/202212201458796.jpeg" alt="img" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../guide/AUTOSAR简介.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../guide/AUTOSAR简介.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../assets/custom.js"></script>
+        <script type="text/javascript" src="../assets/bigPicture.js"></script>
+    </body>
+</html>
